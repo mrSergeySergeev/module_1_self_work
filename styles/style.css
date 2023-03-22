@@ -32,18 +32,15 @@ section:first-child {
     padding: 0;
 }
 
-.container-for-background {
+.header {
     margin: 0 auto;
     width: 100%;
     min-width: 1400px;
     height: 765px;
-    background-image: url('../resources/hello.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 10%;
+    background: radial-gradient(circle, rgba(2, 0, 36, 0) 0%, rgba(0, 0, 0, 0.9) 100%), url("../resources/hello.jpg") 50% 0/cover no-repeat fixed;
 }
 
-.hello {
+.header-inner {
     position: relative;
     min-width: 1400px;
     width: 1400px;
@@ -51,25 +48,35 @@ section:first-child {
 
 }
 
-.logo {
+.logo-wrapper {
     position: absolute;
     top: 36px;
     left: 123px;
     padding: 0 16px 0 9px;
     width: 130px;
     height: 39px;
-    border-radius: 100px;
+    border-radius: 90%;
     background-color: #000;
+    transition: 0.3s;
 }
 
-h1 {
+.logo-wrapper:hover {
+    scale: 1.4;
+    rotate: -5deg;
+}
+
+.logo-link{
+    text-decoration: none;
+}
+
+.logo {
     text-align: center;
     color: #1BFF07;
     font-weight: 700;
     font-size: 42px;
     line-height: 38px;
     letter-spacing: -0.11em;
-    text-transform: uppercase
+    text-transform: uppercase;
 }
 
 h2 {
@@ -86,7 +93,7 @@ h3 {
     line-height: 72px;
 }
 
-.hello p {
+.header-subtitle {
     position: absolute;
     left: 125px;
     top: 334px;
@@ -96,7 +103,7 @@ h3 {
     line-height: 26px;
 }
 
-nav {
+.nav {
     margin-top: 33px;
     margin-right: 125px;
     float: right;
