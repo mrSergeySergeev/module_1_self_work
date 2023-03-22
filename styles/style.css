@@ -37,32 +37,37 @@ section:first-child {
     width: 100%;
     min-width: 1400px;
     height: 765px;
-    background: radial-gradient(circle, rgba(2, 0, 36, 0) 0%, rgba(0, 0, 0, 0.9) 100%), url("../resources/hello.jpg") 50% 0/cover no-repeat fixed;
+    background: radial-gradient(circle, rgba(2, 0, 36, 0) 0%, rgba(0, 0, 0, 0.9) 100%), url("../resources/header-background.jpg") 50% 0/cover no-repeat fixed;
 }
 
 .header-inner {
     position: relative;
-    min-width: 1400px;
-    width: 1400px;
     height: 765px;
+}
+
+.nav-wrapper {
+    padding: 27px 125px 0 125px;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 
 }
 
 .logo-wrapper {
-    position: absolute;
-    top: 36px;
-    left: 123px;
     padding: 0 16px 0 9px;
     width: 130px;
     height: 39px;
     border-radius: 90%;
-    background-color: #000;
-    transition: 0.3s;
+    background-color: #00000000;
+    box-shadow: 0;
+    transition: all 0.3s;
 }
 
 .logo-wrapper:hover {
     scale: 1.4;
-    rotate: -5deg;
+    background-color: #000000;
+    box-shadow: 0 0 10px;
 }
 
 .logo-link{
@@ -71,7 +76,7 @@ section:first-child {
 
 .logo {
     text-align: center;
-    color: #1BFF07;
+    color: #f5f5f5;
     font-weight: 700;
     font-size: 42px;
     line-height: 38px;
@@ -79,13 +84,29 @@ section:first-child {
     text-transform: uppercase;
 }
 
-h2 {
+.nav {
+    display: inline-block;
+}
+
+.nav__link {
+    margin-left: 42px;
+    font-size: 18px;
+    line-height: 23px;
+    text-transform: lowercase;
+    text-decoration: none;
+}
+
+.nav__link:hover {
+    color: #1BFF07;
+}
+
+.header-title {
     position: absolute;
     left: 119px;
     bottom: 90px;
     font-size: 80px;
     line-height: 70px;
-    color: #1BFF07;
+    color: #d5d900;
 }
 
 h3 {
@@ -103,24 +124,6 @@ h3 {
     line-height: 26px;
 }
 
-.nav {
-    margin-top: 33px;
-    margin-right: 125px;
-    float: right;
-}
-
-.nav__link {
-    display: inline-block;
-    margin-left: 42px;
-    font-size: 18px;
-    line-height: 23px;
-    text-transform: lowercase;
-    text-decoration: none;
-}
-
-.nav__link:hover {
-    color: #1BFF07;
-}
 
 .project:first-child {
     margin-top: 40px;
