@@ -97,16 +97,19 @@ section:first-child {
 }
 
 .nav__link:hover {
-    color: #1BFF07;
+    color: #00e4ab;
 }
 
 .header-title {
+    padding: 1.5rem;
     position: absolute;
     left: 119px;
     bottom: 90px;
-    font-size: 80px;
-    line-height: 70px;
-    color: #d5d900;
+    font-size: 2rem;
+    line-height: 2.2rem;
+    color: #00e4ab;
+    background-color: #00000077;
+    border-radius: 3rem;
 }
 
 h3 {
