@@ -41,8 +41,8 @@ section:first-child {
 }
 
 .header-inner {
-    position: relative;
-    height: 765px;
+    display: flex;
+    flex-direction: column;
 }
 
 .nav-wrapper {
@@ -90,21 +90,23 @@ section:first-child {
 
 .nav__link {
     margin-left: 42px;
-    font-size: 18px;
-    line-height: 23px;
+    font-size: 1rem;
+    line-height: 1.2rem;
     text-transform: lowercase;
     text-decoration: none;
+    transition: all 0.3s;
 }
 
 .nav__link:hover {
     color: #00e4ab;
+    font-size: 1.2rem;
 }
 
 .header-title {
+    margin-top: 8rem;
+    margin-left: 10rem;
     padding: 1.5rem;
-    position: absolute;
-    left: 119px;
-    bottom: 90px;
+    width: 25.5rem;
     font-size: 2rem;
     line-height: 2.2rem;
     color: #00e4ab;
@@ -118,12 +120,10 @@ h3 {
 }
 
 .header-subtitle {
-    position: absolute;
-    left: 125px;
-    top: 334px;
-    bottom: 328px;
-    width: 430px;
-    font-size: 20px;
+    margin-top: 5rem;
+    margin-left: 10rem;
+    width: 20rem;
+    font-size: 1.1rem;
     line-height: 26px;
 }
 
