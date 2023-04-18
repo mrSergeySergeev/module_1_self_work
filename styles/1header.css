@@ -31,21 +31,39 @@
 .header__title {
     position: absolute;
     bottom: 10%;
-    width: 550px;
-    padding: 25px;
-    font-size: 32px;
-    line-height: 35px;
+    max-width: 675px;
+    width: 100%;
+    padding: 20px;
+    font-size: 40px;
+    line-height: 40px;
     background-color: #1F652199;
     border-radius: 50px;
 }
 
 .header__subtitle {
     position: absolute;
-    bottom: 40%;
-    width: 320px;
+    bottom: 45%;
+    max-width: 320px;
+    width: 100%;
     padding: 20px;
     font-size: 20px;
     line-height: 26px;
     background-color: #1F652199;
     border-radius: 50px;
+}
+
+@media (max-width: 1199px) {
+    .header__title {
+        max-width: 490px;
+        font-size: 30px;
+        line-height: 30px;
+        padding: 15px;
+    }
+
+    .header__subtitle {
+        max-width: 320px;
+        padding: 15px;
+        font-size: 16px;
+        line-height: 20px;
+    }
 }
