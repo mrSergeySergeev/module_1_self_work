@@ -1,0 +1,15 @@
+h1,
+h2,
+h3,
+h4,
+p,
+a {
+    font-weight: 400;
+    color: #D6CE15 ;
+    letter-spacing: -0.03em;
+}
+
+h3 {
+    font-size: 55px;
+    line-height: 72px;
+}

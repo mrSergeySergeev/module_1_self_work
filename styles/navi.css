@@ -1,0 +1,40 @@
+.header__nav-wrapper {
+    padding-top: 27px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav__link {    
+    margin-left: 42px;
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: lowercase;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav__link:hover {
+    color: #53900F;
+}
+
+.underline-for-link {
+    position: relative;
+}
+
+.underline-for-link::after {
+    position: absolute;
+    content: '';
+    width: 0;
+    background-color: #53900F;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    transition: width 0.3s ease;
+}
+
+.underline-for-link:hover::after {
+    width: 100%;
+}
