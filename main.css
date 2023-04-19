@@ -1,8 +1,8 @@
-/*  #1F2605 - тёмнотёмнозелёный(цвет body)
-    #1F6521 - зелёный (цвет фона текста)
-    #53900F - светло-зелёный(цвет hover)
-    #A4A71E - тёмножелтый (не использую пока)
-    #D6CE15 - типа жёлтый (основной цвет текста) */
+/* #0B0C10 - ближе к черному цвет боди
+   #1F2833 - темносерый цвет фона текста
+   #C5C6C7 - светлосерый
+   #66FCF1 - бирюзовый цвет текста
+   #45A29E - тёмнобирюзовый цвет ховер*/
 @import "styles/burger.css";
 @import "styles/navi.css";
 @import "styles/heading.css";
@@ -15,7 +15,7 @@ html {
 
 body {
     font-family: 'IBM Plex Mono', monospace;
-    background-color: #1F2605;
+    background-color: #0B0C10;
 }
 
 .body-fixed {

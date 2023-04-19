@@ -22,7 +22,7 @@
 }
 
 .nav__link:hover {
-    color: #53900F;
+    color: #45A29E;
 }
 
 .underline-for-link {
@@ -33,7 +33,7 @@
     position: absolute;
     content: '';
     width: 0;
-    background-color: #53900F;
+    background-color: #45A29E;
     height: 2px;
     bottom: -2px;
     left: 0;

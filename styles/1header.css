@@ -2,7 +2,7 @@
     position: relative;
     width: 100%;
     height: 100vh;
-    background: radial-gradient(circle, rgba(2, 0, 36, 0) 0%, rgba(0, 0, 0, 0.9) 100%), url("../resources/header/header-background.jpg") 50% 0/cover no-repeat fixed;
+    background: radial-gradient(circle, #0B0C1050 0%, #1F2833 100%), url("../resources/header/header-background.jpg") 50% 0/cover no-repeat fixed;
 }
 
 .header__wrapper {
@@ -15,7 +15,7 @@
 .logo-wrapper {
     width: 80px;
     height: 39px;
-    background-color: #1F6521;
+    background-color: #1F2833;
     border-radius: 30px;
 }
 
@@ -36,7 +36,7 @@
     padding: 20px;
     font-size: 40px;
     line-height: 40px;
-    background-color: #1F652199;
+    background-color: #1F283399;
     border-radius: 50px;
 }
 
@@ -48,7 +48,7 @@
     padding: 20px;
     font-size: 20px;
     line-height: 26px;
-    background-color: #1F652199;
+    background-color: #1F283399;
     border-radius: 50px;
 }
 
