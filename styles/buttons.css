@@ -1,4 +1,4 @@
-.look-all-link {
+.button-link {
     display: inline-block;
     font-size: 30px;
     line-height: 39px;
@@ -7,24 +7,33 @@
     color: #1F2833;
     background-color: #66FCF1;
     border-radius: 10px;
+    cursor: pointer;
     transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-.look-all-link:hover {
+.feedback__button {
+    padding: 20px;
+}
+
+.button-link:hover {
     color: #66FCF1;
     background-color: #1F2833;
 }
 
 @media (max-width: 1199px) {
-    .look-all-link {
+    .button-link {
     font-size: 24px;
     line-height: 32px;
     padding: 45px 67px 47px 68px;
     }
+
+    .feedback__button {
+        padding: 14px;
+    }
 }
 
 @media (max-width: 767px) {
-    .look-all-link {
+    .button-link {
         width: 100%;
         text-align: center;
         font-size: 18px;
@@ -32,5 +41,12 @@
         padding: 0;
         padding-top: 28px;
         padding-bottom: 29px;
+    }
+
+    .feedback__button {
+        width: 100%;
+        padding: 0;
+        padding-top: 11px;
+        padding-bottom: 12px;
     }
 }

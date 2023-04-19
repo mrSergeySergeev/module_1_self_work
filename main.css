@@ -12,6 +12,7 @@
 @import "styles/2projects.css";
 @import "styles/3skills.css";
 @import "styles/4services.css";
+@import "styles/5feedback.css";
 
 html {
     scroll-behavior: smooth;
@@ -34,6 +35,10 @@ section {
     padding-right: 125px;
 }
 
+.margin-top-section {
+    margin-top: 150px;
+}
+
 @media (max-width: 1199px) {
     section {
         width: 100%;
@@ -41,12 +46,20 @@ section {
         padding-left: 15px;
         padding-right: 15px;
     }
+
+    .margin-top-section:last-child {
+        margin-top: 110px;
+    }
 }
 
 @media (max-width: 767px) {
     section {
         padding-left: 13px;
         padding-right: 12px;
+    }
+
+    .margin-top-section {
+        margin-top: 100px;
     }
 }
 
