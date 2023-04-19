@@ -100,11 +100,35 @@
     padding: 64px 100px 40px 28px;
     background-color: #1F6521;
     border-bottom-left-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.burger__content .logo-wrapper {
+    border: 1px solid #D6CE15;
 }
 
 .burger__nav {
     display: flex;
     flex-direction: column;
+    gap: 20px;
+}
+
+.burger__contacts p {
+    font-style: 16px;
+    line-height: 21px;
+    opacity: 0.5;
+}
+
+.burger__contacts a {
+    text-decoration: none;
+}
+
+.burger__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 @media (max-width: 1199px) {
