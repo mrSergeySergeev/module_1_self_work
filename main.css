@@ -1,6 +1,6 @@
 /* #0B0C10 - ближе к черному цвет боди
    #1F2833 - темносерый цвет фона текста
-   #C5C6C7 - светлосерый
+   #C5C6C7 - светлосерый цвет подзаголовков
    #66FCF1 - бирюзовый цвет текста
    #45A29E - тёмнобирюзовый цвет ховер*/
 @import "styles/burger.css";
@@ -8,6 +8,7 @@
 @import "styles/heading.css";
 @import "styles/contacts.css";
 @import "styles/1header.css";
+@import "styles/2projects.css";
 
 html {
     scroll-behavior: smooth;

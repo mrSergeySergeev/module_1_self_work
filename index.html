@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <div class="js-burger burger">        
+    <div class="js-burger burger">
         <div class="js-burger__content burger__content">
             <div class="logo-wrapper">
                 <p class="logo">CC</p>
@@ -29,12 +29,14 @@
             <div class="contacts burger__contacts">
                 <p>для связи:</p>
                 <span class="contact"><a class="underline-for-link" href="tel:+79059203666">Телефон</a></span>
-                <span class="contact"><a class="underline-for-link" href="mailto:giiizmo270286@gmail.com">Почта</a></span>
-                <span class="contact"><a class="underline-for-link" href="https://t.me/Cepera_CepreeB" target="_blank">Телеграмм</a></span>
+                <span class="contact"><a class="underline-for-link"
+                        href="mailto:giiizmo270286@gmail.com">Почта</a></span>
+                <span class="contact"><a class="underline-for-link" href="https://t.me/Cepera_CepreeB"
+                        target="_blank">Телеграмм</a></span>
             </div>
         </div>
     </div>
-    <header style="margin-bottom: 1000px;" class="header">
+    <header class="header">
         <section class="header__wrapper">
             <div class="header__nav-wrapper">
                 <div class="logo-wrapper">
@@ -46,10 +48,14 @@
                     <a class="nav__link underline-for-link" href="#tasks">УСЛУГИ</a>
                     <a class="nav__link underline-for-link" href="#contacts">КОНТАКТЫ</a>
                 </nav>
-                <button class="js-burger-btn header__burger-button"><div class="js-burger-icon burger-icon"><span></span></div></button>
+                <button class="js-burger-btn header__burger-button">
+                    <div class="js-burger-icon burger-icon"><span></span></div>
+                </button>
             </div>
             <p class="header__subtitle">
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis cumque fuga nobis nihil odio animi at rerum placeat similique, molestias expedita nostrum exercitationem veniam tenetur porro ex quas doloribus! Facilis!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis cumque fuga nobis nihil odio animi at
+                rerum placeat similique, molestias expedita nostrum exercitationem veniam tenetur porro ex quas
+                doloribus! Facilis!
             </p>
             <h1 class="header__title">
                 Сегодня я - тупой студент, а завтра - разработчик!
@@ -57,6 +63,58 @@
             </h1>
         </section>
     </header>
+    <main>
+        <section class="projects">
+            <h2>Самые свежие проекты</h2>
+            <ul class="projects-list">
+                <li class="project">
+                    <picture>
+                        <source media="(max-width: 767px)" srcset="./resources/projects/metrica-phone.jpg">
+                        <source media="(max-width: 1199px)" srcset="./resources/projects/metrica-tablet.jpg">
+                        <img src="./resources/projects/metrica-desctop.jpg" alt="проект сайта дизайнерской студии"
+                            class="project__image">
+                    </picture>
+                    <div class="project__text-wrapper">
+                        <p class="project__subtitle">дизайн интерьера</p>
+                        <div class="project__title-wrapper">
+                            <h3 class="project__title">Метрика</h3>
+                            <p class="project__description">верстка, настройка</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="project">
+                    <picture>
+                        <source media="(max-width: 767px)" srcset="./resources/projects/nothing-phone.jpg">
+                        <source media="(max-width: 1199px)" srcset="./resources/projects/nothing-tablet.jpg">
+                        <img src="./resources/projects/nothing-desctop.jpg" alt="прект сайта презентации наушников"
+                            class="project__image">
+                    </picture>
+                    <div class="project__text-wrapper">
+                        <p class="project__subtitle">презентация продукта</p>
+                        <div class="project__title-wrapper">
+                            <h3 class="project__title">Nothing</h3>
+                            <p class="project__description">верстка, настройка</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="project">
+                    <picture>
+                        <source media="(max-width: 767px)" srcset="./resources/projects/toptrip-phone.jpg">
+                        <source media="(max-width: 1199px)" srcset="./resources/projects/toptrip-tablet.jpg">
+                        <img src="./resources/projects/toptrip-desctop.jpg" alt="проект сайта для заказа билетов"
+                            class="project__image">
+                    </picture>
+                    <div class="project__text-wrapper">
+                        <p class="project__subtitle">заказ путешествий</p>
+                        <div class="project__title-wrapper">
+                            <h3 class="project__title">TOPTRIP</h3>
+                            <p class="project__description">верстка</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </main>
     <!-- <section>
         <h3>Самые свежие проекты</h3>
         <ul id="projects" class="projects">
