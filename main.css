@@ -10,6 +10,7 @@
 @import "styles/buttons.css";
 @import "styles/1header.css";
 @import "styles/2projects.css";
+@import "styles/3skills.css";
 
 html {
     scroll-behavior: smooth;

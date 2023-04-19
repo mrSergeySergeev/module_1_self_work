@@ -1,0 +1,149 @@
+.skills-list {
+    margin-top: 140px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 100px;
+}
+
+.skill { 
+    position: relative;
+    width: calc(50% - 25px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.skill__title {
+    font-size: 35px;
+    line-height: 46px;
+}
+
+.skill__description {
+    font-size: 22px;
+    line-height: 29px;
+    color: #C5C6C7;
+}
+
+.html-after::after {
+    position: absolute;
+    left: 0;
+    top: -65px;
+    content: '';
+    width: 44px;
+    height: 45px;
+    background-image: url("../resources/skills/html.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #66FCF1;
+    border-radius: 10px;
+}
+
+.javascript-after::after {
+    position: absolute;
+    left: 0;
+    top: -65px;
+    content: '';
+    width: 44px;
+    height: 45px;
+    background-image: url("../resources/skills/js.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #66FCF1;
+    border-radius: 10px;
+}
+
+.framework-after::after {
+    position: absolute;
+    left: 0;
+    top: -65px;
+    content: '';
+    width: 44px;
+    height: 45px;
+    background-image: url("../resources/skills/framework.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #66FCF1;
+    border-radius: 10px;
+}
+
+.mobile-after::after {
+    position: absolute;
+    left: 0;
+    top: -65px;
+    content: '';
+    width: 44px;
+    height: 45px;
+    background-image: url("../resources/skills/mobile.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #66FCF1;
+    border-radius: 10px;
+}
+
+@media (max-width: 1199px) {
+    .skills-list {
+        margin-top: 105px;
+    }
+
+    .skill { 
+        width: calc(50% - 20px);
+    }
+
+    .skill__title {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    .skill__description {
+        font-size: 18px;
+        line-height: 23px;
+    }
+
+    .html-after::after {
+        top: -60px;
+    }
+
+    .javascript-after::after {
+        top: -60px;
+    }
+
+    .framework-after::after {
+        top: -60px;
+    }
+
+    .mobile-after::after {
+        top: -60px;
+    }
+}
+
+@media (max-width: 767px) {
+    .skill { 
+        width: 100%;
+    }
+    
+    .html-after::after {
+        top: -55px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .javascript-after::after {
+        top: -55px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .framework-after::after {
+        top: -55px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .mobile-after::after {
+        top: -55px;
+        width: 36px;
+        height: 36px;
+    }
+}
