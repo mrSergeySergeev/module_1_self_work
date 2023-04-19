@@ -10,7 +10,26 @@ a {
 }
 
 h2 {
+    margin-bottom: 80px;
     font-size: 55px;
     line-height: 72px;
     color: #C5C6C7;
+}
+
+h2:first-child {
+    margin-bottom: 40px;
+}
+
+@media (max-width: 1199px) {
+    h2 {
+        font-size: 45px;
+        line-height: 60px;
+    }
+}
+
+@media (max-width: 767px) {
+    h2 {
+        font-size: 30px;
+        line-height: 39px;
+    }
 }
