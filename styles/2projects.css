@@ -4,7 +4,6 @@
 
 .project {
     position: relative;
-    z-index: 1;
     width: 100%;
 }
 
@@ -50,4 +49,45 @@
     color: #C5C6C7;
     font-size: 30px;
     line-height: 39px;
+}
+
+@media (max-width: 1199px) {
+    .project__text-wrapper {
+        padding: 40px;
+    }
+
+    .project__subtitle {
+        font-size: 16px;
+        line-height: 22px;
+        padding: 8px 16px;
+        border-radius: 80px;
+    }
+
+    .project__title {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    .project__description {
+        font-size: 28px;
+        line-height: 36px;
+    }
+}
+
+@media (max-width: 767px) {
+    .project__text-wrapper {
+        padding: 30px;
+    }
+
+    .project__subtitle {
+        font-size: 13px;
+        line-height: 18px;
+        padding: 6px 11px;
+        border-radius: 55px;
+    }
+
+    .project__description {
+        font-size: 16px;
+        line-height: 21px;
+    }
 }

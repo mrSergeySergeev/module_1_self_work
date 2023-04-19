@@ -1,0 +1,36 @@
+.look-all-link {
+    display: inline-block;
+    font-size: 30px;
+    line-height: 39px;
+    text-decoration: none;
+    padding: 56px 85px 58px 86px;
+    color: #1F2833;
+    background-color: #66FCF1;
+    border-radius: 10px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.look-all-link:hover {
+    color: #66FCF1;
+    background-color: #1F2833;
+}
+
+@media (max-width: 1199px) {
+    .look-all-link {
+    font-size: 24px;
+    line-height: 32px;
+    padding: 45px 67px 47px 68px;
+    }
+}
+
+@media (max-width: 767px) {
+    .look-all-link {
+        width: 100%;
+        text-align: center;
+        font-size: 18px;
+        line-height: 23px;
+        padding: 0;
+        padding-top: 28px;
+        padding-bottom: 29px;
+    }
+}
