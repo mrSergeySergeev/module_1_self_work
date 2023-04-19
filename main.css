@@ -3,6 +3,7 @@
     #53900F - светло-зелёный(цвет hover)
     #A4A71E - тёмножелтый (не использую пока)
     #D6CE15 - типа жёлтый (основной цвет текста) */
+@import "styles/burger.css";
 @import "styles/navi.css";
 @import "styles/heading.css";
 @import "styles/1header.css";
@@ -14,6 +15,10 @@ html {
 body {
     font-family: 'IBM Plex Mono', monospace;
     background-color: #1F2605;
+}
+
+.body-fixed {
+    overflow: hidden;
 }
 
 section {

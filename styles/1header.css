@@ -54,16 +54,44 @@
 
 @media (max-width: 1199px) {
     .header__title {
-        max-width: 490px;
+        bottom: 5%;
+        max-width: 80%;
         font-size: 30px;
         line-height: 30px;
         padding: 15px;
     }
 
     .header__subtitle {
-        max-width: 320px;
+        max-width: 60%;
         padding: 15px;
         font-size: 16px;
         line-height: 20px;
     }
+}
+
+@media (max-width: 767px) {
+    .logo-wrapper {
+        width: 40px;
+        height: 20px;
+    }
+
+    .logo {
+        font-size: 21px;
+        line-height: 20px;
+    }
+
+    .header__title {
+        max-width: 85%;
+        font-size: 25px;
+        line-height: 25px;
+        padding: 15px;
+    }
+
+    .header__subtitle {
+        max-width: 75%;
+        padding: 15px;
+        font-size: 14px;
+        line-height: 16px;
+    }
+
 }

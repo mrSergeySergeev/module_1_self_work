@@ -1,0 +1,115 @@
+.header__burger-button {
+    display: none;
+    border: none;
+    cursor: pointer;
+    background-color: #ffffff00;
+    z-index: 15;
+}
+
+.burger-icon {
+    width: 40px;
+    height: 30px;
+    position: relative;
+    transition-duration: 1s; 
+    display: flex;
+    align-items: center;   
+}
+
+.burger-icon span {
+    position: absolute;
+    left: 0;
+    height: 6px;
+    width: 40px;
+    background-color: #53900F;
+    border-radius: 20px;
+    transition-duration: 0.25s;
+    transition-delay: 0.25s;
+}
+
+.burger-icon span::after {
+    left: 0;
+    position: absolute;
+    top: -12px;
+    height: 6px;
+    width: 40px;
+    background-color: #53900F;
+    content: "";
+    border-radius: 20px;
+    transition-duration: 0.25s;
+    transition: transform 0.25s, top 0.25s 0.25s;
+}
+
+.burger-icon span::before {
+    left: 0;
+    position: absolute;
+    top: 12px;
+    height: 6px;
+    width: 40px;
+    background-color: #53900F;
+    content: "";
+    border-radius: 20px;
+    transition-duration: 0.25s;
+    transition: transform 0.25s, top 0.25s .25s;
+}
+
+.burger-icon-open span {
+    transition-duration: 0.1s;
+    transition-delay: 0.25s;
+    background: transparent;
+}
+
+.burger-icon-open span::after {
+    transition: top 0.4s, transform 0.25s 0.25s;
+    top: 0px;
+    transform: rotateZ(45deg);
+}
+
+.burger-icon-open span::before {
+    transition: top 0.25s, transform 0.25s 0.25s;
+    top: 0px;
+    transform: rotateZ(-45deg);
+}
+
+.burger{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: start;
+    z-index: 10;
+    background-color: #1F260599;
+    transform: translate(100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+}
+
+.burger-open {
+    transform: translate(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.burger__content {
+    width: 300px;
+    max-height: 100%;
+    overflow-y: auto;
+    padding: 64px 100px 40px 28px;
+    background-color: #1F6521;
+    border-bottom-left-radius: 30px;
+}
+
+.burger__nav {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 1199px) {
+    .header__burger-button {
+        display: block;
+    }
+}
+ 
