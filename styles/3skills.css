@@ -12,17 +12,16 @@
     width: calc(50% - 25px);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 .skill__title {
-    font-size: 35px;
-    line-height: 46px;
+    font-size: 30px;
+    line-height: 40px;
 }
 
 .skill__description {
-    font-size: 22px;
-    line-height: 29px;
+    font-size: 20px;
+    line-height: 25px;
     color: #C5C6C7;
 }
 
@@ -92,12 +91,12 @@
     }
 
     .skill__title {
-        font-size: 28px;
+        font-size: 26px;
         line-height: 36px;
     }
 
     .skill__description {
-        font-size: 18px;
+        font-size: 16px;
         line-height: 23px;
     }
 

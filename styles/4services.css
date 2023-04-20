@@ -28,6 +28,10 @@
     color: #C5C6C7;
 }
 
+.services-button-wrapper {
+    margin-top: 80px;
+}
+
 @media (max-width: 1199px) {
     .services-list {
         gap: 32px;
@@ -45,6 +49,9 @@
     .service_description {
         font-size: 18px;
         line-height: 23px;
+    }
+    .services-button-wrapper {
+        margin-top: 60px;
     }
 }
 

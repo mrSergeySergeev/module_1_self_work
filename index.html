@@ -16,7 +16,7 @@
 
 <body>
     <div class="js-burger burger">
-        <div class="js-burger__content burger__content">
+        <div class="burger__content">
             <div class="logo-wrapper">
                 <p class="logo">CC</p>
             </div>
@@ -26,7 +26,7 @@
                 <a class="nav__link" href="#tasks">УСЛУГИ</a>
                 <a class="nav__link" href="#contacts">КОНТАКТЫ</a>
             </nav>
-            <div class="contacts burger__contacts">
+            <div class="js-burger__content contacts burger__contacts">
                 <p>для связи:</p>
                 <span class="contact"><a class="underline-for-link" href="tel:+79059203666">Телефон</a></span>
                 <span class="contact"><a class="underline-for-link"
@@ -58,30 +58,32 @@
                 doloribus! Facilis!
             </p>
             <h1 class="header__title">
-                Сегодня я - тупой студент, а завтра - разработчик!
-                пиши мине скорей, Клиент, на этот адресочек.
+                Вчера я был тупой студент🤓, а завтра - разработчик😎!
+                пиши мине скорей, Клиент, на этот <a class="header__title-link" href="#contacts">👉адресочек👈</a>
             </h1>
         </section>
     </header>
     <main>
         <section class="projects margin-top-section">
-            <h2>Самые свежие проекты</h2>
+            <h2 id="projects">Самые свежие проекты</h2>
             <ul class="projects-list">
-                <li class="project">
-                    <picture>
-                        <source media="(max-width: 767px)" srcset="./resources/projects/metrica-phone.jpg">
-                        <source media="(max-width: 1199px)" srcset="./resources/projects/metrica-tablet.jpg">
-                        <img src="./resources/projects/metrica-desctop.jpg" alt="проект сайта дизайнерской студии"
-                            class="project__image">
-                    </picture>
-                    <div class="project__text-wrapper">
-                        <p class="project__subtitle">дизайн интерьера</p>
-                        <div class="project__title-wrapper">
-                            <h3 class="project__title">Метрика</h3>
-                            <p class="project__description">верстка, настройка</p>
+                <a href="https://mrsergeysergeev.github.io/metrika-site/" target="_blank">
+                    <li class="project">
+                        <picture>
+                            <source media="(max-width: 767px)" srcset="./resources/projects/metrica-phone.jpg">
+                            <source media="(max-width: 1199px)" srcset="./resources/projects/metrica-tablet.jpg">
+                            <img src="./resources/projects/metrica-desctop.jpg" alt="проект сайта дизайнерской студии"
+                                class="project__image">
+                        </picture>
+                        <div class="project__text-wrapper">
+                            <p class="project__subtitle">дизайн интерьера</p>
+                            <div class="project__title-wrapper">
+                                <h3 class="project__title">Метрика</h3>
+                                <p class="project__description">верстка, настройка</p>
+                            </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
+                </a>
                 <li class="project">
                     <picture>
                         <source media="(max-width: 767px)" srcset="./resources/projects/nothing-phone.jpg">
@@ -113,10 +115,12 @@
                     </div>
                 </li>
             </ul>
-            <a class="look-all-link" href="">Смотреть все проекты</a>
+            <div class="services-button-wrapper">
+                <a class="button-link" href="">Смотреть все проекты</a>
+            </div>
         </section>
         <section class="skills margin-top-section">
-            <h2>Мои компетенции</h2>
+            <h2 id="skills">Мои компетенции</h2>
             <ul class="skills-list">
                 <li class="skill">
                     <h3 class="skill__title html-after">HTML и CSS</h3>
@@ -139,7 +143,7 @@
                         навыком.</p>
                 </li>
                 <li class="skill">
-                    <h3 class="skill__title mobile-after">Разработка для мобильных устройств и адаптивная верстка</h3>
+                    <h3 class="skill__title mobile-after">Adaptive layout или Responsive design</h3>
                     <p class="skill__description">фронтенд разработчики должны быть знакомы с различными библиотеками и
                         фреймворками, такими как React, Angular, Vue и другими. Умение использовать готовые решения,
                         адаптировать их под нужды проекта и расширять их функциональность, является очень важным
@@ -148,7 +152,7 @@
             </ul>
         </section>
         <section class="services margin-top-section">
-            <h2>Мои услуги</h2>
+            <h2 id="tasks">Мои услуги</h2>
             <ul class="services-list">
                 <li class="service">
                     <picture>
@@ -195,7 +199,7 @@
             </ul>
         </section>
         <div class="feedback__wrapper margin-top-section">
-            <section class="feedback">
+            <section id="contacts" class="feedback">
                 <div class="feedback__inner">
                     <p class="feedback__title">Для связи со мной заполните простую форму</p>
                     <div class="feedback__input-wrapper">
@@ -208,22 +212,22 @@
         </div>
     </main>
     <footer>
-        <section class="footer"> 
-        <div class="footer__up">
-            <p class="footer__title">Портфолио фронтенд-разработчика Сергеева С.А.</p>
-            <div class="contacts">
-                <span class="contact"><a class="underline-for-link" href="tel:+79059203666">Телефон</a></span>
-                <span class="contact"><a class="underline-for-link"
-                        href="mailto:giiizmo270286@gmail.com">Почта</a></span>
-                <span class="contact"><a class="underline-for-link" href="https://t.me/Cepera_CepreeB"
-                        target="_blank">Телеграмм</a></span>
+        <section class="footer">
+            <div class="footer__up">
+                <p class="footer__title">Портфолио фронтенд-разработчика Сергеева С.А.</p>
+                <div class="contacts">
+                    <span class="contact"><a class="underline-for-link" href="tel:+79059203666">Телефон</a></span>
+                    <span class="contact"><a class="underline-for-link"
+                            href="mailto:giiizmo270286@gmail.com">Почта</a></span>
+                    <span class="contact"><a class="underline-for-link" href="https://t.me/Cepera_CepreeB"
+                            target="_blank">Телеграмм</a></span>
+                </div>
             </div>
-        </div>
-        <div class="footer__down">
-            <p class="copirates">Все права защищены. 2023</p>
-            <p class="copirates">политика обработки данных</p>
-        </div>
-    </section>
+            <div class="footer__down">
+                <p class="copirates">Все права защищены. 2023</p>
+                <p class="copirates">политика обработки данных</p>
+            </div>
+        </section>
     </footer>
     <script src="burger.js"></script>
 </body>
