@@ -81,14 +81,14 @@
     align-items: start;
     z-index: 10;
     background-color: #0B0C1099;
-    transform: translate(100%);
+    
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 .burger-open {
-    transform: translate(0);
+    
     opacity: 1;
     visibility: visible;
 }
@@ -103,6 +103,12 @@
     display: flex;
     flex-direction: column;
     gap: 50px;
+    transform: translate(100%);
+    transition: transform 0.5s ease;
+}
+
+.burger-content-open {
+    transform: translate(0);
 }
 
 .burger__content .logo-wrapper {
