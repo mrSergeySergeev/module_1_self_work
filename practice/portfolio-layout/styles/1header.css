@@ -6,7 +6,7 @@ header {
     background-image: url('../resources/background-header.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: 60% 50%;
 }
 
 .header {
@@ -104,42 +104,24 @@ header {
         min-width: 800px;
         height: 80vh;
         min-height: 360px;
-        background-image: url('../resources/background-header.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
     }
     
     .header {
-        display: flex;
-        align-items: center; 
         gap: 15vw;
         height: 100%;
     }
     
     .header__left {
-        display: block;
         min-height: 360px;
-        display: flex;
-        flex-direction: column;
         padding-left: 30px;
         gap: 15px;
-    }
-    
-    .header__social-links-title {
-        position: relative;
-        transform: rotate(180deg);
-        writing-mode: vertical-rl;
     }
     
     .header__social-links-title::after {
         margin-right: 7px;
         margin-top: 15px;
-        content: '';
-        background: #121212;
         width: 2px;
         height: 40px;
-        float: right;
     }
     
     .header__social-links {
@@ -157,7 +139,6 @@ header {
     }
     
     .header__subtitle::before {
-        position: absolute;
         top: -4px;
         left: -4px;
         z-index: -1;
@@ -173,7 +154,6 @@ header {
     }
     
     .header__nav {
-        display: flex;
         gap: 30px;
     }
     

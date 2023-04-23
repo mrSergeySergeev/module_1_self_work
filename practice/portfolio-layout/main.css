@@ -28,6 +28,8 @@ section {
 }
 
 @media (max-width: 767px) {
-
+    section {
+        width: 100%;
+    }
     
 }
