@@ -1,0 +1,21 @@
+@import "styles/1header.css";
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.body-fixed {
+    overflow: hidden;
+}
+
+section {
+    margin: 0 auto;
+    max-width: 1400px;
+    min-width: 1024px;
+    width: 100%;
+}
