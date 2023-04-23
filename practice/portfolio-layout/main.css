@@ -19,3 +19,15 @@ section {
     min-width: 1024px;
     width: 100%;
 }
+
+@media (max-width: 1199px) {
+    section {
+        max-width: 100%;
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+
+    
+}
