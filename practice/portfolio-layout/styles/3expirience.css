@@ -1,0 +1,201 @@
+.expirience__subtitle {
+    margin-bottom: 6px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.expirience__subtitle::before {
+    position: absolute;
+    top: -6px;
+    left: calc(50% -19px);
+    z-index: -1;
+    content: '';
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border-radius: 19px;
+    background-color: #FFA501;
+}
+
+.expirience__title {
+    margin-bottom: 85px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.expirience__title::before {
+    position: absolute;
+    top: 85px;
+    content: '';
+    background-color: #FFA501;
+    width: 60px;
+    height: 3px;
+}
+
+.expirience__wrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+.expirience__education,
+.expirience__work {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    position: relative;
+    padding-left: 43px;
+    width: calc(50% - 40px);
+}
+
+.expirience__education-list,
+.expirience__work-list {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+
+.expirience__education::before,
+.expirience__work::before {
+    position: absolute;
+    top: 6px;
+    left: 0;
+    content: '';
+    background: #121212;
+    width: 2px;
+    height: 98%;
+}
+
+.expirience__education-title,
+.expirience__work-title {
+    position: relative;
+}
+
+.expirience__education-title::after,
+.expirience__work-title::after {
+        position: absolute;
+        top: 0;
+        left: -50px;
+        content: '';
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border-radius: 8px;
+        background-color: #FFA501;
+}
+
+.expirience__education-item-title::before,
+.expirience__work-item-title::before {
+    margin-right: 20px;
+    content: '';
+    width: 36px;
+    height: 36px;
+    border-radius: 19px;
+    background-color: #FFA501;
+    float: left;
+}
+
+.expirience__education-item-title-mgty {
+    position: relative;
+}
+
+.expirience__education-item-title-mgty::after {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    content: '';
+    background-image: url(../resources/expirience__education-mgty.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+}
+
+.expirience__education-item-title-udemy {
+    position: relative;
+}
+
+.expirience__education-item-title-udemy::after {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    content: '';
+    background-image: url(../resources/expirience__education-udemy.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+}
+
+.expirience__work-item-title-developer{
+    position: relative;
+}
+
+.expirience__work-item-title-developer::after {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    content: '';
+    background-image: url(../resources/expirience__work-developer.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+}
+
+.expirience__work-item-title-designer {
+    position: relative;
+}
+
+.expirience__work-item-title-designer::after {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    content: '';
+    background-image: url(../resources/expirience__work-designer.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+}
+
+.expirience__education-item-subtitle,
+.expirience__work-item-subtitle {
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.expirience__education-item-subtitle::after,
+.expirience__work-item-subtitle:after {
+    position: absolute;
+    top: -4px;
+    left: -43px;
+    z-index: -1;
+    content: '';
+    background: #121212;
+    width: 50px;
+    height: 2px;
+}
+
+@media (max-width: 767px) {
+    .expirience__title {
+        margin-bottom: 55px;
+    }
+
+    .expirience__title::before {
+        top: 51px;
+    }
+
+    .expirience__wrapper {
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+    
+    .expirience__education,
+    .expirience__work {
+        flex-direction: column;
+        padding-left: 43px;
+        width: 100%;
+    }
+}
