@@ -36,3 +36,9 @@
         width: calc(50% - 10px);
     }
 }
+
+@media (max-width: 767px) {
+    .skill__item {
+        width: 100%;
+    }
+}
