@@ -16,9 +16,11 @@ body {
 
 section {
     margin: 0 auto;
-    max-width: 1920px;
+    max-width: 1400px;
     min-width: 1024px;
     width: 100%;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 .margin-top-section {
@@ -49,8 +51,8 @@ h3 {
     }
 
     .padding-section {
-        padding-left: 120px;
-        padding-right: 120px;
+        padding-left: 50px;
+        padding-right: 50px;
     }
     
 
