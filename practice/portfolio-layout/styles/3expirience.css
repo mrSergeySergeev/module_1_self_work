@@ -1,37 +1,12 @@
 .expirience__subtitle {
     margin-bottom: 6px;
-    position: relative;
     display: flex;
     justify-content: center;
 }
 
-.expirience__subtitle::before {
-    position: absolute;
-    top: -6px;
-    left: calc(50% -19px);
-    z-index: -1;
-    content: '';
-    display: inline-block;
-    width: 36px;
-    height: 36px;
-    border-radius: 19px;
-    background-color: #FFA501;
-}
-
-.expirience__title {
-    margin-bottom: 85px;
+.expirience__title {   
     display: flex;
     justify-content: center;
-    position: relative;
-}
-
-.expirience__title::before {
-    position: absolute;
-    top: 85px;
-    content: '';
-    background-color: #FFA501;
-    width: 60px;
-    height: 3px;
 }
 
 .expirience__wrapper {
@@ -179,14 +154,6 @@
 }
 
 @media (max-width: 767px) {
-    .expirience__title {
-        margin-bottom: 55px;
-    }
-
-    .expirience__title::before {
-        top: 51px;
-    }
-
     .expirience__wrapper {
         flex-wrap: wrap;
         gap: 40px;

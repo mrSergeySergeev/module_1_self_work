@@ -53,21 +53,7 @@ header {
 }
 
 .header__subtitle {
-    position: relative;
     z-index: 1;
-}
-
-.header__subtitle::before {
-    position: absolute;
-    top: -6px;
-    left: -6px;
-    z-index: -1;
-    content: '';
-    display: inline-block;
-    width: 36px;
-    height: 36px;
-    border-radius: 19px;
-    background-color: #FFA501;
 }
 
 .header__title {
@@ -125,16 +111,7 @@ header {
     .header__right {
         gap: 25px;
     }
-   
-    .header__subtitle::before {
-        top: -4px;
-        left: -4px;
-        z-index: -1;
-        width: 30px;
-        height: 30px;
-        border-radius: 15px;
-    }
-    
+      
     .header__title {
         min-width: 390px;        
     }

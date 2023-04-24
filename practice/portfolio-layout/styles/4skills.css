@@ -1,0 +1,38 @@
+.skill__subtitle {
+    display: flex;
+    justify-content: center;
+}
+
+.skill__title {
+    display: flex;
+    justify-content: center;
+}
+
+.skill__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill__item {
+    width: calc(25% - 10px);
+    padding-top: 115px;
+    padding-left: 30px;
+    padding-bottom: 25px;
+    border: 1px solid #121212;
+}
+
+.skill__wrapper {
+    position: relative;
+}
+
+.skill__item-image {
+    position: absolute;
+    bottom: 34px;
+}
+
+@media (max-width: 1199px) {
+    .skill__item {
+        width: calc(50% - 10px);
+    }
+}
