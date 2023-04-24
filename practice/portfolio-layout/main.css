@@ -1,6 +1,7 @@
 @import "styles/1header.css";
 @import "styles/2about-me.css";
 @import "styles/3expirience.css";
+@import "styles/4skills.css";
 
 html {
     scroll-behavior: smooth;
