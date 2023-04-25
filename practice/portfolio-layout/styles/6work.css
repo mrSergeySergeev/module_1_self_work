@@ -1,0 +1,10 @@
+.work__subtitle {
+    margin-top: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+.work__title {
+    display: flex;
+    justify-content: center;
+}

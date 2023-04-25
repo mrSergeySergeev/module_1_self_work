@@ -3,6 +3,7 @@
 @import "styles/3expirience.css";
 @import "styles/4skills.css";
 @import "styles/5used-skills.css";
+@import "styles/6work.css";
 
 html {
     scroll-behavior: smooth;
