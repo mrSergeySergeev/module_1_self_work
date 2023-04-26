@@ -1,0 +1,39 @@
+.price__subtitle {
+    display: flex;
+    justify-content: center;
+}
+
+.price__list {
+    margin-top: 120px;
+    list-style-image: url("../resources/price__list-image.png");
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;   
+    gap: 15px;
+}
+
+.price__item {
+    margin-left: 50px;
+    width: 40%;
+}
+
+.price__item-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.price__item-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.price__item p {
+    font-weight: 500;
+}
+
+@media (max-width: 767px) {
+    .price__item {
+        width: 100%;
+    }
+}
