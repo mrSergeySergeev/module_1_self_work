@@ -5,6 +5,7 @@
 @import "styles/5used-skills.css";
 @import "styles/6work.css";
 @import "styles/7price-list.css";
+@import "styles/8footer.css";
 
 html {
     scroll-behavior: smooth;
