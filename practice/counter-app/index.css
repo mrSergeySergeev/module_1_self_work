@@ -1,0 +1,51 @@
+.container {
+    margin: 0 auto;
+    padding-top: 30px;
+    width: 100vw;
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+span {
+    display: flex;
+}
+
+button {
+    padding: 15px 40px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    color: aliceblue;
+}
+
+.add-button {
+    background-color: blue;
+}
+
+.reset-button { 
+    background-color: red;    
+}
+
+.gallery__list {
+    position: relative;
+    display: flex;
+}
+
+.gallery__image {
+    position: absolute;
+    top: 0;
+    left: -45px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.gallery__image-active {
+    opacity: 1;
+}
