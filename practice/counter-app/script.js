@@ -6,10 +6,10 @@ const slidesNodes = Array.from(document.querySelectorAll('.gallery__image'));
 console.log(slidesNodes);
 
 
-let counter = 80;
+let counter = 90;
 
 addButton.addEventListener('click', function () {
-    counter = counter + 4;
+    counter = counter + 2;
     console.log(counter);
     counterResult.innerText = counter;
     if (counter >= 100 && counter <= 115) {
@@ -48,7 +48,7 @@ addButton.addEventListener('click', function () {
 });
 
 resetButton.addEventListener('click', function () {
-    counter = 80;
+    counter = 90;
 
     counterResult.innerText = counter;
     slidesNodes[0].classList.remove(ACTIVE_IMAGE_CLASSNAME);
