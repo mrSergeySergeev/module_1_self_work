@@ -13,10 +13,6 @@ body {
     color: white;
 }
 
-span {
-    display: flex;
-}
-
 button {
     padding: 15px 40px;
     border-radius: 10px;
@@ -52,3 +48,5 @@ button {
 .gallery__image-active {
     opacity: 1;
 }
+
+
