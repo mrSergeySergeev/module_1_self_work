@@ -27,10 +27,23 @@ button {
 
 .add-button {
     background-color: blue;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.add-button:hover {
+    color: blue;
+    background-color: aliceblue;
 }
 
 .reset-button { 
-    background-color: red;    
+    background-color: red;
+    transition: color 0.3s ease, background-color 0.3s ease;
+
+}
+
+.reset-button:hover {
+    color: red;
+    background-color: aliceblue;
 }
 
 .gallery__list {
