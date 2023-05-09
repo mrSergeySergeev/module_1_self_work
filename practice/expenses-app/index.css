@@ -1,8 +1,48 @@
 body {
     font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    line-height: 39px;
 }
 
 button {
+    width: 370px;
     font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: 400px;
     cursor: pointer;
+    border: none;
+    color: #fff;
+    background-color: #0094FF;
+    transition: opacity 0.3s ease;    
+}
+
+button:hover {
+    opacity: 0.7;
+}
+
+input {
+    width: 480px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: 400px;
+}
+
+.expenses-app {
+    margin: 0 auto;
+    padding: 0 50px;
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.expenses-app__wrapper {
+    display: flex;
+    justify-content: space-between; 
+}
+
+.expenses-app__title {
+    font-weight: 700;
 }
