@@ -10,8 +10,9 @@ buttonNode.addEventListener('click', function() {
 
     const expense = parseInt(inputNode.value);
 
-    expenses.push(expense);
-
     inputNode.value = '';
+
+    expenses.push(expense);
+    
     console.log(expenses);
 })
