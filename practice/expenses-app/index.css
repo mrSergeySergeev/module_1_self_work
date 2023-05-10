@@ -4,6 +4,11 @@ body {
     line-height: 39px;
 }
 
+ol {
+    list-style: decimal;
+    padding-left: 40px;
+}
+
 button {
     width: 370px;
     font-family: inherit;
@@ -40,9 +45,14 @@ input {
 
 .expenses-app__wrapper {
     display: flex;
-    justify-content: space-between; 
+    gap: 15px;
 }
 
 .expenses-app__title {
     font-weight: 700;
+}
+
+.expenses-app__wrapper-left,
+.expenses-app__wrapper-right {
+    width: calc(50% - 20px);
 }
