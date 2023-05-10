@@ -8,22 +8,24 @@ buttonNode.addEventListener('click', function () {
     if (!inputNode.value) {
         return;
     }
-    //take value from input
+    //берём значение from input
     const expense = parseInt(inputNode.value);
 
-    //refresh input to zero
+    //инпут на ноль
     inputNode.value = '';
 
-    //add value in array
+    //добавляем значение инпута в массив
     expenses.push(expense);
 
-    //output new list 'expenses'
+    //переменная для списка расходов
     let expensionListHTML = '';
 
+    //цикл для добавления расхода в список
     expenses.forEach(element => {
         expensionListHTML += `<li>${element}</li>`;
     });
 
+    //записываем в html таблицу
     historyNode.innerHTML = `<ol>${expensionListHTML}</ol>`;
 
 
