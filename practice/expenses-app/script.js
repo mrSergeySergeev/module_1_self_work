@@ -3,6 +3,7 @@ const expenses = [];
 const inputNode = document.getElementById('expenseInput');
 const buttonNode = document.getElementById('expenseButton');
 const historyNode = document.getElementById('expenseHistory');
+const sumNode = document.getElementById('expenseSum')
 
 buttonNode.addEventListener('click', function () {
     if (!inputNode.value) {
@@ -22,12 +23,20 @@ buttonNode.addEventListener('click', function () {
 
     //цикл для добавления расхода в список
     expenses.forEach(element => {
-        expensionListHTML += `<li>${element}</li>`;
+        expensionListHTML += `<li>${element} руб.</li>`;
     });
 
-    //записываем в html таблицу
+    //записываем результат в html таблицу
     historyNode.innerHTML = `<ol>${expensionListHTML}</ol>`;
 
+    //посчитать сумму
+    let sum = 0;
 
-    console.log(expenses);
+    expenses.forEach(element => {
+        sum += element;
+    });
+
+    sumNode.innerText = sum;
+
+    console.log(sum);
 })
