@@ -1,9 +1,14 @@
+const LIMIT = 10000;
+
 const expenses = [];
 
 const inputNode = document.getElementById('expenseInput');
 const buttonNode = document.getElementById('expenseButton');
 const historyNode = document.getElementById('expenseHistory');
-const sumNode = document.getElementById('expenseSum')
+const sumNode = document.getElementById('expenseSum');
+const limitNode = document.getElementById('expenseLimit');
+
+limitNode.innerText = LIMIT;
 
 buttonNode.addEventListener('click', function () {
     if (!inputNode.value) {
