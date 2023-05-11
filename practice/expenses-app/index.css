@@ -56,3 +56,11 @@ input {
 .expenses-app__wrapper-right {
     width: calc(50% - 20px);
 }
+
+.status_good {
+    color: green;
+}
+
+.status_bad {
+    color: red;
+}

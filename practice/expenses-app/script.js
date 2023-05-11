@@ -7,6 +7,7 @@ const buttonNode = document.getElementById('expenseButton');
 const historyNode = document.getElementById('expenseHistory');
 const sumNode = document.getElementById('expenseSum');
 const limitNode = document.getElementById('expenseLimit');
+const statusNode = document.getElementById('expenseStatus');
 
 limitNode.innerText = LIMIT;
 
@@ -42,6 +43,15 @@ buttonNode.addEventListener('click', function () {
     });
 
     sumNode.innerText = sum;
+
+    //сравниваем сумму с лимитом м выводим статус
+    if (sum <= LIMIT) {
+        statusNode.innerText = 'all good';
+        statusNode.classList.add('status_good');
+    } else {
+        statusNode.innerText = 'all bad';
+        statusNode.classList.add('status_bad');
+    }
 
     console.log(sum);
 })
