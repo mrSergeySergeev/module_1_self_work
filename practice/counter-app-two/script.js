@@ -21,52 +21,52 @@ addOneItemButton.addEventListener("click", function () {
         question = ARRAY_OF_ITEMS[1];
         questionValue.innerText = question;
         return;
-    } 
+    };
     if (counter === 2) {
         question = ARRAY_OF_ITEMS[2];
         questionValue.innerText = question;
         return;
-    }
+    };
     if (counter === 3) {
         question = ARRAY_OF_ITEMS[3];
         questionValue.innerText = question;
         return;
-    }
+    };
     if (counter === 4) {
         question = ARRAY_OF_ITEMS[4];
         questionValue.innerText = question;
         return;
-    }
+    };
     if (counter === 5) {
         question = ARRAY_OF_ITEMS[5];
         questionValue.innerText = question;
         return;
-    }
+    };
     if (counter === 6) {
         question = ARRAY_OF_ITEMS[6];
         questionValue.innerText = question;
         return;
-    }
+    };
     if (counter === 7) {
         question = ARRAY_OF_ITEMS[7];
         questionValue.innerText = question;
         return;
-    }
+    };
     if (counter === 8) {
         question = ARRAY_OF_ITEMS[8];
         questionValue.innerText = question;
         return;
-    }
+    };
     if (counter === 9) {
         question = ARRAY_OF_ITEMS[9];
         questionValue.innerText = question;
         return;
-    }
+    };
     if (counter === 10) {
         question = ARRAY_OF_ITEMS[10];
         questionValue.innerText = question;
         return;
-    }
+    };
     if (counter === 11) {
         question = ARRAY_OF_ITEMS[11];
         questionValue.innerText = question;
@@ -78,15 +78,13 @@ addOneItemButton.addEventListener("click", function () {
         counter = COUNTER_INITIAL_VALUE;
         counterValue.innerText = counter;
         resetButton.classList.remove(ACTIVE_RESET_BUTTON_CLASSNAME);
-        return;
-    }
-
-})
+    };
+});
 
 resetButton.addEventListener("click", function () {
     counter = COUNTER_INITIAL_VALUE;
-    question = QUESTION_INITIAL_VALUE;
+    question = ARRAY_OF_ITEMS[0];
     counterValue.innerText = counter;
     questionValue.innerText = question;
     resetButton.classList.remove(ACTIVE_RESET_BUTTON_CLASSNAME);
-})
+});
