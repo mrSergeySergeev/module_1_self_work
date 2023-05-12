@@ -4,20 +4,9 @@ const addOneItemButton = document.getElementById("addOneItemButton");
 const resetButton = document.getElementById("resetButton");
 const ACTIVE_RESET_BUTTON_CLASSNAME = 'counter__reset-button-active';
 
-const QUESTION_INITIAL_VALUE = 'Как правильно пить «на посошок»';
-const FIRST_ITEM = 'Застольная - в знак уважения к остающимся';
-const SECOND_ITEM = 'Подъёмная - при покидании стола';
-const THIRD_ITEM = 'На ход ноги - движение от стола';
-const FOURTH_ITEM = 'Запорожская - при преодолении порога помещения';
-const FIFTH_ITEM = 'Придворная - при выходе во двор';
-const SIXTH_ITEM = 'На посошок - гостю вручали посох и ставили на него рюмку';
-const SEVENTH_ITEM = 'Стременная - прежде чем поставил ногу в стремя';
-const EIGHTH_ITEM = 'Седельная - за то, что поднялся в седло';
-const NINTH_ITEM = 'Приворотная - перед выездом за ворота';
-const TENTH_ITEM = 'Заворотная - за то, что всё-таки сумел выехать';
-const ELEVENTH_ITEM = 'Или всё-таки ночевать останемся?';
+const ARRAY_OF_ITEMS = ['Как правильно пить «на посошок»','Застольная - в знак уважения к остающимся','Подъёмная - при покидании стола','На ход ноги - движение от стола','Запорожская - при преодолении порога помещения','Придворная - при выходе во двор','На посошок - гостю вручали посох и ставили на него рюмку','Стременная - прежде чем поставил ногу в стремя','Седельная - за то, что поднялся в седло','Приворотная - перед выездом за ворота','Заворотная - за то, что всё-таки сумел выехать','Или всё-таки ночевать останемся?'];
 
-let question = QUESTION_INITIAL_VALUE;
+let question = ARRAY_OF_ITEMS[0];
 questionValue.innerText = question;
 
 const COUNTER_INITIAL_VALUE = 0;
@@ -29,55 +18,67 @@ addOneItemButton.addEventListener("click", function () {
     counter = counter + parseInt(addOneItemButton.dataset.item);
     counterValue.innerText = counter;
     if (counter === 1) {
-        question = FIRST_ITEM;
+        question = ARRAY_OF_ITEMS[1];
         questionValue.innerText = question;
-    } else if (counter === 2) {
-        question = SECOND_ITEM;
+        return;
+    } 
+    if (counter === 2) {
+        question = ARRAY_OF_ITEMS[2];
         questionValue.innerText = question;
+        return;
     }
-    else if (counter === 3) {
-        question = THIRD_ITEM;
+    if (counter === 3) {
+        question = ARRAY_OF_ITEMS[3];
         questionValue.innerText = question;
+        return;
     }
-    else if (counter === 4) {
-        question = FOURTH_ITEM;
+    if (counter === 4) {
+        question = ARRAY_OF_ITEMS[4];
         questionValue.innerText = question;
+        return;
     }
-    else if (counter === 5) {
-        question = FIFTH_ITEM;
+    if (counter === 5) {
+        question = ARRAY_OF_ITEMS[5];
         questionValue.innerText = question;
+        return;
     }
-    else if (counter === 6) {
-        question = SIXTH_ITEM;
+    if (counter === 6) {
+        question = ARRAY_OF_ITEMS[6];
         questionValue.innerText = question;
+        return;
     }
-    else if (counter === 7) {
-        question = SEVENTH_ITEM;
+    if (counter === 7) {
+        question = ARRAY_OF_ITEMS[7];
         questionValue.innerText = question;
+        return;
     }
-    else if (counter === 8) {
-        question = EIGHTH_ITEM;
+    if (counter === 8) {
+        question = ARRAY_OF_ITEMS[8];
         questionValue.innerText = question;
+        return;
     }
-    else if (counter === 9) {
-        question = NINTH_ITEM;
+    if (counter === 9) {
+        question = ARRAY_OF_ITEMS[9];
         questionValue.innerText = question;
+        return;
     }
-    else if (counter === 10) {
-        question = TENTH_ITEM;
+    if (counter === 10) {
+        question = ARRAY_OF_ITEMS[10];
         questionValue.innerText = question;
+        return;
     }
-    else if (counter === 11) {
-        question = ELEVENTH_ITEM;
+    if (counter === 11) {
+        question = ARRAY_OF_ITEMS[11];
         questionValue.innerText = question;
         resetButton.classList.add(ACTIVE_RESET_BUTTON_CLASSNAME);
     }
     else {
-        question = QUESTION_INITIAL_VALUE;
+        question = ARRAY_OF_ITEMS[0];
         questionValue.innerText = question;
         counter = COUNTER_INITIAL_VALUE;
         counterValue.innerText = counter;
         resetButton.classList.remove(ACTIVE_RESET_BUTTON_CLASSNAME);
+        return;
     }
 
 })
