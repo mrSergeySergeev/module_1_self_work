@@ -10,7 +10,7 @@ ol {
 }
 
 button {
-    width: 370px;
+    width: 100%;
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
@@ -27,7 +27,7 @@ button:hover {
 }
 
 input {
-    width: 480px;
+    width: 100%;
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
@@ -37,24 +37,14 @@ input {
 .expenses-app {
     margin: 0 auto;
     padding: 0 50px;
-    width: 900px;
+    max-width: 50vw;
     display: flex;
     flex-direction: column;
     gap: 40px;
 }
 
-.expenses-app__wrapper {
-    display: flex;
-    gap: 15px;
-}
-
 .expenses-app__title {
     font-weight: 700;
-}
-
-.expenses-app__wrapper-left,
-.expenses-app__wrapper-right {
-    width: calc(50% - 20px);
 }
 
 .status_good {
