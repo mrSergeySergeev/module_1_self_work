@@ -2,8 +2,13 @@ body {
     width: 90vw;
     margin: 0 auto;
     font-family: 'Inter', sans-serif;
-    font-size: 5vw;
+    font-size: 4vw;
     line-height: 7vw;
+}
+
+h1,
+.label { 
+    font-weight: 700;
 }
 
 input,
@@ -15,10 +20,30 @@ button {
 
 input {
     width: 100%;
+    border: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input:focus {
+    outline: none;
 }
 
 button {
     cursor: pointer;
+}
+
+ol {
+    list-style-type: decimal;
+    list-style-position: inside;
+}
+
+.rub::after {
+    content: ' руб.';
 }
 
 .expenses {
@@ -32,6 +57,14 @@ button {
 
 .expensesInput {
     width: 58%;
+}
+
+.moneyInput{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid black;
 }
 
 .addButton {
