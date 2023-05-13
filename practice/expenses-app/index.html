@@ -17,13 +17,15 @@
 <body>
     <main class="expenses-app">
         <h1 class="expenses-app__title">Учет расходов</h1>
-        <input id="expenseInput" class="expenses-app__input" type="number" placeholder="Введите расход">
+        <div class="expenses-app__input-wrapper">
+            <input id="expenseInput" class="expenses-app__input" type="number" placeholder="Введите расход">
+        </div>
         <button id="expenseButton" class="expenses-app__button">Добавить</button>
-            <p>Лимит: <span id="expenseLimit"></span> руб.</p>
-            <p>Сумма: <span id="expenseSum"></span> руб.</p>
-            <p>Статус <span id="expenseStatus"></span></p>
-            <h2>История:</h2>
-            <div id="expenseHistory" class="expenses-app__list"></div>
+        <p>Лимит: <span id="expenseLimit"></span> руб.</p>
+        <p>Сумма: <span id="expenseSum"></span> руб.</p>
+        <p>Статус <span id="expenseStatus"></span></p>
+        <h2>История:</h2>
+        <div id="expenseHistory" class="expenses-app__list"></div>
     </main>
     <script src="script.js"></script>
 </body>
