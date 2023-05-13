@@ -13,7 +13,7 @@ body {
 
 ol {
     list-style: decimal;
-    padding-left: 40px;
+    list-style-position: inside;
 }
 
 button {
@@ -77,10 +77,6 @@ input:focus {
         padding: 0;
         gap: 10px;
     }
-}
-
-.expenses-app__input-wrapper {
-    width: 100%;
 }
 
 .expenses-app__title {

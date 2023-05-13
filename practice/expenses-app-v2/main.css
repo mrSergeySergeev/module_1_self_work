@@ -1,0 +1,47 @@
+body {
+    width: 90vw;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+    font-size: 5vw;
+    line-height: 7vw;
+}
+
+input,
+button {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+input {
+    width: 100%;
+}
+
+button {
+    cursor: pointer;
+}
+
+.expenses {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 2vw;
+    row-gap: 3vw;
+}
+
+.expensesInput {
+    width: 58%;
+}
+
+.addButton {
+    width: 38%;
+}
+
+.stats {
+    width: 58%;
+}
+
+.history {
+    width: 38%;
+}

@@ -1,0 +1,28 @@
+body {
+    width: 90vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+ul {
+    list-style-type: upper-roman;
+    list-style-position: inside;
+}
+
+.item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

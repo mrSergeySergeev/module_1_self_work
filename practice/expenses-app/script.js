@@ -13,6 +13,7 @@ const limitNode = document.getElementById('expenseLimit');
 const statusNode = document.getElementById('expenseStatus');
 
 const expenses = [];
+const expensesCategory = ['1','2','3']
 
 init(expenses);
 

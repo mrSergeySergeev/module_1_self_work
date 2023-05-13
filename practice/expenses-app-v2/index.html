@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="resources/fav-icon.jpg" type="image/jpg">
+    <link rel="stylesheet" href="../../styles/reset.css">
+    <link rel="stylesheet" href="main.css">
+    <title>Расходы наши!</title>
+</head>
+
+<body>
+    <h1>Учет расходов</h1>
+    <div class="expenses">
+        <div class="expensesInput">
+            <div class="moneyInput rub">
+                <input class="moneyInput__input" type="number" min="0" id="expensesInput"/>
+            </div>
+        </div>
+        <button class="addButton" id="addButton">Добавить</button>
+        <div class="stats">
+            <div class="stats__limit">
+                <span class="label">Лимит:</span>
+                <span id="limitValue" class="rub">1000</span>
+            </div>
+            <div class="stats__total">
+                <span class="label">Всего:</span>
+                <span id="totalValue" class="rub">1350</span>
+            </div>
+            <div class="stats__status">
+                <span class="label">Статус:</span>
+                <span class="stats__status_positive" id="statusText">Всё хорошо</span>
+            </div>
+        </div>
+        <div class="history">
+            <div class="history__title label">История:</div>
+                <ol class="history__list">
+                    <li class="rub">100</li>
+                    <li class="rub">200</li>
+                    <li class="rub">1000</li>
+                    <li class="rub">50</li>
+                </ol>
+            
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
