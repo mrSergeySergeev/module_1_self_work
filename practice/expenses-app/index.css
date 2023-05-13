@@ -4,6 +4,13 @@ body {
     line-height: 39px;
 }
 
+@media (max-width: 767px) {
+    body {
+    font-size: 18px;
+    line-height: 23px;        
+    }
+}
+
 ol {
     list-style: decimal;
     padding-left: 40px;
@@ -41,6 +48,14 @@ input {
     display: flex;
     flex-direction: column;
     gap: 40px;
+}
+
+@media (max-width: 767px) {
+    .expenses-app {
+        max-width: 90vw;
+        padding: 0;
+        gap: 10px;
+    }
 }
 
 .expenses-app__title {
