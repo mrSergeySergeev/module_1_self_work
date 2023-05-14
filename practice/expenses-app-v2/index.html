@@ -16,15 +16,20 @@
 
 <body>
     <div class="popup" id="popup">
-        <div class="popup__content">
-            
+        <div class="popup__content" id="popupContent">
+            <p class="popup__title">Введите новое <br> значение лимита</p>
+            <div class="popup__input  rub">
+                <input class="moneyInput__input" type="number" min="0" id="limitInput" placeholder="введи число" />
+            </div>
+            <button class="addButton" id="popupButtonAccept">Ок</button>
+            <button class="closePopupButton" id="popupButtonClose">x</button>
         </div>
     </div>
     <h1>Учет расходов</h1>
     <div class="expenses">
         <div class="expensesInput">
             <div class="moneyInput rub">
-                <input class="moneyInput__input" type="number" min="0" id="expenseInput" placeholder="введи число"/>
+                <input class="moneyInput__input" type="number" min="0" id="expenseInput" placeholder="введи число" />
             </div>
         </div>
         <button class="addButton" id="addButton">Добавить</button>
@@ -32,7 +37,8 @@
             <div class="stats__limit">
                 <span class="label">Лимит:</span>
                 <span id="limitValue" class="rub">10000</span>
-                <button class="limitChangeButton" id="limitChangeButton"><img src="resources/limit-change-button.png" alt="тык"></button>
+                <button class="limitChangeButton" id="limitChangeButton"><img src="resources/limit-change-button.png"
+                        alt="тык"></button>
             </div>
             <div class="stats__total">
                 <span class="label">Всего:</span>
@@ -49,9 +55,9 @@
             <ol class="history__list" id="historyList">
             </ol>
         </div>
-
     </div>
     <script src="script.js"></script>
+    <script src="popup.js"></script>
 </body>
 
 </html>

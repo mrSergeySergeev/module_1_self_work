@@ -1,6 +1,11 @@
+button {
+    cursor: pointer;
+}
+
 .addButton,
 .clearButton,
-.limitChangeButton {
+.limitChangeButton,
+.closePopupButton {
     border: none;
     border-radius: 5vw;
     color: #fff;
@@ -32,6 +37,7 @@
 
 .addButton:hover,
 .clearButton:hover,
-.limitChangeButton:hover {
+.limitChangeButton:hover,
+.closePopupButton:hover {
     background-color: #dc9d00;
 }
