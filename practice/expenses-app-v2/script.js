@@ -4,6 +4,7 @@ const STATUS_OUT_OF_LIMIT ="ПЛОХО";
 const inputNode = document.getElementById("expenseInput");
 const addButtonNode = document.getElementById("addButton");
 const clearButtonNode = document.getElementById("clearButton");
+const limitChangeButtonNode = document.getElementById('limitChangeButton');
 const limitNode = document.getElementById("limitValue");
 const totalValueNode = document.getElementById("totalValue");
 const statusNode = document.getElementById("statusText");
@@ -73,5 +74,10 @@ const clearButtonHandler = () => {
     render()
 };
 
+const limitChangeButtonHandler = () => {
+
+};
+
 addButtonNode.addEventListener("click", addButtonHandler);
 clearButtonNode.addEventListener("click", clearButtonHandler);
+limitChangeButtonNode.addEventListener('click', limitChangeButtonHandler);

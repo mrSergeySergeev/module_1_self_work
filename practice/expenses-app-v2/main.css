@@ -1,7 +1,11 @@
+@import url(style/popup.css);
+@import url(style/buttons.css);
+
 body {
     width: 90vw;
     margin: 0 auto;
     font-family: 'Inter', sans-serif;
+    background-color: #808080;
     font-size: 4vw;
     line-height: 7vw;
 }
@@ -16,6 +20,8 @@ button {
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
+    background-color: inherit;
+    cursor: pointer;
 }
 
 input {
@@ -28,10 +34,6 @@ input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-button {
-    cursor: pointer;
 }
 
 ol {
@@ -65,27 +67,17 @@ ol {
     border-radius: 20px;
 }
 
-.addButton,
-.clearButton {
-    width: 38%;
-    border: none;
-    border-radius: 5vw;
-    color: #fff;
-    background-color: #ff9900 ;
-    transition: background-color .4s ease;
-}
-
-.clearButton {
-    width: 100%;
-}
-
-.addButton:hover,
-.clearButton:hover {
-    background-color: #dc9d00;
+.stats,
+.stats__limit,
+.stats__total,
+.stats__status {
+    display: flex;
 }
 
 .stats {
     width: 58%;
+    flex-direction: column;
+    gap: 1vw;
 }
 
 .history {
