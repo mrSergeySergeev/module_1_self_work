@@ -21,16 +21,13 @@ button {
 input {
     width: 100%;
     border: none;
+    outline: none;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-input:focus {
-    outline: none;
 }
 
 button {
@@ -65,10 +62,26 @@ ol {
     align-items: center;
     padding: 10px;
     border: 1px solid black;
+    border-radius: 20px;
 }
 
-.addButton {
+.addButton,
+.clearButton {
     width: 38%;
+    border: none;
+    border-radius: 5vw;
+    color: #fff;
+    background-color: #ff9900 ;
+    transition: background-color .4s ease;
+}
+
+.clearButton {
+    width: 100%;
+}
+
+.addButton:hover,
+.clearButton:hover {
+    background-color: #dc9d00;
 }
 
 .stats {
@@ -77,4 +90,12 @@ ol {
 
 .history {
     width: 38%;
+}
+
+.stats__statusText_positive {
+    color: green;
+}
+
+.stats__statusText_negative {
+    color: #ff9900;
 }
