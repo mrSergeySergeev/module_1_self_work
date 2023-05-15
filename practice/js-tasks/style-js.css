@@ -1,0 +1,16 @@
+body {
+    margin: 0 auto;
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    font-size: 4vw;
+    line-height: 5vw;
+}
+
+button,
+input {
+    font-size: inherit;
+    line-height: inherit;
+    cursor: pointer;
+}
