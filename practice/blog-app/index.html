@@ -16,11 +16,19 @@
         <div class="blog-app__left-col">
             <h1 class="blog-app__title">Приложение Блог</h1>
             <h2 class="blog-app__subtitle" >Новый пост</h2>
-            <input class="blog=app__new-post-title-input" type="text">
-            <input class="blog=app__new-post-description-input" type="text">
-            <button class="blog-app__new-post-button">Новый пост</button>
+            <input id="postTitleInput" class="blog=app__new-post-title-input" type="text" placeholder="заголовок">
+            <input id="postDescriptionInput" class="blog=app__new-post-description-input" type="text" placeholder="описание поста">
+            <button id="newPostButton" class="blog-app__new-post-button">Новый пост</button>
         </div>
-        <div class="blog-app__right-col"></div>
+        <div class="blog-app__right-col">
+            <h2 class="blog-app__subtitle">Лента</h2>
+            <ul class="blog-app__list">
+                <li class="blog-app__item">
+                    <span id="postTitle" class="blog=app__post-title"></span>
+                    <span id="postDescription" class="blog=app__post-description"></span>
+                </li>
+            </ul>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
