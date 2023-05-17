@@ -9,6 +9,8 @@ const limitNode = document.getElementById("limitValue");
 const totalValueNode = document.getElementById("totalValue");
 const statusNode = document.getElementById("statusText");
 const historyList = document.getElementById("historyList");
+const limitInputNode = document.getElementById('limitInput');
+const popupButtonAcceptNode = document.getElementById('popupButtonAccept');
 
 let expenses = [];
 const limit = parseInt(limitNode.innerText);
@@ -75,7 +77,7 @@ const clearButtonHandler = () => {
 };
 
 const limitChangeButtonHandler = () => {
-
+    limitInputNode.value
 };
 
 addButtonNode.addEventListener("click", addButtonHandler);
