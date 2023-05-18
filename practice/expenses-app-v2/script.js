@@ -1,5 +1,5 @@
 const STATUS_IN_LIMIT = "ХОРОШО";
-const STATUS_OUT_OF_LIMIT ="ПЛОХО";
+const STATUS_OUT_OF_LIMIT = "ПЛОХО";
 
 const inputNode = document.getElementById("expenseInput");
 const addButtonNode = document.getElementById("addButton");
@@ -11,14 +11,15 @@ const statusNode = document.getElementById("statusText");
 const historyList = document.getElementById("historyList");
 const limitInputNode = document.getElementById('limitInput');
 const popupButtonAcceptNode = document.getElementById('popupButtonAccept');
+const categorySelectNode = document.getElementById('categorySelect');
 
 let expenses = [];
-const limit = parseInt(limitNode.innerText);
+let limit = parseInt(limitNode.innerText);
 
-const getTotal =() => {
+const getTotal = () => {
     let sum = 0;
     expenses.forEach((expense) => {
-        sum += expense;
+        sum += expense.amount;
     });
 
     return sum;
@@ -42,7 +43,7 @@ const renderHistory = () => {
     expenses.forEach((expense) => {
         const historyItem = document.createElement("li");
         historyItem.className = "rub";
-        historyItem.innerText = expense;
+        historyItem.innerText = `${expense.category} - ${expense.amount}`;
 
         historyList.appendChild(historyItem);
     });
@@ -54,32 +55,55 @@ const render = () => {
 };
 
 const getExpenseFromUser = () => parseInt(inputNode.value);
+const getCategoryFromUser = () => categorySelectNode.value;
+const getNewLimitFromUser = () => parseInt(limitInputNode.value);
 
 const clearInput = () => {
     inputNode.value = "";
 };
 
 function addButtonHandler() {
-    const expense = getExpenseFromUser();
-    if (!expense) {
-        return
+    const currentAmount = getExpenseFromUser();
+    if (!currentAmount) {
+        return;
     };
 
-    expenses.push(expense);
+    const currentCategory = getCategoryFromUser();
+    if (currentCategory === "выбирайте категорию") {
+        return;
+    };
 
+    const newExpense = {amount: currentAmount, category: currentCategory};
+
+    expenses.push(newExpense);
+    console.log(expenses)
     render();
     clearInput();
 };
 
-const clearButtonHandler = () => {
-    expenses =[];
-    render()
+function limitChangeButtonHandler() {
+    let newLimit = getNewLimitFromUser();
+    if (!newLimit) {
+        togglePopup();
+        return;
+    };
+
+    limitNode.innerText = newLimit;
+    limit = newLimit;
+
+    limitInputNode.value = '';
+
+    togglePopup();
+    render();
+
+    return limit;
 };
 
-const limitChangeButtonHandler = () => {
-    limitInputNode.value
+const clearButtonHandler = () => {
+    expenses = [];
+    render()
 };
 
 addButtonNode.addEventListener("click", addButtonHandler);
 clearButtonNode.addEventListener("click", clearButtonHandler);
-limitChangeButtonNode.addEventListener('click', limitChangeButtonHandler);
+popupButtonAcceptNode.addEventListener('click', limitChangeButtonHandler);
