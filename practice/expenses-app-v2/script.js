@@ -14,12 +14,15 @@ const popupButtonAcceptNode = document.getElementById('popupButtonAccept');
 const categorySelectNode = document.getElementById('categorySelect');
 
 let expenses = [];
-const limitFromStorage = parseInt(localStorage.getItem("limit"));
-limitNode.innerText = limitFromStorage;
-let limit = parseInt(limitNode.innerText);
+let limit;
 
-const getTotal = () => {
+initLimit();
+initHistory()
+render();
+
+function getTotal() {
     let sum = 0;
+
     expenses.forEach((expense) => {
         sum += expense.amount;
     });
@@ -27,7 +30,8 @@ const getTotal = () => {
     return sum;
 };
 
-const renderStatus = () => {
+function renderStatus(){
+    limit = parseInt(limitNode.innerText);
     const total = getTotal(expenses);
     totalValueNode.innerText = total;
 
@@ -40,7 +44,7 @@ const renderStatus = () => {
     }
 };
 
-const renderHistory = () => {
+function renderHistory() {
     historyList.innerHTML = "";
     expenses.forEach((expense) => {
         const historyItem = document.createElement("li");
@@ -51,12 +55,10 @@ const renderHistory = () => {
     });
 };
 
-const render = () => {
+function render() {
     renderStatus();
     renderHistory();
 };
-
-render();
 
 function getExpenseFromUser() {
     let inputExpenseValue = parseInt(inputNode.value);
@@ -67,7 +69,7 @@ function getExpenseFromUser() {
     return inputExpenseValue;
 }
 
-const getNewLimitFromUser = () => {
+function getNewLimitFromUser() {
     let inputLimitValue = parseInt(limitInputNode.value);
     if (inputLimitValue <= 0) {
         alert("Не бывает отрицательных лимитов");
@@ -98,7 +100,8 @@ function addButtonHandler() {
 
     const newExpense = { amount: currentAmount, category: currentCategory };
 
-    expenses.push(newExpense);    
+    expenses.push(newExpense);
+    localStorage.setItem("history",JSON.stringify(expenses));
     console.log(expenses);
     render();
     clearInput();
@@ -113,7 +116,7 @@ function limitChangeButtonHandler() {
 
     limitNode.innerText = newLimit;
     limit = newLimit;
-    localStorage.setItem("limit",newLimit);
+    localStorage.setItem("limit", newLimit);
 
     limitInputNode.value = '';
 
@@ -127,6 +130,26 @@ const clearButtonHandler = () => {
     expenses = [];
     render()
 };
+
+function initLimit() {
+    const limitFromStorage = parseInt(localStorage.getItem("limit"));
+    if (!limitFromStorage) {
+        return;
+    };
+    limitNode.innerText = limitFromStorage;
+
+};
+
+function initHistory() {
+    const historyFromStorage = JSON.parse(localStorage.getItem("history"));
+    if (!historyFromStorage) {
+        return;
+    };
+
+    expenses = historyFromStorage;
+    
+    render();
+}
 
 addButtonNode.addEventListener("click", addButtonHandler);
 clearButtonNode.addEventListener("click", clearButtonHandler);
