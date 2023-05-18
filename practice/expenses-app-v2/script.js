@@ -30,7 +30,7 @@ function getTotal() {
     return sum;
 };
 
-function renderStatus(){
+function renderStatus() {
     limit = parseInt(limitNode.innerText);
     const total = getTotal(expenses);
     totalValueNode.innerText = total;
@@ -101,7 +101,7 @@ function addButtonHandler() {
     const newExpense = { amount: currentAmount, category: currentCategory };
 
     expenses.push(newExpense);
-    localStorage.setItem("history",JSON.stringify(expenses));
+    localStorage.setItem("history", JSON.stringify(expenses));
     console.log(expenses);
     render();
     clearInput();
@@ -142,13 +142,13 @@ function initLimit() {
 
 function initHistory() {
     const historyFromStorage = JSON.parse(localStorage.getItem("history"));
-    if (!historyFromStorage) {
+    if (Array.isArray(historyFromStorage)) {
+        expenses = historyFromStorage;
+
+        render();
+    } else {
         return;
     };
-
-    expenses = historyFromStorage;
-    
-    render();
 }
 
 addButtonNode.addEventListener("click", addButtonHandler);
