@@ -67,7 +67,7 @@ function getExpenseFromUser() {
         return;
     };
     return inputExpenseValue;
-}
+};
 
 function getNewLimitFromUser() {
     let inputLimitValue = parseInt(limitInputNode.value);
@@ -128,7 +128,8 @@ function limitChangeButtonHandler() {
 
 const clearButtonHandler = () => {
     expenses = [];
-    render()
+    localStorage.clear();
+    render();    
 };
 
 function initLimit() {
@@ -149,7 +150,7 @@ function initHistory() {
     } else {
         return;
     };
-}
+};
 
 addButtonNode.addEventListener("click", addButtonHandler);
 clearButtonNode.addEventListener("click", clearButtonHandler);
