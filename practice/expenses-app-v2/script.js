@@ -14,6 +14,8 @@ const popupButtonAcceptNode = document.getElementById('popupButtonAccept');
 const categorySelectNode = document.getElementById('categorySelect');
 
 let expenses = [];
+const limitFromStorage = parseInt(localStorage.getItem("limit"));
+limitNode.innerText = limitFromStorage;
 let limit = parseInt(limitNode.innerText);
 
 const getTotal = () => {
@@ -54,9 +56,28 @@ const render = () => {
     renderHistory();
 };
 
-const getExpenseFromUser = () => parseInt(inputNode.value);
+render();
+
+function getExpenseFromUser() {
+    let inputExpenseValue = parseInt(inputNode.value);
+    if (inputExpenseValue <= 0) {
+        alert("я бы тоже хотел таких прибыльных расходов");
+        return;
+    };
+    return inputExpenseValue;
+}
+
+const getNewLimitFromUser = () => {
+    let inputLimitValue = parseInt(limitInputNode.value);
+    if (inputLimitValue <= 0) {
+        alert("Не бывает отрицательных лимитов");
+        return;
+    };
+    return inputLimitValue;
+};
+
 const getCategoryFromUser = () => categorySelectNode.value;
-const getNewLimitFromUser = () => parseInt(limitInputNode.value);
+
 
 const clearInput = () => {
     inputNode.value = "";
@@ -65,18 +86,20 @@ const clearInput = () => {
 function addButtonHandler() {
     const currentAmount = getExpenseFromUser();
     if (!currentAmount) {
+        alert("введите расход");
         return;
     };
 
     const currentCategory = getCategoryFromUser();
     if (currentCategory === "выбирайте категорию") {
+        alert("выбирайте категорию")
         return;
     };
 
-    const newExpense = {amount: currentAmount, category: currentCategory};
+    const newExpense = { amount: currentAmount, category: currentCategory };
 
-    expenses.push(newExpense);
-    console.log(expenses)
+    expenses.push(newExpense);    
+    console.log(expenses);
     render();
     clearInput();
 };
@@ -90,6 +113,7 @@ function limitChangeButtonHandler() {
 
     limitNode.innerText = newLimit;
     limit = newLimit;
+    localStorage.setItem("limit",newLimit);
 
     limitInputNode.value = '';
 
