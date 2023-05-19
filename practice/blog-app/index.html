@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,25 +12,46 @@
     <link rel="stylesheet" href="main.css">
     <title>Блог</title>
 </head>
+
 <body>
-    <div class="blog-app">
-        <div class="blog-app__left-col">
-            <h1 class="blog-app__title">Приложение Блог</h1>
-            <h2 class="blog-app__subtitle" >Новый пост</h2>
-            <input id="postTitleInput" class="blog=app__new-post-title-input" type="text" placeholder="заголовок">
-            <input id="postDescriptionInput" class="blog=app__new-post-description-input" type="text" placeholder="описание поста">
-            <button id="newPostButton" class="blog-app__new-post-button">Новый пост</button>
+    <div class="container">
+        <div class="container__left-col">
+            <h1 class="app-title">Приложение Блог</h1>
+            <h2 class="app-subtitle">Новый пост</h2>
+            <div class="inputWrapper">
+                <textarea name="post-title"
+                    id="postTitleInput"
+                    class="post-title-input"
+                    cols="36"
+                    rows="3"
+                    placeholder="заголовок"></textarea>
+            </div>
+            <div class="inputWrapper">
+                <textarea name="post-description"
+                    id="postDescriptionInput"
+                    class="post-description-input"
+                    cols="36"
+                    rows="10"
+                    placeholder="описание поста"></textarea>
+            </div>
+            <button id="newPostButton"
+                class="new-post-button">Опубликовать
+            </button>
         </div>
-        <div class="blog-app__right-col">
-            <h2 class="blog-app__subtitle">Лента</h2>
-            <ul class="blog-app__list">
-                <li class="blog-app__item">
-                    <span id="postTitle" class="blog-app__post-title"></span>
-                    <span id="postDescription" class="blog-app__post-description"></span>
+        <div class="container__right-col">
+            <h2 class="app-subtitle">
+                Лента</h2>
+            <ul class="postList">
+                <li class="postItem">
+                    <span id="postTitle"
+                        class="post-title"></span>
+                    <span id="postDescription"
+                        class="post-description"></span>
                 </li>
             </ul>
         </div>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>

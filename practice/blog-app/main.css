@@ -3,26 +3,64 @@ body {
     padding-top: 2vw;
     width: 90vw;
     font-family: 'Inter', sans-serif;
+    font-size: 2vw;
+    line-height: 3vw;
 }
 
-input,
+h1,
+h2 {
+    font-weight: 700;
+}
+
+textarea,
 button {
     display: block;
+    padding: 1vw;
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
+    border: none;
     cursor: pointer;
 }
 
-.blog-app {
+button {
+    border-radius: 2vw;
+    background-color: #000;
+    color: #fff;
+    transition: opacity 0.3s ease;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+textarea {
+    resize: none;
+    overflow: hidden;
+    outline: none;
+    border-radius: inherit;
+}
+
+.container {
     display: flex;
     justify-content: space-between;
 }
 
-.blog-app__left-col,
-.blog-app__right-col {
+.container__left-col,
+.container__right-col {
     width: calc(50% - 0.5vw);
     display: flex;
     flex-direction: column;
     gap: 1vw;
+}
+
+.container__right-col {
+    padding-top: 4vw;
+}
+
+.inputWrapper {
+    display: flex;
+    justify-content: center;
+    border: 0.3vw solid black;
+    border-radius: 2vw;
 }
