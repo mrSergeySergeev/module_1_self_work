@@ -38,14 +38,10 @@ initPostList = () => {
         console.log('errorInitDescription');
         return;
     }
-    console.log(checkTitle());
-    console.log(checkDescription());
 
     let post = { title: currentTitle, description: currentDescription, }
 
-    console.log(post);
     posts.push(post);
-    console.log(posts);
 };
 
 

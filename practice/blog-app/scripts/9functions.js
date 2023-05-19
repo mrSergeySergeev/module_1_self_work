@@ -1,5 +1,6 @@
 function addNewPostHandler() {
-    initPostList();   
+    initPostList(); 
+    renderPostList(); 
 };
 
 
