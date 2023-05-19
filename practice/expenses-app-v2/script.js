@@ -8,7 +8,7 @@ const limitChangeButtonNode = document.getElementById('limitChangeButton');
 const limitNode = document.getElementById("limitValue");
 const totalValueNode = document.getElementById("totalValue");
 const statusNode = document.getElementById("statusText");
-const historyList = document.getElementById("historyList");
+const historyListNode = document.getElementById("historyList");
 const limitInputNode = document.getElementById('limitInput');
 const popupButtonAcceptNode = document.getElementById('popupButtonAccept');
 const categorySelectNode = document.getElementById('categorySelect');
@@ -45,13 +45,13 @@ function renderStatus() {
 };
 
 function renderHistory() {
-    historyList.innerHTML = "";
+    historyListNode.innerHTML = "";
     expenses.forEach((expense) => {
         const historyItem = document.createElement("li");
         historyItem.className = "rub";
         historyItem.innerText = `${expense.category} - ${expense.amount}`;
 
-        historyList.appendChild(historyItem);
+        historyListNode.appendChild(historyItem);
     });
 };
 
