@@ -65,3 +65,8 @@ textarea {
     border: 0.3vw solid black;
     border-radius: 2vw;
 }
+
+.postList{
+    display: flex;
+    flex-direction: column-reverse;
+}

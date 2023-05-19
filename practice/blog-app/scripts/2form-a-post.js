@@ -19,7 +19,7 @@ checkDescription = () => {
         console.log('errorCheckDescription');
         return;
     };
-    if (check.length >= 300) {
+    if (check.length >= 200) {
         console.log('errorCheckDescription');
         return;
     };
