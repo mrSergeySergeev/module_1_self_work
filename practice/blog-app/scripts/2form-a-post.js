@@ -42,6 +42,8 @@ initPostList = () => {
     let post = { title: currentTitle, description: currentDescription, }
 
     posts.push(post);
+    descriptionInputNode.value = "";
+    titleInputNode.value = "";
 };
 
 
