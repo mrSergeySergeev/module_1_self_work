@@ -14,6 +14,24 @@
 </head>
 
 <body>
+    <div id="popup" class="popup">
+        <div id="popupContentCheckTitle" class="js-popupContent popup-content">
+            <p class="popup-title">Введите <br> заголовок</p>
+            <button id="popupClose" class="closeButton">Ок</button>
+        </div>
+        <div id="popupContentCheckDescription" class="js-popupContent popup-content">
+            <p class="popup-title">Введите <br> описание</p>
+            <button id="popupClose" class="closeButton">Ок</button>
+        </div>
+        <div id="popupContentMoreTitle" class="js-popupContent popup-content">
+            <p class="popup-title">Перебор<br>символов<br>заголовкА</p>
+            <button id="popupClose" class="closeButton">Ок</button>
+        </div>
+        <div id="popupContentMoreDescription" class="js-popupContent popup-content">
+            <p class="popup-title">Перебор<br>символов<br>описаниЯ</p>
+            <button id="popupClose" class="closeButton">Ок</button>
+        </div>
+    </div>
     <div class="container">
         <div class="container__left-col">
             <h1 class="app-title">Приложение Блог</h1>
@@ -40,13 +58,15 @@
         </div>
         <div class="container__right-col">
             <h2 class="app-subtitle">
-                Лента</h2>
+                Лента
+            </h2>
             <ul id="postList" class="postList"></ul>
         </div>
     </div>
     <script src="scripts/1variable-declarations.js"></script>
     <script src="scripts/2form-a-post.js"></script>
     <script src="scripts/3render-list.js"></script>
+    <script src="scripts/4popup.js"></script>
     <script src="scripts/9functions.js"></script>
 
 </body>

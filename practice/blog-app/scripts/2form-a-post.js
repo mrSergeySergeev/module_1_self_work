@@ -2,10 +2,12 @@ checkTitle = () => {
     const string = titleInputNode.value;
     let check = string.split('');
     if (check.length <= 0) {
+        checkTitleNull ();
         console.log('errorCheckTitle');
         return;
     };
     if (check.length >= 100) {
+        checkTitleMore();
         console.log('errorCheckTitle');
         return;
     };
@@ -16,10 +18,12 @@ checkDescription = () => {
     const string = descriptionInputNode.value;
     let check = string.split('');
     if (check.length <= 0) {
+        checkDescriptionNull ();
         console.log('errorCheckDescription');
         return;
     };
     if (check.length >= 200) {
+        checkDescriptionMore();
         console.log('errorCheckDescription');
         return;
     };
