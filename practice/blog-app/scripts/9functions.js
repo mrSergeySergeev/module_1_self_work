@@ -3,15 +3,14 @@ function addNewPostHandler() {
     renderPostList(); 
 };
 
-
 popupNode.addEventListener('click', (event) => {
     const isClickOutsideContent = !event.composedPath().includes(popupContentNode)
 
     if (isClickOutsideContent) {
-        togglePopup();
+        removePopup();
     }
 })
 
 
 newPostButtonNode.addEventListener('click', addNewPostHandler);
-// btnCloseNode.addEventListener('click', popupHandler);
+btnCloseNode.addEventListener('click', removePopup);

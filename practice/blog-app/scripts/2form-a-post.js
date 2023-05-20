@@ -2,7 +2,7 @@ checkTitle = () => {
     const string = titleInputNode.value;
     let check = string.split('');
     if (check.length <= 0) {
-        checkTitleNull ();
+        checkTitleNull();
         console.log('errorCheckTitle');
         return;
     };
@@ -18,7 +18,7 @@ checkDescription = () => {
     const string = descriptionInputNode.value;
     let check = string.split('');
     if (check.length <= 0) {
-        checkDescriptionNull ();
+        checkDescriptionNull();
         console.log('errorCheckDescription');
         return;
     };
@@ -34,12 +34,14 @@ checkDescription = () => {
 initPostList = () => {
     const currentTitle = checkTitle();
     if (!currentTitle) {
+        initInputValue();
         console.log('errorInitTitle');
         return;
     }
     const currentDescription = checkDescription();
     if (!currentDescription) {
         console.log('errorInitDescription');
+        initInputValue;
         return;
     }
 

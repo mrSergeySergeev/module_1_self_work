@@ -15,21 +15,13 @@
 
 <body>
     <div id="popup" class="popup">
-        <div id="popupContentCheckTitle" class="js-popupContent popup-content">
-            <p class="popup-title">Введите <br> заголовок</p>
-            <button id="popupClose" class="closeButton">Ок</button>
-        </div>
-        <div id="popupContentCheckDescription" class="js-popupContent popup-content">
-            <p class="popup-title">Введите <br> описание</p>
-            <button id="popupClose" class="closeButton">Ок</button>
-        </div>
-        <div id="popupContentMoreTitle" class="js-popupContent popup-content">
-            <p class="popup-title">Перебор<br>символов<br>заголовкА</p>
-            <button id="popupClose" class="closeButton">Ок</button>
-        </div>
-        <div id="popupContentMoreDescription" class="js-popupContent popup-content">
-            <p class="popup-title">Перебор<br>символов<br>описаниЯ</p>
-            <button id="popupClose" class="closeButton">Ок</button>
+        <div id="popupContent" class="popup__content">
+            <p id="nullTitle" class="popup__title">Введите <br> заголовок</p>
+            <p id="nullDescription" class="popup__title">Введите <br> описание</p>
+            <p id="moreTitle" class="popup__title">Перебор<br>символов<br>заголовкА</p>
+            <p id="moreDescription" class="popup__title">Перебор<br>символов<br>описаниЯ</p>
+            <p id="errorZhi" class="popup__title">Что-то<br>не так,<br>не понятно...</p>
+            <button id="popupCloseButton" class="popup__closeButton">Ок</button>
         </div>
     </div>
     <div class="container">
@@ -42,7 +34,8 @@
                     class="post-title-input"
                     cols="36"
                     rows="3"
-                    placeholder="заголовок"></textarea>
+                    placeholder="заголовок"
+                    maxlength="105"></textarea>
             </div>
             <div class="inputWrapper">
                 <textarea name="post-description"
@@ -50,7 +43,8 @@
                     class="post-description-input"
                     cols="36"
                     rows="6"
-                    placeholder="описание поста"></textarea>
+                    placeholder="описание поста"
+                    maxlength="205"></textarea>
             </div>
             <button id="newPostButton"
                 class="new-post-button">Опубликовать
