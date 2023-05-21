@@ -13,4 +13,4 @@ popupNode.addEventListener('click', (event) => {
 
 
 newPostButtonNode.addEventListener('click', addNewPostHandler);
-btnCloseNode.addEventListener('click', removePopup);
+btnCloseNode.addEventListener('click', removePopup());
