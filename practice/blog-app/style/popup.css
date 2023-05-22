@@ -17,7 +17,7 @@
     background-color: rgba(0, 0, 0, 0.8);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.4s linear, visibility 0.2s linear;
+    transition: opacity 0.1s linear, visibility 0.1s linear;
 }
 
 .popup-open {
@@ -43,8 +43,6 @@
 }
 
 .popup__title {
-    display: flex;
-    justify-content: center;
     display: none;
 }
 

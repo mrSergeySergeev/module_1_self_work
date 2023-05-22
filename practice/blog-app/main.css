@@ -76,6 +76,7 @@ textarea {
 
 .postItem {
     width: 100%;
+    word-wrap: break-word;
 }
 
 .postItem p,
