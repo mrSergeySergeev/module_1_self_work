@@ -14,16 +14,16 @@ const titleValidationNode = document.getElementById('titleValidation');
 const textValidationNode = document.getElementById('textValidation');
 
 function checkTitle() {
-    const string = titleInputNode.value;
+    const titleString = titleInputNode.value;
 
-    let check = string.split('');
+    let titleCheck = titleString.split('');
 
-    if (check.length <= ZERO) {
+    if (titleCheck.length <= ZERO) {
         titleValidationNode.innerText = INIT_TITLE_VALIDATION_MESSAGE;
         return;
     };
 
-    if (check.length >= ZERO) {
+    if (titleCheck.length >= ZERO) {
         titleValidationNode.innerText = `${INIT_TITLE_VALIDATION_MESSAGE}. осталось:${TITLE_VALIDATION_MAX_SUM_SYMBOLS - titleCheck.length} символов`;
         return;
     };
@@ -31,16 +31,16 @@ function checkTitle() {
 };
 
 function checkText() {
-    const string = textInputNode.value;
+    const textString = textInputNode.value;
 
-    let check = string.split('');
+    let textCheck = textString.split('');
 
-    if (check.length <= ZERO) {
+    if (textCheck.length <= ZERO) {
         textValidationNode.innerText = INIT_TEXT_VALIDATION_MESSAGE;
         return;
     };
 
-    if (check.length >= ZERO) {
+    if (textCheck.length >= ZERO) {
         textValidationNode.innerText = `${INIT_TEXT_VALIDATION_MESSAGE}. осталось:${TEXT_VALIDATION_MAX_SUM_SYMBOLS - textCheck.length} символов`;
         return;
     };
