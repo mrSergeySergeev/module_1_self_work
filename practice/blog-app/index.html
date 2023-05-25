@@ -19,27 +19,31 @@
         <div class="container__left-col">
             <h1 class="app-title">Приложение Блог</h1>
             <h2 class="app-subtitle">Новый пост</h2>
-            <div class="inputWrapper">
-                <textarea name="post-title"
-                          id="postTitleInput"
-                          class="post-title-input"
-                          cols="36"
-                          rows="3"
-                          placeholder="заголовок"
-                          maxlength="101"></textarea>
+            <div class="inputsButtonWrapper">
+                <div class="inputWrapper">
+                    <textarea name="post-title"
+                              id="postTitleInput"
+                              class="post-title-input"
+                              cols="35"
+                              rows="2"
+                              placeholder="заголовок"
+                              maxlength="50"></textarea>
+                    <p id="titleValidation" class="validationMessage">введите заголовок</p>
+                </div>
+                <div class="inputWrapper">
+                    <textarea name="post-text"
+                              id="postTextInput"
+                              class="post-text-input"
+                              cols="35"
+                              rows="6"
+                              placeholder="описание поста"
+                              maxlength="200"></textarea>
+                    <p id="textValidation" class="validationMessage">введите текст</p>
+                </div>
+                <button id="newPostButton"
+                        class="new-post-button">Опубликовать
+                </button>
             </div>
-            <div class="inputWrapper">
-                <textarea name="post-text"
-                          id="postTextInput"
-                          class="post-text-input"
-                          cols="36"
-                          rows="6"
-                          placeholder="описание поста"
-                          maxlength="201"></textarea>
-            </div>
-            <button id="newPostButton"
-                    class="new-post-button">Опубликовать
-            </button>
         </div>
         <div class="container__right-col">
             <h2 class="app-subtitle">

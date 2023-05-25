@@ -14,8 +14,8 @@ h2 {
 
 textarea,
 button {
-    display: block;
-    padding: 1vw;
+    /* display: block; */
+    padding: .5vw;
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
@@ -59,11 +59,26 @@ textarea {
     
 }
 
+.inputsButtonWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 3vw;
+}
+
 .inputWrapper {
+    position: relative;
     display: flex;
     justify-content: center;
     border: 0.3vw solid black;
     border-radius: 2vw;
+}
+
+.validationMessage {
+    position: absolute;
+    left: 1vw;
+    bottom: -2.5vw;
+    font-size: 1.2vw;
+    word-wrap: none;
 }
 
 .postList{
