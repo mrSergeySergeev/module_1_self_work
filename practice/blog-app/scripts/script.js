@@ -22,6 +22,7 @@ function checkTitle() {
         titleValidationNode.innerText = INIT_TITLE_VALIDATION_MESSAGE;
         return;
     };
+
     if (titleCheck.length >= ZERO) {
         titleValidationNode.innerText = `${INIT_TITLE_VALIDATION_MESSAGE}. осталось:${TITLE_VALIDATION_MAX_SUM_SYMBOLS - titleCheck.length} символов`;
         return;
@@ -31,11 +32,14 @@ function checkTitle() {
 
 function checkText() {
     const textString = textInputNode.value;
+
     let textCheck = textString.split('');
+
     if (textCheck.length <= ZERO) {
         textValidationNode.innerText = INIT_TEXT_VALIDATION_MESSAGE;
         return;
     };
+
     if (textCheck.length >= ZERO) {
         textValidationNode.innerText = `${INIT_TEXT_VALIDATION_MESSAGE}. осталось:${TEXT_VALIDATION_MAX_SUM_SYMBOLS - textCheck.length} символов`;
         return;
@@ -48,11 +52,12 @@ initPostList = () => {
 
     let post = { title: currentTitle, text: currentText, }
 
-    posts.push(post);    
+    posts.push(post);
 };
 
 renderPostList = () => {
     postsListNode.innerHTML = '';
+    
     posts.forEach(post => {
         const listItem = document.createElement("li");
         listItem.className = "postItem";
