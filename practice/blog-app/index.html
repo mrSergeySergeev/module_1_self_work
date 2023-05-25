@@ -8,46 +8,37 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="resources/fav-icon.png" type="image/png">
     <link rel="stylesheet" href="../../styles/reset.css">
     <link rel="stylesheet" href="main.css">
     <title>Блог</title>
 </head>
 
 <body>
-    <div id="popup" class="popup">
-        <div id="popupContent" class="popup__content">
-            <p class="popup__title">Введите <br> заголовок</p>
-            <p class="popup__title">Введите <br> описание</p>
-            <p class="popup__title">Перебор<br>символов<br>заголовкА</p>
-            <p class="popup__title">Перебор<br>символов<br>описаниЯ</p>
-            <p class="popup__title">Что-то<br>не так,<br>не понятно...</p>
-            <button id="popupCloseButton" class="popup__closeButton">Ок</button>
-        </div>
-    </div>
     <div class="container">
         <div class="container__left-col">
             <h1 class="app-title">Приложение Блог</h1>
             <h2 class="app-subtitle">Новый пост</h2>
             <div class="inputWrapper">
                 <textarea name="post-title"
-                    id="postTitleInput"
-                    class="post-title-input"
-                    cols="36"
-                    rows="3"
-                    placeholder="заголовок"
-                    maxlength="101"></textarea>
+                          id="postTitleInput"
+                          class="post-title-input"
+                          cols="36"
+                          rows="3"
+                          placeholder="заголовок"
+                          maxlength="101"></textarea>
             </div>
             <div class="inputWrapper">
-                <textarea name="post-description"
-                    id="postDescriptionInput"
-                    class="post-description-input"
-                    cols="36"
-                    rows="6"
-                    placeholder="описание поста"
-                    maxlength="201"></textarea>
+                <textarea name="post-text"
+                          id="postTextInput"
+                          class="post-text-input"
+                          cols="36"
+                          rows="6"
+                          placeholder="описание поста"
+                          maxlength="201"></textarea>
             </div>
             <button id="newPostButton"
-                class="new-post-button">Опубликовать
+                    class="new-post-button">Опубликовать
             </button>
         </div>
         <div class="container__right-col">
@@ -57,12 +48,7 @@
             <ul id="postList" class="postList"></ul>
         </div>
     </div>
-    <script src="scripts/1variable-declarations.js"></script>
-    <script src="scripts/2form-a-post.js"></script>
-    <script src="scripts/3render-list.js"></script>
-    <script src="scripts/4popup.js"></script>
-    <script src="scripts/9functions.js"></script>
-
+    <script src="scripts/script.js"></script>
 </body>
 
 </html>
