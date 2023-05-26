@@ -57,7 +57,7 @@ initDate = () => {
         month: 'long',
         day: 'numeric',
         weekday: 'long',
-        timezone: 'UTC',
+        //timezone: 'UTC',
         hour: 'numeric',
         minute: 'numeric',
         second: 'numeric'
@@ -107,7 +107,7 @@ function initialValues() {
 
 // обработчик кнопки "опубликовать"
 function newPostHandler() {
-    initPostList();
+    initPostList();    
     renderPostList();
     initialValues();
 };

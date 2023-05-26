@@ -89,4 +89,5 @@ textarea {
 .postItem {
     width: 100%;
     word-wrap: break-word;
+    border-bottom: .3vw solid black;
 }
