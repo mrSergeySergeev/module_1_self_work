@@ -1,10 +1,10 @@
 const ZERO = 0;
 const INIT_TITLE_VALIDATION_MESSAGE = 'введите заголовок';
 const TITLE_VALIDATION_MAX_SUM_SYMBOLS = 50;
-const INIT_TEXT_VALIDATION_MESSAGE = 'введите текст';
+const INIT_TEXT_VALIDATION_MESSAGE = 'введите текст поста';
 const TEXT_VALIDATION_MAX_SUM_SYMBOLS = 200;
 
-const posts = [];
+let posts = [];
 
 const titleInputNode = document.getElementById('postTitleInput');
 const textInputNode = document.getElementById('postTextInput');
@@ -81,10 +81,23 @@ initPostList = () => {
     let post = { title: currentTitle, text: currentText, date: currentDate, }
 
     posts.push(post);
+
+    localStorage.setItem("historyOfPosts", JSON.stringify(posts));
     console.log(posts);
 };
 
-// функция отрисовки поств
+// функция проверки localStorage
+function initHistoryOfPosts() {
+    const historyFromStorage = JSON.parse(localStorage.getItem("historyOfPosts"));
+    if (Array.isArray(historyFromStorage)) {
+        posts = historyFromStorage;
+        renderPostList();
+    } else {
+        return;
+    };
+};
+
+// функция отрисовки постов
 renderPostList = () => {
     postsListNode.innerHTML = '';
 
@@ -99,6 +112,15 @@ renderPostList = () => {
 
 // функция для возвращения исходных значений ввода
 function initialValues() {
+    if (!titleInputNode.value || titleInputNode.value.length === 0) {
+        textValidationNode.innerText = INIT_TITLE_VALIDATION_MESSAGE;
+        return;
+    }
+    if (!textInputNode.value || textInputNode.value.length === 0) {
+        titleValidationNode.innerText = INIT_TEXT_VALIDATION_MESSAGE;
+        return;
+    }
+
     textInputNode.value = "";
     titleInputNode.value = "";
     titleValidationNode.innerText = INIT_TITLE_VALIDATION_MESSAGE;
@@ -112,6 +134,7 @@ function newPostHandler() {
     initialValues();
 };
 
+initHistoryOfPosts();
 titleInputNode.addEventListener('input', checkTitle);
 textInputNode.addEventListener('input', checkText);
 newPostButtonNode.addEventListener('click', newPostHandler);
