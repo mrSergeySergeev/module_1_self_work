@@ -13,6 +13,7 @@ const newPostButtonNode = document.getElementById('newPostButton');
 const titleValidationNode = document.getElementById('titleValidation');
 const textValidationNode = document.getElementById('textValidation');
 
+// функция валидации заголовка поста
 function checkTitle() {
     const titleString = titleInputNode.value;
 
@@ -23,13 +24,14 @@ function checkTitle() {
         return;
     };
 
-    if (titleCheck.length >= ZERO) {
+    if (titleCheck.length > ZERO) {
         titleValidationNode.innerText = `${INIT_TITLE_VALIDATION_MESSAGE}. осталось:${TITLE_VALIDATION_MAX_SUM_SYMBOLS - titleCheck.length} символов`;
         return;
     };
 
 };
 
+// функция валидации текста поста
 function checkText() {
     const textString = textInputNode.value;
 
@@ -40,33 +42,62 @@ function checkText() {
         return;
     };
 
-    if (textCheck.length >= ZERO) {
+    if (textCheck.length > ZERO) {
         textValidationNode.innerText = `${INIT_TEXT_VALIDATION_MESSAGE}. осталось:${TEXT_VALIDATION_MAX_SUM_SYMBOLS - textCheck.length} символов`;
         return;
     };
 }
 
+// функция формирования времени поста
+initDate = () => {
+    let date = new Date();
+    let options = {
+       // era: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        weekday: 'long',
+        timezone: 'UTC',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric'
+    };
+    const currentDate = date.toLocaleString("ru", options);
+    return currentDate;
+}
+
+// функция формирования массива постов
 initPostList = () => {
+    const currentDate = initDate();
     const currentTitle = titleInputNode.value;
     const currentText = textInputNode.value;
+    if (!currentTitle) {
+        return;
+    };
+    if (!currentText) {
+        return;
+    };
 
-    let post = { title: currentTitle, text: currentText, }
+    let post = { title: currentTitle, text: currentText, date: currentDate, }
 
     posts.push(post);
+    console.log(posts);
 };
 
+// функция отрисовки поств
 renderPostList = () => {
     postsListNode.innerHTML = '';
-    
+
     posts.forEach(post => {
         const listItem = document.createElement("li");
         listItem.className = "postItem";
-        listItem.innerHTML = `<h2>${post.title}</h2><p>${post.text}</p>`;
+        listItem.innerHTML = `<p>${post.date}</p><h2>${post.title}</h2><p>${post.text}</p>`;
 
         postsListNode.appendChild(listItem);
     });
 };
 
+// функция для возвращения исходных значений ввода
 function initialValues() {
     textInputNode.value = "";
     titleInputNode.value = "";
@@ -74,6 +105,7 @@ function initialValues() {
     textValidationNode.innerText = INIT_TEXT_VALIDATION_MESSAGE;
 }
 
+// обработчик кнопки "опубликовать"
 function newPostHandler() {
     initPostList();
     renderPostList();
