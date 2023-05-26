@@ -128,7 +128,8 @@ function limitChangeButtonHandler() {
 
 const clearButtonHandler = () => {
     expenses = [];
-    localStorage.clear();
+    localStorage.removeItem("limit");
+    localStorage.removeItem("history");
     render();    
 };
 

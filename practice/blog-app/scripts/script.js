@@ -10,6 +10,7 @@ const titleInputNode = document.getElementById('postTitleInput');
 const textInputNode = document.getElementById('postTextInput');
 const postsListNode = document.getElementById('postList');
 const newPostButtonNode = document.getElementById('newPostButton');
+const resetButtonNode = document.getElementById('resetButton');
 const titleValidationNode = document.getElementById('titleValidation');
 const textValidationNode = document.getElementById('textValidation');
 
@@ -125,6 +126,12 @@ function initialValues() {
     titleInputNode.value = "";
     titleValidationNode.innerText = INIT_TITLE_VALIDATION_MESSAGE;
     textValidationNode.innerText = INIT_TEXT_VALIDATION_MESSAGE;
+};
+
+// функция удаления из  localStorage
+function resetHistoryOfPosts() {
+    posts = [];
+    localStorage.removeItem("historyOfPosts");
 }
 
 // обработчик кнопки "опубликовать"
@@ -134,7 +141,14 @@ function newPostHandler() {
     initialValues();
 };
 
+// обработчик кнопки "очистить"
+function resetHistoryHandler () {
+    resetHistoryOfPosts();
+    renderPostList();
+};
+
 initHistoryOfPosts();
 titleInputNode.addEventListener('input', checkTitle);
 textInputNode.addEventListener('input', checkText);
 newPostButtonNode.addEventListener('click', newPostHandler);
+resetButtonNode.addEventListener('click', resetHistoryHandler);
