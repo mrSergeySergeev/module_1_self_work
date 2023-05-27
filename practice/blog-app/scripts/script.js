@@ -26,10 +26,9 @@ function checkTitle() {
     };
 
     if (titleCheck.length > ZERO) {
-        titleValidationNode.innerText = `${INIT_TITLE_VALIDATION_MESSAGE}. осталось:${TITLE_VALIDATION_MAX_SUM_SYMBOLS - titleCheck.length} символов`;
+        titleValidationNode.innerText = `Осталось ${TITLE_VALIDATION_MAX_SUM_SYMBOLS - titleCheck.length} символов`;
         return;
     };
-
 };
 
 // функция валидации текста поста
@@ -44,16 +43,29 @@ function checkText() {
     };
 
     if (textCheck.length > ZERO) {
-        textValidationNode.innerText = `${INIT_TEXT_VALIDATION_MESSAGE}. осталось:${TEXT_VALIDATION_MAX_SUM_SYMBOLS - textCheck.length} символов`;
+        textValidationNode.innerText = `Осталось ${TEXT_VALIDATION_MAX_SUM_SYMBOLS - textCheck.length} символов`;
         return;
     };
 }
+
+// функция проверки состояния кнопки
+checkButton = () => {
+    const titleString = titleInputNode.value.length;
+    const textString = textInputNode.value.length;
+    if (titleString === ZERO || textString === ZERO || !titleString || !textString) {
+        newPostButtonNode.disabled = true;
+        return;
+    } else {
+        newPostButtonNode.disabled = false;
+    };
+}
+
 
 // функция формирования времени поста
 initDate = () => {
     let date = new Date();
     let options = {
-       // era: 'long',
+        // era: 'long',
         year: 'numeric',
         month: 'long',
         day: 'numeric',
@@ -65,7 +77,7 @@ initDate = () => {
     };
     const currentDate = date.toLocaleString("ru", options);
     return currentDate;
-}
+};
 
 // функция формирования массива постов
 initPostList = () => {
@@ -113,19 +125,11 @@ renderPostList = () => {
 
 // функция для возвращения исходных значений ввода
 function initialValues() {
-    if (!titleInputNode.value || titleInputNode.value.length === 0) {
-        textValidationNode.innerText = INIT_TITLE_VALIDATION_MESSAGE;
-        return;
-    }
-    if (!textInputNode.value || textInputNode.value.length === 0) {
-        titleValidationNode.innerText = INIT_TEXT_VALIDATION_MESSAGE;
-        return;
-    }
-
     textInputNode.value = "";
     titleInputNode.value = "";
     titleValidationNode.innerText = INIT_TITLE_VALIDATION_MESSAGE;
     textValidationNode.innerText = INIT_TEXT_VALIDATION_MESSAGE;
+    newPostButtonNode.disabled = true;
 };
 
 // функция удаления из  localStorage
@@ -136,19 +140,29 @@ function resetHistoryOfPosts() {
 
 // обработчик кнопки "опубликовать"
 function newPostHandler() {
-    initPostList();    
+    initPostList();
     renderPostList();
     initialValues();
 };
 
 // обработчик кнопки "очистить"
-function resetHistoryHandler () {
+function resetHistoryHandler() {
     resetHistoryOfPosts();
     renderPostList();
 };
 
+function titleHandler() {
+    checkTitle();
+    checkButton();
+};
+
+function textHandler() {
+    checkText();
+    checkButton();
+}
+
 initHistoryOfPosts();
-titleInputNode.addEventListener('input', checkTitle);
-textInputNode.addEventListener('input', checkText);
+titleInputNode.addEventListener('input', titleHandler);
+textInputNode.addEventListener('input', textHandler);
 newPostButtonNode.addEventListener('click', newPostHandler);
 resetButtonNode.addEventListener('click', resetHistoryHandler);
