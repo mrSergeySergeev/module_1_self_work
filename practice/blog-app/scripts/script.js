@@ -25,9 +25,11 @@ function checkTitle() {
         return;
     };
 
-    if (titleCheck.length > ZERO) {
+    if (titleCheck.length > ZERO && titleCheck.length <= TITLE_VALIDATION_MAX_SUM_SYMBOLS) {
         titleValidationNode.innerText = `Осталось ${TITLE_VALIDATION_MAX_SUM_SYMBOLS - titleCheck.length} символов`;
         return;
+    } else {
+        titleValidationNode.innerText = `Длина заголовка превышена${TITLE_VALIDATION_MAX_SUM_SYMBOLS - titleCheck.length} символов`;
     };
 };
 
@@ -42,11 +44,13 @@ function checkText() {
         return;
     };
 
-    if (textCheck.length > ZERO) {
+    if (textCheck.length > ZERO && textCheck.length <= TEXT_VALIDATION_MAX_SUM_SYMBOLS) {
         textValidationNode.innerText = `Осталось ${TEXT_VALIDATION_MAX_SUM_SYMBOLS - textCheck.length} символов`;
         return;
+    } else {
+        textValidationNode.innerText = `Длина текста поста превышена${TEXT_VALIDATION_MAX_SUM_SYMBOLS - textCheck.length} символов`;
     };
-}
+};
 
 // функция проверки состояния кнопки
 checkButton = () => {
