@@ -3,6 +3,7 @@ const INIT_TITLE_VALIDATION_MESSAGE = 'введите заголовок';
 const TITLE_VALIDATION_MAX_SUM_SYMBOLS = 50;
 const INIT_TEXT_VALIDATION_MESSAGE = 'введите текст поста';
 const TEXT_VALIDATION_MAX_SUM_SYMBOLS = 200;
+const MIN_SYMBOLS_IN_INPUTS = 10;
 
 let posts = [];
 
@@ -59,7 +60,7 @@ function checkEndingStringText() {
     endingStringText = endingStringText.join('')
     console.log(endingStringText);
 
-    if (endingStringText >= 11 && endingStringTitle <= 14) {
+    if (endingStringText >= 11 && endingStringText <= 14) {
         endingStringText = 'ов';
         return endingStringText;
     } else {
@@ -92,7 +93,7 @@ function checkTitle() {
     let titleCheck = titleString.split('');
 
     checkEndingStringTitle();
-    if (titleCheck.length <= ZERO) {
+    if (titleCheck.length == ZERO) {
         titleValidationNode.innerText = INIT_TITLE_VALIDATION_MESSAGE;
         return;
     };
@@ -106,7 +107,7 @@ function checkTitle() {
 };
 
 // функция валидации текста поста
-function checkText(endingStringText) {
+function checkText() {
     const textString = textInputNode.value;
 
     let textCheck = textString.split('');
