@@ -29,7 +29,7 @@ function checkEndingStringTitle() {
     } else {
         endingStringTitle = endingStringTitle.split('');
     };
-         
+
     endingStringTitle = endingStringTitle[endingStringTitle.length - 1];
     if (endingStringTitle == 0) {
         endingStringTitle = 'ов';
@@ -55,6 +55,16 @@ function checkEndingStringText() {
     let endingStringText = TEXT_VALIDATION_MAX_SUM_SYMBOLS - textInputNode.value.length;
     endingStringText = String(endingStringText);
     endingStringText = endingStringText.split('');
+    endingStringText= endingStringText.slice('-2');
+    endingStringText = endingStringText.join('')
+    console.log(endingStringText);
+
+    if (endingStringText >= 11 && endingStringTitle <= 14) {
+        endingStringText = 'ов';
+        return endingStringText;
+    } else {
+        endingStringText = endingStringText.split('');
+    };
     endingStringText = endingStringText[endingStringText.length - 1];
     if (endingStringText == 0) {
         endingStringText = 'ов';
