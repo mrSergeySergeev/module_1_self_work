@@ -17,8 +17,19 @@ const textValidationNode = document.getElementById('textValidation');
 // функция опредения окончания строки заголовка
 function checkEndingStringTitle() {
     let endingStringTitle = TITLE_VALIDATION_MAX_SUM_SYMBOLS - titleInputNode.value.length;
-    endingStringTitle = String(endingStringTitle);
+    endingStringTitle = String(endingStringTitle);  
     endingStringTitle = endingStringTitle.split('');
+    endingStringTitle = endingStringTitle.slice('-2');
+    endingStringTitle = endingStringTitle.join('')
+    console.log(endingStringTitle);
+
+    if (endingStringTitle >= 11 && endingStringTitle <= 14) {
+        endingStringTitle = 'ов';
+        return endingStringTitle;
+    } else {
+        endingStringTitle = endingStringTitle.split('');
+    };
+         
     endingStringTitle = endingStringTitle[endingStringTitle.length - 1];
     if (endingStringTitle == 0) {
         endingStringTitle = 'ов';
