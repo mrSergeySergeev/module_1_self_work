@@ -50,7 +50,7 @@ function checkEndingStringTitle() {
         return endingStringTitle;
     };
     return endingStringTitle;    
-}
+};
 
 // функция опредения окончания строки текста поста
 function checkEndingStringText() {
