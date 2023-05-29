@@ -46,8 +46,19 @@ input {
     border-radius: inherit;
 }
 
+button {
+    width: 100%;
+    transition:  background-color .3s ease, color .3s ease, opacity .3s ease;
+}
+
+button:hover {
+    opacity: .7;
+    background-color: #ffa500;
+    color: #0a0a0a;
+}
+
 .universal-wrapper {
-    width: 500px;
+    width: 700px;
     display: flex;
     justify-content: center;
     border: solid .2vw;
@@ -67,4 +78,28 @@ input {
 
 input::placeholder {
     color: #ffa500;
+}
+
+.film-list {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+}
+
+@media (max-width: 1000px) {
+    .film-list {
+        gap: 2vw;
+    }
+}
+
+.film-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: .2vw solid #ffa500;
+}
+
+.film-item__check,
+.film-item__name,
+.film-item__delete {
+    width: max-content;
 }
