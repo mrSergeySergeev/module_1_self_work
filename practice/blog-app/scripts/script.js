@@ -86,19 +86,24 @@ function checkEndingStringText() {
     return endingStringText;    
 };
 
+
 // функция валидации заголовка поста
 function checkTitle() {
     const titleString = titleInputNode.value;
 
     let titleCheck = titleString.split('');
 
-    checkEndingStringTitle();
     if (titleCheck.length == ZERO) {
         titleValidationNode.innerText = INIT_TITLE_VALIDATION_MESSAGE;
         return;
     };
 
-    if (titleCheck.length > ZERO && titleCheck.length <= TITLE_VALIDATION_MAX_SUM_SYMBOLS) {
+    if (titleCheck.length > ZERO && titleCheck.length < MIN_SYMBOLS_IN_INPUTS) {
+        titleValidationNode.innerText = `Введите ещё ${MIN_SYMBOLS_IN_INPUTS - titleCheck.length} символ${checkEndingStringTitle()}`;
+        return;
+    };
+
+    if (titleCheck.length >= MIN_SYMBOLS_IN_INPUTS && titleCheck.length <= TITLE_VALIDATION_MAX_SUM_SYMBOLS) {
         titleValidationNode.innerText = `Осталось ${TITLE_VALIDATION_MAX_SUM_SYMBOLS - titleCheck.length} символ${checkEndingStringTitle()}`;
         return;
     } else {
@@ -117,7 +122,12 @@ function checkText() {
         return;
     };
 
-    if (textCheck.length > ZERO && textCheck.length <= TEXT_VALIDATION_MAX_SUM_SYMBOLS) {
+    if (textCheck.length > ZERO && textCheck.length < MIN_SYMBOLS_IN_INPUTS) {
+        textValidationNode.innerText = `Введите ещё ${MIN_SYMBOLS_IN_INPUTS - textCheck.length} символ${checkEndingStringTitle()}`;
+        return;
+    };
+
+    if (textCheck.length >= MIN_SYMBOLS_IN_INPUTS && textCheck.length <= TEXT_VALIDATION_MAX_SUM_SYMBOLS) {
         textValidationNode.innerText = `Осталось ${TEXT_VALIDATION_MAX_SUM_SYMBOLS - textCheck.length} символ${checkEndingStringText()}`;
         return;
     } else {
@@ -129,7 +139,7 @@ function checkText() {
 checkButton = () => {
     const titleString = titleInputNode.value.length;
     const textString = textInputNode.value.length;
-    if (titleString === ZERO || textString === ZERO || !titleString || !textString) {
+    if (titleString === ZERO || textString === ZERO || !titleString || !textString || titleString < MIN_SYMBOLS_IN_INPUTS || textString < MIN_SYMBOLS_IN_INPUTS || titleString > TITLE_VALIDATION_MAX_SUM_SYMBOLS || textString > TEXT_VALIDATION_MAX_SUM_SYMBOLS) {
         newPostButtonNode.disabled = true;
         return;
     } else {
