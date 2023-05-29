@@ -3,7 +3,8 @@ const INIT_TITLE_VALIDATION_MESSAGE = 'введите заголовок';
 const TITLE_VALIDATION_MAX_SUM_SYMBOLS = 50;
 const INIT_TEXT_VALIDATION_MESSAGE = 'введите текст поста';
 const TEXT_VALIDATION_MAX_SUM_SYMBOLS = 200;
-const MIN_SYMBOLS_IN_INPUTS = 10;
+const MIN_SYMBOLS_IN_INPUT_TITLE = 3;
+const MIN_SYMBOLS_IN_INPUT_TEXT = 10;
 
 let posts = [];
 
@@ -98,12 +99,12 @@ function checkTitle() {
         return;
     };
 
-    if (titleCheck.length > ZERO && titleCheck.length < MIN_SYMBOLS_IN_INPUTS) {
-        titleValidationNode.innerText = `Введите ещё ${MIN_SYMBOLS_IN_INPUTS - titleCheck.length} символ${checkEndingStringTitle()}`;
+    if (titleCheck.length > ZERO && titleCheck.length < MIN_SYMBOLS_IN_INPUT_TITLE) {
+        titleValidationNode.innerText = `Введите ещё ${MIN_SYMBOLS_IN_INPUT_TITLE - titleCheck.length} символ${checkEndingStringTitle()}`;
         return;
     };
 
-    if (titleCheck.length >= MIN_SYMBOLS_IN_INPUTS && titleCheck.length <= TITLE_VALIDATION_MAX_SUM_SYMBOLS) {
+    if (titleCheck.length >= MIN_SYMBOLS_IN_INPUT_TITLE && titleCheck.length <= TITLE_VALIDATION_MAX_SUM_SYMBOLS) {
         titleValidationNode.innerText = `Осталось ${TITLE_VALIDATION_MAX_SUM_SYMBOLS - titleCheck.length} символ${checkEndingStringTitle()}`;
         return;
     } else {
@@ -122,12 +123,12 @@ function checkText() {
         return;
     };
 
-    if (textCheck.length > ZERO && textCheck.length < MIN_SYMBOLS_IN_INPUTS) {
-        textValidationNode.innerText = `Введите ещё ${MIN_SYMBOLS_IN_INPUTS - textCheck.length} символ${checkEndingStringTitle()}`;
+    if (textCheck.length > ZERO && textCheck.length < MIN_SYMBOLS_IN_INPUT_TEXT) {
+        textValidationNode.innerText = `Введите ещё ${MIN_SYMBOLS_IN_INPUT_TEXT - textCheck.length} символ${checkEndingStringTitle()}`;
         return;
     };
 
-    if (textCheck.length >= MIN_SYMBOLS_IN_INPUTS && textCheck.length <= TEXT_VALIDATION_MAX_SUM_SYMBOLS) {
+    if (textCheck.length >= MIN_SYMBOLS_IN_INPUT_TEXT && textCheck.length <= TEXT_VALIDATION_MAX_SUM_SYMBOLS) {
         textValidationNode.innerText = `Осталось ${TEXT_VALIDATION_MAX_SUM_SYMBOLS - textCheck.length} символ${checkEndingStringText()}`;
         return;
     } else {
@@ -139,7 +140,7 @@ function checkText() {
 checkButton = () => {
     const titleString = titleInputNode.value.length;
     const textString = textInputNode.value.length;
-    if (titleString === ZERO || textString === ZERO || !titleString || !textString || titleString < MIN_SYMBOLS_IN_INPUTS || textString < MIN_SYMBOLS_IN_INPUTS || titleString > TITLE_VALIDATION_MAX_SUM_SYMBOLS || textString > TEXT_VALIDATION_MAX_SUM_SYMBOLS) {
+    if (titleString === ZERO || textString === ZERO || !titleString || !textString || titleString < MIN_SYMBOLS_IN_INPUT_TITLE || textString < MIN_SYMBOLS_IN_INPUT_TEXT || titleString > TITLE_VALIDATION_MAX_SUM_SYMBOLS || textString > TEXT_VALIDATION_MAX_SUM_SYMBOLS) {
         newPostButtonNode.disabled = true;
         return;
     } else {
