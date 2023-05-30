@@ -29,10 +29,19 @@ function checkButton() {
     };
 }
 
-function initFilmList() {
+
+// функция считывает фильмы, прописанные в html-разметке
+function initHtmlFilmList() {
     let filmName = filmNameNode;        
-    console.log(filmName[0]);
-    return;
+    // console.log(filmName.length);
+    for (let i = 0; i < filmName.length; i++){
+        console.log(filmName[i].outerText)
+        filmName[i] = filmName[i].outerText;
+        films.push(filmName[i].outerText);
+        console.log(films);
+    };
+
+    return films;
 }
 
 
@@ -49,4 +58,4 @@ function initInputHandler() {
 };
 
 filmInputNode.addEventListener('input', initInputHandler);
-addFilmButtonNode.addEventListener('click', initFilmList);
+addFilmButtonNode.addEventListener('click', initHtmlFilmList);
