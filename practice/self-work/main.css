@@ -133,6 +133,7 @@ input::placeholder {
 }
 
 .inputWrapper {
+    position: relative;
     width: 80%;
     display: flex;
     justify-content: center;
@@ -141,6 +142,20 @@ input::placeholder {
     border-radius: 10vw;
 }
 
+.validationMessage {
+    position: absolute;
+    left: 20px;
+    bottom: -28px;
+    font-size: 14px;
+}
+
+@media (max-width: 1000px) {
+    .validationMessage {
+        left: 2vw;
+        bottom: -3vw;
+        font-size: 1.4vw;
+    }
+}
 
 .film-list {
     display: flex;
