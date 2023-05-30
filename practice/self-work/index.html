@@ -17,29 +17,40 @@
 <body>
     <div class="container">
         <h1>Это самостоятельный проект по JS!!!</h1>
-        <div class="universal-wrapper">
-            <input type="text" placeholder="Сюда название фильма">
+        <div class="backgroundWrapper">
+            <div class="addFilmForm">
+                <div class="inputWrapper">
+                    <input type="text"
+                           placeholder="Сюда название фильма">
+                </div>
+                <button disabled class="addButton">
+                    <div class="addButton__wrapper">
+                        <div class="addButton__arrow">
+                        </div>
+                    </div>
+                </button>
+            </div>
+            <ul class="film-list">
+                <li class="film-item">
+                    <input id="checkFilm2" class="film-item__check" type="checkbox">
+                    <label for="checkFilm2"></label>
+                    <p class="film-item__name">Мстители. Финал</p>
+                    <button class="film-item__delete">X</button>
+                </li>
+                <li class="film-item">
+                    <input id="checkFilm1" class="film-item__check" type="checkbox">
+                    <label for="checkFilm1"></label>
+                    <p class="film-item__name film-item__name-disabled">Приключения Шурика</p>
+                    <button class="film-item__delete">X</button>
+                </li>
+                <li class="film-item">
+                    <input id="checkFilm" class="film-item__check" type="checkbox">
+                    <label for="checkFilm"></label>
+                    <p class="film-item__name">Белое солнце пустыни</p>
+                    <button class="film-item__delete">X</button>
+                </li>
+            </ul>
         </div>
-        <div class="universal-wrapper">
-            <button>добавить фильм</button>
-        </div>
-        <ul class="film-list">
-            <li class="film-item">
-                <input class="film-item__check" type="checkbox">
-                <p class="film-item__name">Мстители. Финал</p>
-                <button class="film-item__delete">x</button>
-            </li>
-            <li class="film-item">
-                <input class="film-item__check" type="checkbox">
-                <p class="film-item__name">Приключения Шурика</p>
-                <button class="film-item__delete">x</button>
-            </li>
-            <li class="film-item">
-                <input class="film-item__check" type="checkbox">
-                <p class="film-item__name">Белое солнце пустыни</p>
-                <button class="film-item__delete">x</button>
-            </li>
-        </ul>
     </div>
 </body>
 
