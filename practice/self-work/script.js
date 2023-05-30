@@ -20,6 +20,7 @@ function checkInput() {
     };
 };
 
+// чекаем кнопку по длине строки инпута
 function checkButton() {
     const lengthString = filmInputNode.value.length;
     if (lengthString > ZERO && lengthString <= MAX_SYMBOLS_IN_INPUT) {
@@ -29,11 +30,9 @@ function checkButton() {
     };
 }
 
-
 // функция считывает фильмы, прописанные в html-разметке
 function initHtmlFilmList() {
     let filmName = filmNameNode;        
-    // console.log(filmName.length);
     for (let i = 0; i < filmName.length; i++){
         console.log(filmName[i].outerText)
         filmName[i] = filmName[i].outerText;
