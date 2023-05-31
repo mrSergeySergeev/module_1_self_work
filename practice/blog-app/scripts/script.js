@@ -19,7 +19,7 @@ const textValidationNode = document.getElementById('textValidation');
 // функция опредения окончания строки заголовка
 function checkEndingStringTitle() {
     let endingStringTitle = TITLE_VALIDATION_MAX_SUM_SYMBOLS - titleInputNode.value.length;
-    endingStringTitle = String(endingStringTitle);  
+    endingStringTitle = String(endingStringTitle);
     endingStringTitle = endingStringTitle.split('');
     endingStringTitle = endingStringTitle.slice('-2');
     endingStringTitle = endingStringTitle.join('')
@@ -44,12 +44,12 @@ function checkEndingStringTitle() {
     if (endingStringTitle > 1 && endingStringTitle <= 4) {
         endingStringTitle = 'a';
         return endingStringTitle;
-    }  
-    if (endingStringTitle > 4 && endingStringTitle <=9) {
+    }
+    if (endingStringTitle > 4 && endingStringTitle <= 9) {
         endingStringTitle = 'ов';
         return endingStringTitle;
     };
-    return endingStringTitle;    
+    return endingStringTitle;
 };
 
 // функция опредения окончания строки текста поста
@@ -57,7 +57,7 @@ function checkEndingStringText() {
     let endingStringText = TEXT_VALIDATION_MAX_SUM_SYMBOLS - textInputNode.value.length;
     endingStringText = String(endingStringText);
     endingStringText = endingStringText.split('');
-    endingStringText= endingStringText.slice('-2');
+    endingStringText = endingStringText.slice('-2');
     endingStringText = endingStringText.join('')
     console.log(endingStringText);
 
@@ -79,12 +79,12 @@ function checkEndingStringText() {
     if (endingStringText > 1 && endingStringText <= 4) {
         endingStringText = 'a';
         return endingStringText;
-    }  
-    if (endingStringText > 4 && endingStringText <=9) {
+    }
+    if (endingStringText > 4 && endingStringText <= 9) {
         endingStringText = 'ов';
         return endingStringText;
     };
-    return endingStringText;    
+    return endingStringText;
 };
 
 
@@ -137,7 +137,7 @@ function checkText() {
 };
 
 // функция проверки состояния кнопки
-checkButton = () => {
+function checkButton() {
     const titleString = titleInputNode.value.length;
     const textString = textInputNode.value.length;
     if (titleString === ZERO || textString === ZERO || !titleString || !textString || titleString < MIN_SYMBOLS_IN_INPUT_TITLE || textString < MIN_SYMBOLS_IN_INPUT_TEXT || titleString > TITLE_VALIDATION_MAX_SUM_SYMBOLS || textString > TEXT_VALIDATION_MAX_SUM_SYMBOLS) {
@@ -150,7 +150,7 @@ checkButton = () => {
 
 
 // функция формирования времени поста
-initDate = () => {
+function initDate() {
     let date = new Date();
     let options = {
         // era: 'long',
@@ -168,7 +168,7 @@ initDate = () => {
 };
 
 // функция формирования массива постов
-initPostList = () => {
+function initPostList() {
     const currentDate = initDate();
     const currentTitle = titleInputNode.value;
     const currentText = textInputNode.value;
@@ -199,7 +199,7 @@ function initHistoryOfPosts() {
 };
 
 // функция отрисовки постов
-renderPostList = () => {
+function renderPostList() {
     postsListNode.innerHTML = '';
 
     posts.forEach(post => {
