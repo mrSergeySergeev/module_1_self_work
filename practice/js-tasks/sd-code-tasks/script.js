@@ -1,89 +1,108 @@
-
 // task#1
-const a = 4;
-const b = 2;
-
+const numberMessage = 'введите число';
+const buttonTask1Node = document.getElementById('task1');
 const mutiple = () => {
-    return a + b;
+    const a = parseInt(prompt(numberMessage));
+    const b = parseInt(prompt(numberMessage));
+    alert(a * b);
 }
 
-console.log(mutiple());
+buttonTask1Node.addEventListener('click', mutiple);
 
 // task#2
-const day = 23;
-const mounth = 5;
-const year = 2011;
+const dayMessage = 'введите день(от 1 до 31)';
+const yearMessage = 'введите год(4 чифры)';
+const buttonTask2Node = document.getElementById('task2');
 
 const buildDate = () => {
-    const currentDate = `${day}/${mounth}/${year}`;
-    return currentDate;
-}
+    const day = parseInt(prompt(dayMessage));
+    const mounth = getMounthByNumber();
+    const year = parseInt(prompt(yearMessage));
 
-console.log(buildDate());
+    const currentDate = `${day}/${mounth}/${year}`;
+    alert(currentDate);
+};
+
+buttonTask2Node.addEventListener('click', buildDate);
 
 // task#3
-const age = 12;
+const ageMessage = 'Введите возраст';
+const buttonTask3Node = document.getElementById('task3');
 
 const isAdult = () => {
+    const age = parseInt(prompt(ageMessage));
     let boolean;
     if (age >= 18) {
         boolean = true;
     } else {
         boolean = false;
     };
-    return boolean;
+    alert(boolean);
 };
 
-console.log(isAdult());
+buttonTask3Node.addEventListener('click', isAdult);
 
 // task#4
-
-const promtMessage = 'Введите месяц'
-const mounthArray = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь', 'ошибка...']
-
+const buttonTask4Node = document.getElementById('task4');
+const promtMessage = 'Введите месяц(от 1 до 12)'
+const mounthArray = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь', 'ошибка...'];
 const getMounthByNumber = () => {
-    const currentMounth = parseInt(prompt(promtMessage));
+    let currentMounth = parseInt(prompt(promtMessage));
     switch (currentMounth) {
         case 1:
-            console.log(mounthArray[0]);
+            alert(mounthArray[0]);
+            currentMounth = mounthArray[0];
             break;
         case 2:
-            console.log(mounthArray[1]);
+            alert(mounthArray[1]);
+            currentMounth = mounthArray[1];
             break;
         case 3:
-            console.log(mounthArray[2])
+            alert(mounthArray[2]);
+            currentMounth = mounthArray[2];
             break;
         case 4:
-            console.log(mounthArray[3])
+            alert(mounthArray[3]);
+            currentMounth = mounthArray[3];
             break;
         case 5:
-            console.log(mounthArray[4])
+            alert(mounthArray[4]);
+            currentMounth = mounthArray[4];
             break;
         case 6:
-            console.log(mounthArray[5])
+            alert(mounthArray[5]);
+            currentMounth = mounthArray[5];
             break;
         case 7:
-            console.log(mounthArray[6])
+            alert(mounthArray[6]);
+            currentMounth = mounthArray[6];
             break;
         case 8:
-            console.log(mounthArray[7])
+            alert(mounthArray[7]);
+            currentMounth = mounthArray[7];
             break;
         case 9:
-            console.log(mounthArray[8])
+            alert(mounthArray[8]);
+            currentMounth = mounthArray[8];
             break;
         case 10:
-            console.log(mounthArray[9])
+            alert(mounthArray[9]);
+            currentMounth = mounthArray[9];
             break;
         case 11:
-            console.log(mounthArray[10])
+            alert(mounthArray[10]);
+            currentMounth = mounthArray[10];
             break;
         case 12:
-            console.log(mounthArray[11])
+            alert(mounthArray[11]);
+            currentMounth = mounthArray[11];
             break;
         default:
-            console.log(mounthArray[12])
+            alert(mounthArray[12]);
+            currentMounth = mounthArray[12];
             break;
     }
+    return currentMounth;
 };
 
-getMounthByNumber()
+buttonTask4Node.addEventListener('click', getMounthByNumber);
