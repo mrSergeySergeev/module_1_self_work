@@ -1,20 +1,5 @@
 
 
-// task#2
-const dayMessage = 'введите день(от 1 до 31)';
-const yearMessage = 'введите год(4 чифры)';
-const buttonTask2Node = document.getElementById('task2');
-
-const buildDate = () => {
-    const day = parseInt(prompt(dayMessage));
-    const mounth = getMounthByNumber();
-    const year = parseInt(prompt(yearMessage));
-
-    const currentDate = `${day}/${mounth}/${year}`;
-    alert(currentDate);
-};
-
-buttonTask2Node.addEventListener('click', buildDate);
 
 // task#3
 const ageMessage = 'Введите возраст';
