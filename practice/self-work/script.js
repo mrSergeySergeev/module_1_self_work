@@ -36,7 +36,8 @@ const checkFilmsInLocalStorage = () => {
     if (Array.isArray(historyFromLocalStorage)) {
         films = historyFromLocalStorage;
         console.log(films);
-        return films;
+        renderFilmList();
+        return films;        
     } else {
         initHtmlFilmList();
         return;
@@ -89,11 +90,6 @@ const renderFilmList = () => {
     });
 };
 
-
-
-
-
-
 // обработчик кнопки "добавить фильм"
 const addFilmButtonHandler = () => {
     addNewFilmToList();
@@ -110,7 +106,6 @@ const initInputHandler = () => {
 
 // order to run of programm
 // check films in localStorage
-
 // check films in html layout
 checkFilmsInLocalStorage()
 filmInputNode.addEventListener('input', initInputHandler);
