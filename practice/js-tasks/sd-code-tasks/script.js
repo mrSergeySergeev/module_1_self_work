@@ -1,27 +1,19 @@
-
-
-
-// task#3
-const ageMessage = 'Введите возраст';
-const buttonTask3Node = document.getElementById('task3');
-
-const isAdult = () => {
-    const age = parseInt(prompt(ageMessage));
-    let boolean;
-    if (age >= 18) {
-        boolean = true;
-    } else {
-        boolean = false;
-    };
-    alert(boolean);
-};
-
-buttonTask3Node.addEventListener('click', isAdult);
-
 // task#4
 const buttonTask4Node = document.getElementById('task4');
 const promtMessage = 'Введите месяц(от 1 до 12)'
-const mounthArray = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь', 'ошибка...'];
+const mounthArray = ['Январь',
+    'Февраль',
+    'Март',
+    'Апрель',
+    'Май',
+    'Июнь',
+    'Июль',
+    'Август',
+    'Сентябрь',
+    'Октябрь',
+    'Ноябрь',
+    'Декабрь',
+    'ошибка...'];
 
 const getMounthByNumber = () => {
     let currentMounth = parseInt(prompt(promtMessage));

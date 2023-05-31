@@ -10,7 +10,7 @@ const buildDate = (day, mounth, year) => {
     return currentDate;
 };
 
-function buttonHandler() {
+const buttonHandler = () => {
     const day = parseInt(prompt(dayMessage));
     if (day <= 0 || day > 31 || !Number.isFinite(day)) {
         alert('error');
@@ -25,10 +25,12 @@ function buttonHandler() {
     if (year <= 1900 || year > 2050 || !Number.isFinite(year)) {
         alert('error');
         return;
-    }
-    console.log(day, mounth, year);
+    };
+
     buildDate(day, mounth, year);
+
     textNode.innerText = currentDate;
+    console.log(currentDate);
 }
 
 buttonTask2Node.addEventListener('click', buttonHandler);
