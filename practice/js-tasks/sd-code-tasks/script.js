@@ -1,13 +1,4 @@
-// task#1
-const numberMessage = 'введите число';
-const buttonTask1Node = document.getElementById('task1');
-const mutiple = () => {
-    const a = parseInt(prompt(numberMessage));
-    const b = parseInt(prompt(numberMessage));
-    alert(a * b);
-}
 
-buttonTask1Node.addEventListener('click', mutiple);
 
 // task#2
 const dayMessage = 'введите день(от 1 до 31)';
