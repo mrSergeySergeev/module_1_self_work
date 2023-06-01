@@ -10,27 +10,46 @@ const buildDate = (day, mounth, year) => {
     return currentDate;
 };
 
-const buttonHandler = () => {
+const getDayByUser = () => {
     const day = parseInt(prompt(dayMessage));
+    return day;
+};
+
+const getMounthByUser = () => {
+    const mounth = parseInt(prompt(mounthMessage));
+    return mounth;
+};
+
+const getYearByUser = () => {
+    const year = parseInt(prompt(yearMessage));
+    return year;
+};
+
+const renderData = () => {
+    textNode.innerText = currentDate;
+    console.log(currentDate);
+}
+
+const buttonHandler = () => {
+    const day = getDayByUser();
     if (day <= 0 || day > 31 || !Number.isFinite(day)) {
         alert('error');
         return;
     };
-    const mounth = parseInt(prompt(mounthMessage));
+    const mounth = getMounthByUser();
     if (mounth <=0 || mounth > 12 || !Number.isFinite(mounth)) {
         alert('error');
         return;
     };
-    const year = parseInt(prompt(yearMessage));
+    const year = getYearByUser();
     if (year <= 1900 || year > 2050 || !Number.isFinite(year)) {
         alert('error');
         return;
     };
 
-    buildDate(day, mounth, year);
+    const currentDate = buildDate(day, mounth, year);
 
-    textNode.innerText = currentDate;
-    console.log(currentDate);
+    renderData(currentDate);
 }
 
 buttonTask2Node.addEventListener('click', buttonHandler);

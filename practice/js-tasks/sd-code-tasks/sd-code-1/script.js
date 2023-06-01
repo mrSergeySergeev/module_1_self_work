@@ -1,28 +1,37 @@
 // task#1
-let sum;
 const numberMessage = 'введите число';
 const buttonTask1Node = document.getElementById('button');
+ 
+const getAFromUser = () => {
+    const a = parseInt(prompt(numberMessage));
+    return a;
+};
+
+const getBFromUser = () => {
+    const b = parseInt(prompt(numberMessage));
+    return b;
+}
 
 const mutiple = (a, b) => {
-    sum = a * b;
+    const sum = a * b;
     return sum;
 };
 
 const buttonHandler = () => {
-    let a = parseInt(prompt(numberMessage));
-    if (!Number.isFinite(a)) {
-        alert('error');
+    const a = getAFromUser();
+        if (!Number.isFinite(a)) {
+        alert('error нах');
         return;
     };
-    let b = parseInt(prompt(numberMessage));
+    const b = getBFromUser();
     if (!Number.isFinite(b)) {
         alert('error');
         return;
     };
-    mutiple(a, b);
+    const sum = mutiple(a, b);
     if (!Number.isFinite(sum)) {
         return;
-    }
+    };
     alert(sum);
 };
 
