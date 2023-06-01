@@ -14,7 +14,7 @@ const getValueFromUser = () => {
 
 const getMoneyTypeFromUser = () => {
     let currency;
-    while (currency != moneyCurrency[0]) {
+    while (currency !== moneyCurrency[0]) {
         currency = prompt(moneyMessage, moneyCurrency);
     };
     return currency;
