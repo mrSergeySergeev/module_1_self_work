@@ -4,11 +4,9 @@ const textNode = document.getElementById('text');
 const buttonTask1Node = document.getElementById('button');
 
 const getNumberFromUser = () => {
-    while (true) {
+    let a;
+    while (!Number.isInteger(a)) {
         a = parseInt(prompt(numberMessage));
-        if (Number.isFinite(a)) {
-            break;
-        };
     };
     return a;
 };
