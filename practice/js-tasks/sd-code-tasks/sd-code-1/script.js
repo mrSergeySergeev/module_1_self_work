@@ -1,38 +1,32 @@
 // task#1
-const numberMessage = 'введите число';
+const numberMessage = 'введите целое число (дроби приводятся к целому числу)';
+const textNode = document.getElementById('text');
 const buttonTask1Node = document.getElementById('button');
- 
-const getAFromUser = () => {
-    const a = parseInt(prompt(numberMessage));
+
+const getNumberFromUser = () => {
+    while (true) {
+        a = parseInt(prompt(numberMessage));
+        if (Number.isFinite(a)) {
+            break;
+        };
+    };
     return a;
 };
-
-const getBFromUser = () => {
-    const b = parseInt(prompt(numberMessage));
-    return b;
-}
 
 const mutiple = (a, b) => {
     const sum = a * b;
     return sum;
 };
 
+const render = (sum, a, b) => {
+    textNode.innerText = `${a} умножить на ${b} равно ${sum}`;
+};
+
 const buttonHandler = () => {
-    const a = getAFromUser();
-        if (!Number.isFinite(a)) {
-        alert('error нах');
-        return;
-    };
-    const b = getBFromUser();
-    if (!Number.isFinite(b)) {
-        alert('error');
-        return;
-    };
+    const a = getNumberFromUser();
+    const b = getNumberFromUser();
     const sum = mutiple(a, b);
-    if (!Number.isFinite(sum)) {
-        return;
-    };
-    alert(sum);
+    render(sum, a, b);
 };
 
 buttonTask1Node.addEventListener('click', buttonHandler);
