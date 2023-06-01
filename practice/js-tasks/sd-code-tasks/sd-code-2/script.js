@@ -5,51 +5,46 @@ const yearMessage = 'введите год(4 чифры, от 1900 до 2050)';
 const buttonTask2Node = document.getElementById('button');
 const textNode = document.getElementById('text');
 
+const getDayByUser = () => {
+    let day;
+    while (!Number.isInteger(day) || day <= 0 || day > 31) {
+        day = parseInt(prompt(dayMessage));
+    }
+    return day;
+};
+
+const getMounthByUser = () => {
+    let mounth;
+    while (!Number.isInteger(mounth) || mounth <= 0 || mounth > 12) {
+        mounth = parseInt(prompt(mounthMessage));
+    };
+    return mounth;
+};
+
+const getYearByUser = () => {
+    let year;
+    while (!Number.isInteger(year) || year <= 1900 || year >= 2050) {
+        year = parseInt(prompt(yearMessage));
+    }
+    return year;
+};
+
 const buildDate = (day, mounth, year) => {
     currentDate = `${day}/${mounth}/${year}`;
     return currentDate;
 };
 
-const getDayByUser = () => {
-    const day = parseInt(prompt(dayMessage));
-    return day;
-};
-
-const getMounthByUser = () => {
-    const mounth = parseInt(prompt(mounthMessage));
-    return mounth;
-};
-
-const getYearByUser = () => {
-    const year = parseInt(prompt(yearMessage));
-    return year;
-};
-
-const renderData = () => {
+function renderData(currentDate) {
     textNode.innerText = currentDate;
     console.log(currentDate);
-}
+};
 
 const buttonHandler = () => {
     const day = getDayByUser();
-    if (day <= 0 || day > 31 || !Number.isFinite(day)) {
-        alert('error');
-        return;
-    };
     const mounth = getMounthByUser();
-    if (mounth <=0 || mounth > 12 || !Number.isFinite(mounth)) {
-        alert('error');
-        return;
-    };
     const year = getYearByUser();
-    if (year <= 1900 || year > 2050 || !Number.isFinite(year)) {
-        alert('error');
-        return;
-    };
-
     const currentDate = buildDate(day, mounth, year);
-
     renderData(currentDate);
-}
+};
 
 buttonTask2Node.addEventListener('click', buttonHandler);
