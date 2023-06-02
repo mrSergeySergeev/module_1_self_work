@@ -13,12 +13,25 @@ const getValueFromUser = () => {
 };
 
 const getMoneyTypeFromUser = () => {
-    let currency;
-    while (currency !== moneyCurrency[0]) {
+    while (!true) {
         currency = prompt(moneyMessage, moneyCurrency);
+        checkCurrency(currency);
+        return;
     };
-    return currency;
 };
+
+const checkCurrency = () => {
+    let currency = getMoneyTypeFromUser();
+    for (let i = 0; i < moneyCurrency.length; i++) {
+        if (currency === moneyCurrency[i]) {
+            console.log(true);
+            return true;
+        }
+        console.log(false);
+        return false
+    };
+};
+
 
 const convertRub = () => {
     let valueRub = getValueFromUser();
@@ -40,18 +53,18 @@ const convertRub = () => {
     };
     valueRub = Math.round(valueRub);
     valueRub = valueRub / 100;
-    return currency, valueRub;
+    return valueRub;
 };
 
-const render = (valueRub, currency) => {
-    textNode.innerText = `${valueRub}${currency}`
+const render = (valueRub) => {
+    textNode.innerText = `${valueRub}`
 };
 
 const buttonHandler = () => {
     console.log(moneyCurrency)
     let valueRub = convertRub();
-    let currency = getMoneyTypeFromUser();
-    render(valueRub, currency);
+    // let currency = getMoneyTypeFromUser();
+    render(valueRub);
 };
 
 buttonTask5Node.addEventListener('click', buttonHandler);
