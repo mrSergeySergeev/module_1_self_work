@@ -6,7 +6,7 @@ const buttonTask2Node = document.getElementById('button');
 const textNode = document.getElementById('text');
 
 const getDayByUser = () => {
-    let day;
+    let day = null;
     while (!Number.isInteger(day) || day <= 0 || day > 31) {
         day = parseInt(prompt(dayMessage));
     }
@@ -14,7 +14,7 @@ const getDayByUser = () => {
 };
 
 const getMounthByUser = () => {
-    let mounth;
+    let mounth = null;
     while (!Number.isInteger(mounth) || mounth <= 0 || mounth > 12) {
         mounth = parseInt(prompt(mounthMessage));
     };
@@ -22,7 +22,7 @@ const getMounthByUser = () => {
 };
 
 const getYearByUser = () => {
-    let year;
+    let year = null;
     while (!Number.isInteger(year) || year <= 1900 || year >= 2050) {
         year = parseInt(prompt(yearMessage));
     }

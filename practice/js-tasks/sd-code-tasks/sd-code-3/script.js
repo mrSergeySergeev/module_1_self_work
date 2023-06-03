@@ -4,7 +4,7 @@ const buttonNode = document.getElementById('button');
 const textNode = document.getElementById('text');
 
 const getAgeFromUser = () => {
-    let age;
+    let age = null;
     while (!Number.isInteger(age) || age < 0 || age > 150) {
         age = parseInt(prompt(ageMessage));
     };
@@ -12,6 +12,7 @@ const getAgeFromUser = () => {
 };
 
 const isAdult = (age) => {
+    let boolean = null;
     if (age >= 18) {
         boolean = true;
     } else {

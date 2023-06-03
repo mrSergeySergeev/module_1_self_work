@@ -5,7 +5,7 @@ const moneyMessage = 'Введите валюту для конвертации'
 const moneyCurrency = ['USD', 'EUR', 'KZT', 'AED'];
 
 const getValueFromUser = () => {
-    let valueRub;
+    let valueRub = null;
     while (!Number.isInteger(valueRub) || valueRub <= 0) {
         valueRub = parseInt(prompt(sumMessage));
     };

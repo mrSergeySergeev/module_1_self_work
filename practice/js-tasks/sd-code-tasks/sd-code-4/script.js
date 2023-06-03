@@ -15,7 +15,7 @@ const mounthArray = ['Январь',
     'Декабрь',];
 
 const getMounthFromUser = () => {
-    let mounth;
+    let mounth = null;
     while (!Number.isInteger(mounth) || mounth <= 0 || mounth > 12) {
         mounth = parseInt(prompt(promtMessage));
     };
