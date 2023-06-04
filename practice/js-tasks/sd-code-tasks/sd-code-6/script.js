@@ -27,7 +27,10 @@ const formArray = () => {
 };
 
 const renderArray = (arr) => {
-    textNode.innerText = ;
+    for (let i = 0; i < arr.length; i++) {
+        textNode.innerText = arr[i];
+    };    
 };
+
 
 buttonNode.addEventListener('click', formArray);
