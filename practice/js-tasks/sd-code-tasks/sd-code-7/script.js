@@ -5,7 +5,7 @@ const getNumberMessage = 'введите число от -50 до 50';
 
 const getNumberFromUser = () => {
     let a = null;
-    while (a < -50 || a > 50 || a == null) {
+    while (a < -50 || a > 50 || a == null || !Number.isInteger(a)) {
         a = parseInt(prompt(getNumberMessage));
     };
     return a;
@@ -27,7 +27,7 @@ const formArray = (a, b) => {
 };
 
 const renderArray = (arr) => {
-    arr = formArray(); 
+    arr = formArray();
     textNode.innerText = arr.join(' ');
 };
 

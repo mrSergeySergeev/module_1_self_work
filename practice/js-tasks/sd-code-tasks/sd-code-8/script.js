@@ -1,13 +1,22 @@
 const buttonNode = document.getElementById('button');
 const textNode = document.getElementById('text')
 
-const messageForUser = 'введите число от 1 до 10';
+const messageForUserNumber = 'введите число от 1 до 10';
+const messageForUserRepeat = 'введите число повторений умножения на 2 от 1 до 10';
 
 
 const getNumberFromUser = () => {
     let a = null;
-    while (a < 0 || a > 10 || a == null) {
-        a = parseInt(prompt(messageForUser));
+    while (a < 0 || a > 10 || a == null || !Number.isInteger(a)) {
+        a = parseInt(prompt(messageForUserNumber));
+    };
+    return a;
+};
+
+const getNumberRepeatFromUser = () => {
+    let a = null;
+    while (a < 0 || a > 10 || a == null || !Number.isInteger(a)) {
+        a = parseInt(prompt(messageForUserRepeat));
     };
     return a;
 };
@@ -15,7 +24,7 @@ const getNumberFromUser = () => {
 const formArray = () => {
     let arr = [];
     let a = getNumberFromUser();
-    let b = getNumberFromUser();
+    let b = getNumberRepeatFromUser();
     for (let i = 0; i < b; i++) {
         a = a
         arr.push(a);
