@@ -13,28 +13,10 @@ const getValueFromUser = () => {
 };
 
 const getMoneyTypeFromUser = () => {
-    for (let i = 0; i < 2; i++) {
+    let currency = null;
+    while (!currency || !moneyCurrency.includes(currency)) {
         currency = prompt(moneyMessage, moneyCurrency);
-        switch (currency) {
-            case moneyCurrency[0]:
-                i = 1;
-                break;
-            case moneyCurrency[1]:
-                i = 1;
-                break;
-            case moneyCurrency[2]:
-                i = 1;
-                break;
-            case moneyCurrency[3]:
-                i = 1;
-                break;
-            default:
-                i = 0;
-                break;
-        };
     };
-
-    console.log(currency)
     return currency;
 };
 
