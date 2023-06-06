@@ -3,40 +3,56 @@ const textNode = document.getElementById('text');
 
 const answerName = 'введите имя';
 const answerSurname = 'введите фамилию';
-const answerAge = 'введите возраст';
+const answerAge = 'введите возраст, от 0 до 100';
 
-const person = {};
+let names = ['Ваня', 'Петя', 'Сидор'];
+let surnames = ['Иванов', 'Петров', 'Сидоров'];
+let person = {};
 
 const getNameFromUser = () => {
     let name = null;
-    while (!tipeof name  === 'string' || !name instanceof String) {
-        name = prompt(answerName);
+    while (!name || !names.includes(name)) {
+        name = prompt(answerName, names);
     };
     return name;
 };
 
 const getSurnameFromUser = () => {
     let surname = null;
-    while (!tipeof(surname) === 'string' || !surname instanceof String) {
-        surname = prompt(answerSurname);
+    while (!surname || !surnames.includes(surname)) {
+        surname = prompt(answerSurname, surnames);
     };
     return surname;
 };
 
 const getAgeFromUser = () => {
     let age = null;
-    while (!Number.isInteger(age)); {
+    while (!Number.isInteger(age) || age < 0 || age > 100) {
         age = parseInt(prompt(answerAge));
-    };
+        ;
+    }
+    return age;
 };
 
 const createPerson = (name, surname, age) => {
+    name = getNameFromUser();
+    surname = getSurnameFromUser();
+    age = getAgeFromUser();
     person = {
-        name:getNameFromUser(),
-        surname:getSurnameFromUser(),
-        age:getAgeFromUser(),
+        name: name,
+        surname: surname,
+        age: age,
     }
     console.log(person);
+    return person;
 }
 
-buttonNode,addEventListener('click', createPerson);
+render = (person) => {
+    person = createPerson();
+    textNode.innerHTML =
+        `<p>имя: ${person.name}</p>
+        <p>фамилия: ${person.surname}</p>
+        <p>возраст: ${person.age}</p>`
+};
+
+buttonNode.addEventListener('click', render)
