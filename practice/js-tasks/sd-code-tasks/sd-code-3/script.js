@@ -8,10 +8,12 @@ const getAgeFromUser = () => {
     while (!Number.isInteger(age) || age < 0 || age > 150) {
         age = parseInt(prompt(ageMessage));
     };
+    console.log(age);
     return age;
 };
 
 const isAdult = (age) => {
+    age = getAgeFromUser();
     let boolean = null;
     if (age >= 18) {
         boolean = true;
@@ -22,14 +24,13 @@ const isAdult = (age) => {
 };
 
 const render = (boolean) => {
+    boolean = isAdult();
     textNode.innerText = boolean;
     console.log(boolean);
 }
 
 const buttonHandler = () => {
-    const age = getAgeFromUser();
-    isAdult(age);
-    render(boolean);
+    render();
 };
 
 buttonNode.addEventListener('click', buttonHandler);
