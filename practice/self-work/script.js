@@ -30,14 +30,14 @@ const checkButton = () => {
     };
 };
 
-// check array "films" in localStorage
+// чекаем localStorage
 const checkFilmsInLocalStorage = () => {
     const historyFromLocalStorage = JSON.parse(localStorage.getItem("historyOfFilms"));
     if (Array.isArray(historyFromLocalStorage)) {
         films = historyFromLocalStorage;
         console.log(films);
         renderFilmList();
-        return films;        
+        return films;
     } else {
         initHtmlFilmList();
         return;
@@ -46,48 +46,61 @@ const checkFilmsInLocalStorage = () => {
 
 // функция считывает фильмы, прописанные в html-разметке, if localStorage is empty
 const initHtmlFilmList = () => {
-    let filmName = filmNameNode;        
-    for (let i = 0; i < filmName.length; i++){
+    let filmName = filmNameNode;
+    for (let i = 0; i < filmName.length; i++) {
         filmName[i] = filmName[i].outerText;
-        films.push(filmName[i].outerText);        
-    };    
+        films.push(filmName[i].outerText);
+    };
     console.log(films);
     return;
 };
 
-//добавляем название фильма в массив
+// добавляем название фильма в массив
 const addNewFilmToList = () => {
     let filmName = filmInputNode.value;
     films.push(filmName);
     console.log(films);
 }
 
-// added array "films" to localStorage 
+// добавляем массив "фильмы" в localeStorage
 const addFilmsToLocalStorage = () => {
     localStorage.setItem("historyOfFilms", JSON.stringify(films));
     console.log(films);
 };
 
-// return initial values in input and button
+// возвращаем начальные значения для ввода и кнопки
 const resetInputAndButton = () => {
     filmInputNode.value = '';
     addFilmButtonNode.disabled = true;
 };
 
-// render Html layout
+// отрисовываем HTML разметку
 const renderFilmList = () => {
     filmListNode.innerHTML = '';
 
-    films.forEach(film => {
+    for (let i = 0; i < films.length; i++) {
         const listItem = document.createElement('li');
         listItem.className = "filmItem";
-        listItem.innerHTML = `<input id="checkFilm${film}" class="filmItem__check" type="checkbox">
-                              <label for="checkFilm${film}"></label>
-                              <p class="filmItem__name">${film}</p>
-                              <button id="filmDelete" class="filmItem__delete">X</button>`
-        
+        listItem.innerHTML = `<div class="filmItem__leftWrapper">
+                             <input id="checkFilm${i}" class="filmItem__check" type="checkbox">
+                             <label for="checkFilm${i}"></label>                             
+                             <p class="filmItem__name">${films[i]}</p>
+                             </div>
+                             <button id="filmDelete${i}" class="filmItem__delete"><img src="resources/button-close.png" alt="X"></button>`
+
         filmListNode.appendChild(listItem);
-    });
+    }
+
+    // films.forEach(film => {
+    //     const listItem = document.createElement('li');
+    //     listItem.className = "filmItem";
+    //     listItem.innerHTML = `<input id="checkFilm${film}" class="filmItem__check" type="checkbox">
+    //                           <label for="checkFilm${film}"></label>
+    //                           <p class="filmItem__name">${film}</p>
+    //                           <button id="filmDelete" class="filmItem__delete">X</button>`
+
+    //     filmListNode.appendChild(listItem);
+    // });
 };
 
 // обработчик кнопки "добавить фильм"

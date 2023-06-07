@@ -1,6 +1,5 @@
 body {
     font-family: 'Arimo', sans-serif;
-    width: 100%;
     background-color: #181818;
     color: #F3F6F9;
     font-size: 20px;
@@ -12,7 +11,6 @@ body {
 
 @media (max-width: 1000px) {
     body {
-        max-width: 100%;
         font-size: 2vw;
         line-height: 3vw;
     }
@@ -20,23 +18,12 @@ body {
 
 .container {
     margin: 0 auto;
-    padding: 80px 255px 0 255px;
+    padding: 4vw 5vw 0 5vw;
     width: 100%;
     max-width: 1440px;
     display: flex;
     flex-direction: column;
     gap: 20px;
-}
-
-.backgroundWrapper {
-    margin: 0 auto;
-    max-width: 930px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    background-color: #302112;
-    border-radius: 10px;
 }
 
 @media (max-width: 1000px) {
@@ -45,20 +32,31 @@ body {
         gap: 2vw;
         padding: 3vw 0 0 0;
     }
+}
 
-    .backgroundWrapper {
+.backgroundWrapper {
+    margin: 0 auto;
+    padding: 60px 70px 0 70px;
+    min-width: 930px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    background-color: #232323;
+    border-radius: 20px;
+}
+
+@media (max-width: 1000px) {
+        .backgroundWrapper {
+        min-width: 100%;
         padding: 1vw;
         gap: 4vw;
-        background-color: #302112;
-        border-radius: 10px;
     }
 }
 
 button,
 input {
     font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
     background-color: inherit;
     color: inherit;
     cursor: pointer;
@@ -76,26 +74,83 @@ button:hover {
 
 input {
     width: 95%;
+    font-size: 30px;
+    line-height: 34px;
     outline: none;
-    caret-color: #ffa500;
+    caret-color: #F3F6F9;
+}
+
+@media (max-width: 1000px) {
+    input{
+        font-size: 3vw;
+        line-height: 4vw;
+    }
 }
 
 input::placeholder {
-    color: #ffa500;
+    color: #F3F6F9;
+}
+
+.headerSubtitle {
+    display: flex;
+    gap: 45px;
+    font-size: 15px;
+    line-height: 17px;
+}
+
+@media (max-width: 1000px) {
+    .headerSubtitle {
+        gap: 2vw;
+        font-size: 1.8vw;
+        line-height: 2vw;
+    }
+}
+
+.headerSubtitle p{
+    padding: 10px 21px;
+    background-color: #6532F8;
+    border-radius: 200px;
+}
+
+.headerTitle {
+    font-size: 120px;
+    line-height: 138px;
+}
+
+@media (max-width: 1000px) {
+    .headerTitle {
+        font-size: 8vw;
+        line-height: 9vw;
+    }
 }
 
 .addFilmForm {
     display: flex;
-    flex-wrap: wrap;
 }
 
 .addButton {
     width: 62px;
     height: 62px;
     background-image: url(resources/button-base.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media (max-width: 1000px) {
+    .addButton {
+        width: 5wv;
+        height: 5vw;
+    }
+
+    .addButton img {
+        width: 2.5vw;
+        height: 2.5vw;
+        object-fit: contain;
+    }
 }
 
 .addButton:disabled {
@@ -105,12 +160,11 @@ input::placeholder {
 
 .inputWrapper {
     position: relative;
-    width: 80%;
+    width: 411px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid .2vw;
-    border-radius: 10vw;
+    border-bottom: solid .2vw;
 }
 
 .validationMessage {
@@ -131,34 +185,50 @@ input::placeholder {
 .filmList {
     display: flex;
     flex-direction: column-reverse;
-    gap: 20px;
+    gap: 3px;
 }
 
 @media (max-width: 1000px) {
     .filmList {
-        gap: 2vw;
+        gap: .3vw;
     }
 }
 
 .filmItem {
-    padding: 10px;
+    padding: 20px 27px;
     display: flex;
     justify-content: space-between;
-    border-bottom: .2vw solid #ffa500;
-    background-color: #140f0b;
+    background-color: #3A3939;
     border-radius: 10px;
+    transition: opacity .3s ease;
 }
 
 @media (max-width: 1000px) {
     .filmItem {
-        padding: .6vw;
+        padding: 2vw;
     }
+}
+
+.filmItem-disabled {
+    opacity: 0.5;
+}
+
+.filmItem__leftWrapper {
+    display: flex;
+    gap: 20px;
 }
 
 .filmItem__check,
 .filmItem__name,
 .filmItem__delete {
     width: max-content;
+}
+
+@media (max-width: 1000px) {
+    .filmItem__delete img{
+    width: 1em;
+    height: 1em;       
+    }
 }
 
 .filmItem__name-disabled {
@@ -185,16 +255,11 @@ input::placeholder {
     height: 1em;
     flex-shrink: 0;
     flex-grow: 0;
-    border: 1px solid #ffa500;
-    border-radius: 0.25em;
-    margin-right: 0.5em;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 50% 50%;
+    border: 1px solid #F3F6F9;
+    border-radius: 1em;
 }
 
 .filmItem__check:checked+label::before {
-    border-color: #ffa500;
-    background-color: #ffa500;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+    border-color: #F3F6F9;
+    background-color: #6532F8;
 }

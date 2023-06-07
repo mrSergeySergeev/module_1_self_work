@@ -25,7 +25,7 @@
             <div class="addFilmForm">
                 <div class="inputWrapper">
                     <input id="filmInput" type="text"
-                           placeholder="Сюда название фильма">
+                           placeholder="Добавить фильм">
                     <p id="validationMessage" class="validationMessage">0/50</p>
                 </div>
                 <button disabled id="addButton" class="addButton">
@@ -34,34 +34,44 @@
             </div>
             <ul id="filmList" class="filmList">
                 <li id="filmItem" class="filmItem">
-                    <input id="checkFilm0" class="filmItem__check" type="checkbox">
-                    <label for="checkFilm0"></label>
-                    <p class="filmItem__name">Мстители. Финал</p>
-                    <button id="filmDelete" class="filmItem__delete">X</button>
+                    <div class="filmItem__leftWrapper">
+                        <input id="checkFilm0" class="filmItem__check" type="checkbox">
+                        <label for="checkFilm0"></label>
+                        <p class="filmItem__name">Мстители. Финал</p>
+                    </div>
+                    <button id="filmDelete" class="filmItem__delete"><img src="resources/button-close.png" alt="X"></button>
+                </li>
+                <li class="filmItem filmItem-disabled">
+                    <div class="filmItem__leftWrapper">
+                        <input id="checkFilm1" class="filmItem__check" type="checkbox">
+                        <label for="checkFilm1"></label>
+                        <p class="filmItem__name filmItem__name-disabled">Приключения Шурика</p>
+                    </div>
+                    <button id="filmDelete" class="filmItem__delete"><img src="resources/button-close.png" alt="X"></button>
                 </li>
                 <li class="filmItem">
-                    <input id="checkFilm1" class="filmItem__check" type="checkbox">
-                    <label for="checkFilm1"></label>
-                    <p class="filmItem__name filmItem__name-disabled">Приключения Шурика</p>
-                    <button id="filmDelete" class="filmItem__delete">X</button>
+                    <div class="filmItem__leftWrapper">
+                        <input id="checkFilm2" class="filmItem__check" type="checkbox">
+                        <label for="checkFilm2"></label>
+                        <p class="filmItem__name">Белое солнце пустыни</p>
+                    </div>
+                    <button id="filmDelete" class="filmItem__delete"><img src="resources/button-close.png" alt="X"></button>
                 </li>
                 <li class="filmItem">
-                    <input id="checkFilm2" class="filmItem__check" type="checkbox">
-                    <label for="checkFilm2"></label>
-                    <p class="filmItem__name">Белое солнце пустыни</p>
-                    <button id="filmDelete" class="filmItem__delete">X</button>
+                    <div class="filmItem__leftWrapper">
+                        <input id="checkFilm3" class="filmItem__check" type="checkbox">
+                        <label for="checkFilm3"></label>
+                        <p class="filmItem__name">Стражи Галактики 3</p>
+                    </div>
+                    <button id="filmDelete" class="filmItem__delete"><img src="resources/button-close.png" alt="X"></button>
                 </li>
                 <li class="filmItem">
-                    <input id="checkFilm3" class="filmItem__check" type="checkbox">
-                    <label for="checkFilm3"></label>
-                    <p class="filmItem__name">Стражи Галактики 3</p>
-                    <button id="filmDelete" class="filmItem__delete">X</button>
-                </li>
-                <li class="filmItem">
-                    <input id="checkFilm4" class="filmItem__check" type="checkbox">
-                    <label for="checkFilm4"></label>
-                    <p class="filmItem__name">Форсаж 10</p>
-                    <button id="filmDelete" class="filmItem__delete">X</button>
+                    <div class="filmItem__leftWrapper">
+                        <input id="checkFilm4" class="filmItem__check" type="checkbox">
+                        <label for="checkFilm4"></label>
+                        <p class="filmItem__name">Форсаж 10</p>
+                    </div>
+                    <button id="filmDelete" class="filmItem__delete"><img src="resources/button-close.png" alt="X"></button>
                 </li>
             </ul>
         </div>
