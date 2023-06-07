@@ -1,10 +1,10 @@
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Arimo', sans-serif;
     width: 100%;
-    background-color: #0a0a0a;
-    color: #ffa500;
-    font-size: 24px;
-    line-height: 30px;
+    background-color: #181818;
+    color: #F3F6F9;
+    font-size: 20px;
+    line-height: 23px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,16 +20,18 @@ body {
 
 .container {
     margin: 0 auto;
-    padding: 50px 125px 0 125px;
+    padding: 80px 255px 0 255px;
     width: 100%;
-    max-width: 1400px;
+    max-width: 1440px;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
 .backgroundWrapper {
-    padding: 10px;
+    margin: 0 auto;
+    max-width: 930px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -87,49 +89,18 @@ input::placeholder {
     flex-wrap: wrap;
 }
 
+.addButton {
+    width: 62px;
+    height: 62px;
+    background-image: url(resources/button-base.svg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .addButton:disabled {
     opacity: .2;
     cursor: default;
-}
-
-.addButton__wrapper {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    border: solid .2vw;
-    border-radius: 10vw;
-}
-
-.addButton__arrow {
-    position: absolute;
-    top: 7px;
-    left: 4px;
-    width: 22px;
-    height: 22px;
-    border-right: 8px solid;
-    border-bottom: 8px solid;
-    transform: rotate(-45deg);
-}
-
-@media (max-width: 1000px) {
-    .addButton__wrapper {
-        width: 4vw;
-        height: 4vw;
-        border: solid .2vw;
-        border-radius: 10vw;
-    }
-
-    .addButton__arrow {
-        position: absolute;
-        top: .8vw;
-        left: .4vw;
-        width: 2.3vw;
-        height: 2.3vw;
-        border-right: 1vw solid;
-        border-bottom: 1vw solid;
-        transform: rotate(-45deg);
-    }
-
 }
 
 .inputWrapper {

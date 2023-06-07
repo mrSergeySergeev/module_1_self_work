@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="resources/fav-icon.png" type="image/png">
     <link rel="stylesheet" href="../../styles/reset.css">
     <link rel="stylesheet" href="main.css">
@@ -16,19 +16,20 @@
 
 <body>
     <div class="container">
-        <h1>Cамостоятельный проект по JS!!!</h1>
+        <span class="headerSubtitle">
+            <p>список фильмов</p>
+            <p>2023</p>
+        </span>
+        <h1 class="headerTitle">Посмотреть</h1>
         <div class="backgroundWrapper">
             <div class="addFilmForm">
                 <div class="inputWrapper">
                     <input id="filmInput" type="text"
                            placeholder="Сюда название фильма">
-                           <p id="validationMessage" class="validationMessage">0/50</p>
+                    <p id="validationMessage" class="validationMessage">0/50</p>
                 </div>
                 <button disabled id="addButton" class="addButton">
-                    <div class="addButton__wrapper">
-                        <div class="addButton__arrow">
-                        </div>
-                    </div>
+                    <img src="resources/button-add.png" alt="кнопка">
                 </button>
             </div>
             <ul id="filmList" class="filmList">
