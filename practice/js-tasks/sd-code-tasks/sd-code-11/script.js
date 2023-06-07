@@ -1,7 +1,8 @@
 const buttonNode = document.getElementById('button');
 const textNode = document.getElementById('text');
+const resultTextNode = document.getElementById('resultText');
 
-const answerNumbers = 'введите количество созданных персонажей(от 1 до 5)';
+const answerNumbers = 'введите количество создаваемых персонажей(от 1 до 5)';
 const answerName = 'введите имя';
 const answerSurname = 'введите фамилию';
 const answerAge = 'введите возраст, от 0 до 100';
@@ -31,8 +32,7 @@ const getAgeFromUser = () => {
     let age = null;
     while (!Number.isInteger(age) || age < 0 || age > 100) {
         age = parseInt(prompt(answerAge));
-        ;
-    }
+    };
     return age;
 };
 
@@ -44,10 +44,10 @@ const createPerson = (name, surname, age) => {
         name: name,
         surname: surname,
         age: age,
-    }
+    };
     console.log(person);
     return person;
-}
+};
 
 const formArrayPerson = () => {
     let numberOfPersons = null;
@@ -58,37 +58,45 @@ const formArrayPerson = () => {
         createPerson();
         people.push(person);
     };
-    console.log(people);
     return people;
 };
 
-const render = (people) => {
+const renderArray = (people) => {
     people = formArrayPerson();
-    textNode.innerHTML = '';
+    textNode.innerHTML = 'Имеем массив объектов:';
     people.forEach((person) => {
         const personItem = document.createElement('p');
         personItem.innerText = `имя: ${person.name} фамилия: ${person.surname} возраст: ${person.age}`
         textNode.appendChild(personItem);
-    });   
+    });
+    return people;
 };
 
-const findOldestPeople =
+const findOldestPeople = (people) => {
+    people = renderArray();
+    people.sort(function (a, b) {
+        if (a.age > b.age) {
+            return -1;
+        };
+        if (a.age < b.age) {
+            return 1
+        };
+        return 0;
+    });
+    return people;
+};
 
-buttonNode.addEventListener('click', render);
+const renderOldestMan = (people, person) => {
+    people = findOldestPeople();
+    person = people[0];
+    
+    resultTextNode.innerText = `Cамый взрослый человек ${person.name} ${person.surname} с возрастом ${person.age} лет(года)`
+    console.log(person);
+};
 
-let arr = [{w:'a',r:2},{w:'a',r:5},{w:'a',r:6},{w:'a',r:93},{w:'a',r:3},]
+const buttonHandler = () => {
+    renderOldestMan();
+};
 
+buttonNode.addEventListener('click', buttonHandler);
 
-console.log(arr)
-
-arr.sort(function (a, b) {
-    if (a.r > b.r) {
-      return -1;
-    }
-    if (a.r < b.r) {
-      return 1;
-    }
-    // a должно быть равным b
-    return 0;
-  });
-console.log(arr)
