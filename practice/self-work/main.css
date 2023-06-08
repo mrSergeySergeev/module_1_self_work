@@ -216,6 +216,8 @@ input::placeholder {
 .filmItem__leftWrapper {
     display: flex;
     gap: 20px;
+    overflow: hidden;
+
 }
 
 .filmItem__check,
