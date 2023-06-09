@@ -1,6 +1,6 @@
 // отрисовываем HTML разметку
 const renderFilmList = (films) => {
-    films = checkFilmsInLocalStorage();
+    films = addFilmsToLocalStorage();
     console.log(films);
     filmListNode.innerHTML = '';
 
@@ -8,12 +8,13 @@ const renderFilmList = (films) => {
         const listItem = document.createElement('li');
         listItem.className = "filmItem";
         listItem.innerHTML = `<div class="filmItem__leftWrapper">
-                             <input id="checkFilm${films[i].id}" class="filmItem__check" type="checkbox">
-                             <label for="checkFilm${films[i].id}"></label>                             
-                             <p class="filmItem__name">${films[i].filmName}</p>
-                             </div>
-                             <button id="filmDelete${i}" class="filmItem__delete"><img src="resources/button-close.png" alt="X"></button>`
-
+                            <input id="checkFilm${films[i].id}" class="filmItem__check" type="checkbox">
+                            <label for="checkFilm${films[i].id}"></label>
+                            <p class="filmItem__name">${films[i].filmName}</p>
+                            </div>
+                            <button id="filmDelete${i}" class="filmItem__delete"><img src="resources/button-close.png" alt="X"></button>`
+        
         filmListNode.appendChild(listItem);
-    };    
+    };
 };
+

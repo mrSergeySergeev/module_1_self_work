@@ -6,6 +6,6 @@ let films = [];
 const filmInputNode = document.getElementById('filmInput');
 const addFilmButtonNode = document.getElementById('addButton');
 const filmListNode = document.getElementById('filmList');
-const filmItemNode = document.getElementById('filmItem');
 const filmNameNode = document.getElementsByClassName('filmItem__name');
 const validationMessageNode = document.getElementById('validationMessage');
+const filmItemNode = document.getElementById('filmItem');

@@ -19,15 +19,15 @@ const checkButton = () => {
 };
 
 // чекаем localStorage
-const checkFilmsInLocalStorage = () => {
-    const historyFromLocalStorage = JSON.parse(localStorage.getItem("historyOfFilms"));
-    if (Array.isArray(historyFromLocalStorage)) {
-        films = historyFromLocalStorage;
-        return films;
-    };
-    initHtmlFilmList();
-    return films;
-};
+// const checkFilmsInLocalStorage = () => {
+//     const historyFromLocalStorage = JSON.parse(localStorage.getItem("historyOfFilms"));
+//     if (Array.isArray(historyFromLocalStorage)) {
+//         films = historyFromLocalStorage;
+//         return films;
+//     };
+//     initHtmlFilmList();
+//     return films;
+// };
 
 // возвращаем начальные значения для ввода и кнопки
 const resetInputAndButton = () => {
