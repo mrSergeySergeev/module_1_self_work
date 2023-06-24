@@ -3,10 +3,13 @@ const MAX_SYMBOLS_IN_INPUT = 50;
 
 let films = [];
 // { id: null, filmName: null, done: null, delete: null, }
-const filmInputNode = document.getElementById('filmInput');
-const addFilmButtonNode = document.getElementById('addButton');
-const deleteAllButtonNode = document.getElementById('deleteAllButton');
-const validationMessageNode = document.getElementById('validationMessage');
+const filmFormNode = document.querySelector('#filmForm');
+const filmInputNode = document.querySelector('#filmInput');
+const addFilmButtonNode = document.querySelector('#addButton');
+const deleteAllButtonNode = document.querySelector('#deleteAllButton');
+const validationMessageNode = document.querySelector('#validationMessage');
+const filmListNode = document.querySelector('#filmList')
+const filmEmptyItemNode = document.querySelector('#filmEmptyItem');
 
 // функция валидации заголовка
 const checkInput = () => {
@@ -28,12 +31,40 @@ const checkButton = () => {
     };
 };
 
+// скрываем строку "список фильмов пуст"
+const checkEmptyFilmList = () => {
+    if (filmListNode.children.length > 1) {
+        filmEmptyItemNode.classList.add('none');
+    };
+};
+
 
 // возвращаем начальные значения для ввода и кнопки
 const resetInputAndButton = () => {
     filmInputNode.value = '';
     validationMessageNode.innerText = `${MAX_SYMBOLS_IN_INPUT - filmInputNode.value.length}/50`;
     addFilmButtonNode.disabled = true;
+    // возвращаем фокус на поле ввода
+    filmInputNode.focus();
+};
+
+const addFilm = (event) => {
+    // эта строчка отменяет стандартное поведение браузера 
+    //при отправке формы, здесь перезагрузку браузера
+    event.preventDefault();
+    const film = filmInputNode.value;
+    const filmHtml = `
+    <li id="filmItem" class="filmItem">
+        <div class="filmItem__leftWrapper">
+            <input id="checkFilm0" class="filmItem__check" type="checkbox">
+            <label for="checkFilm0"></label>
+            <p id="filmName" class="filmItem__name">${film}</p>
+        </div>
+        <button id="filmDelete0" class="filmItem__delete"><img src="resources/button-close.png" alt="X"></button>
+    </li>`;
+    filmListNode.insertAdjacentHTML('beforeend', filmHtml);
+    resetInputAndButton();
+    checkEmptyFilmList();
 };
 
 // обработчик поля ввода фильма
@@ -44,3 +75,6 @@ const initInputHandler = () => {
 
 // слушатель поля ввода
 filmInputNode.addEventListener('input', initInputHandler);
+
+// слушатель отправки формы
+filmFormNode.addEventListener('submit', addFilm);

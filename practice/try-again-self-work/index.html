@@ -22,7 +22,7 @@
         </span>
         <h1 class="headerTitle">Посмотреть</h1>
         <div class="backgroundWrapper">
-            <div class="addFilmForm">
+            <form id="filmForm" class="addFilmForm">
                 <div class="inputWrapper">
                     <input id="filmInput" type="text"
                            placeholder="Добавить фильм">
@@ -32,13 +32,13 @@
                     <img src="resources/button-add.png" alt="кнопка">
                 </button>
                 <button disabled id="deleteAllButton" class="addButton">X</button>
-            </div>
+            </form>
             <ul id="filmList" class="filmList">
-                <li id="filmItem" class="filmItem">
+                <li id="filmEmptyItem" class="filmItem">
                     <div class="filmItem__leftWrapper">
                         <input id="checkFilm0" class="filmItem__check" type="checkbox">
                         <label for="checkFilm0"></label>
-                        <p id="filmName" class="filmItem__name">Мстители. Финал</p>
+                        <p id="filmName" class="filmItem__name">Список фильмов пуст</p>
                     </div>
                     <button id="filmDelete0" class="filmItem__delete"><img src="resources/button-close.png" alt="X"></button>
                 </li>               

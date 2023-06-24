@@ -203,6 +203,10 @@ input::placeholder {
     transition: opacity .3s ease;
 }
 
+.none {
+    display: none;
+}
+
 @media (max-width: 1000px) {
     .filmItem {
         padding: 2vw;
