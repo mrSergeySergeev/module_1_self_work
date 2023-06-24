@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="resources/fav-icon.png" type="image/png">
+    <link rel="stylesheet" href="../../styles/reset.css">
+    <link rel="stylesheet" href="main.css">
+    <title>Киношки</title>
+</head>
+
+<body>
+    <div class="container">
+        <span class="headerSubtitle">
+            <p>список фильмов</p>
+            <p>2023</p>
+        </span>
+        <h1 class="headerTitle">Посмотреть</h1>
+        <div class="backgroundWrapper">
+            <div class="addFilmForm">
+                <div class="inputWrapper">
+                    <input id="filmInput" type="text"
+                           placeholder="Добавить фильм">
+                    <p id="validationMessage" class="validationMessage">0/50</p>
+                </div>
+                <button disabled id="addButton" class="addButton">
+                    <img src="resources/button-add.png" alt="кнопка">
+                </button>
+                <button disabled id="deleteAllButton" class="addButton">X</button>
+            </div>
+            <ul id="filmList" class="filmList">
+                <li id="filmItem" class="filmItem">
+                    <div class="filmItem__leftWrapper">
+                        <input id="checkFilm0" class="filmItem__check" type="checkbox">
+                        <label for="checkFilm0"></label>
+                        <p id="filmName" class="filmItem__name">Мстители. Финал</p>
+                    </div>
+                    <button id="filmDelete0" class="filmItem__delete"><img src="resources/button-close.png" alt="X"></button>
+                </li>               
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
