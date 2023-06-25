@@ -230,6 +230,11 @@ input::placeholder {
     width: max-content;
 }
 
+/* snimaem vse sobitiya s img v b */
+.filmItem__delete img {
+    pointer-events: none;
+}
+
 @media (max-width: 1000px) {
     .filmItem__delete img{
     width: 1em;
