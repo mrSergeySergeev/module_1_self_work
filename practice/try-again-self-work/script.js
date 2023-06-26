@@ -2,11 +2,11 @@ const INIT_SUM_SYMBOLS = 0;
 const MAX_SYMBOLS_IN_INPUT = 50;
 
 let films = [];
-// { id: null, filmName: null, done: null, delete: null, }
+// { id: null, filmName: null, done: null, delete: null, }\
+
 const filmFormNode = document.querySelector('#filmForm');
 const filmInputNode = document.querySelector('#filmInput');
 const addFilmButtonNode = document.querySelector('#addButton');
-const deleteAllButtonNode = document.querySelector('#deleteAllButton');
 const validationMessageNode = document.querySelector('#validationMessage');
 const filmListNode = document.querySelector('#filmList')
 const filmEmptyItemNode = document.querySelector('#filmEmptyItem');
@@ -25,7 +25,7 @@ const checkInput = () => {
 // чекаем кнопку по длине строки инпута
 const checkButton = () => {
     const lengthString = filmInputNode.value.length;
-    
+
     if (lengthString > INIT_SUM_SYMBOLS && lengthString <= MAX_SYMBOLS_IN_INPUT) {
         addFilmButtonNode.disabled = false;
     } else {
@@ -41,10 +41,9 @@ const checkEmptyFilmList = () => {
 };
 
 // check dliny spiska films
-const makeIdForCheckbox = () => {
+const makeIdForItem = () => {
     const lengthList = filmListNode.children.length;
-    const idItem = parseInt(lengthList);
-    console.log(lengthList);
+    const idItem = parseInt(lengthList) - 1;
     return idItem;
 }
 
@@ -58,18 +57,32 @@ const resetInputAndButton = () => {
 };
 
 // добавить фильм
-const addFilm = (idItem) => {
-    idItem = makeIdForCheckbox();
-    const film = filmInputNode.value;    
+const addFilm = () => {
+    const idItem = makeIdForItem();
+    const film = filmInputNode.value;
+
+    const newFilm = {
+        id: idItem,
+        text: film,
+        done: false,
+    };
+
+    films.push(newFilm);
+
+    // тернарный оператор = вопрос ? true : false
+    const cssClassItem = newFilm.done ? 'filmItem filmItem-disabled' : 'filmItem';
+    const cssClassName = newFilm.done ? 'filmItem__name filmItem__name-disabled' : 'filmItem__name';
+
     const filmHtml = `
-    <li id="filmItem" class="filmItem">
+    <li id="${newFilm.id}" class="${cssClassItem}">
         <div class="filmItem__leftWrapper">
-            <input id="checkFilm${idItem}" data-action="done" class="filmItem__check" type="checkbox">
-            <label for="checkFilm${idItem}"></label>
-            <p id="filmName" class="filmItem__name">${film}</p>
+            <input id="checkFilm${newFilm.id}" data-action="done" class="filmItem__check" type="checkbox">
+            <label for="checkFilm${newFilm.id}"></label>
+            <p id="filmName" class="${cssClassName}">${newFilm.text}</p>
         </div>
         <button id="filmDelete" data-action="delete" class="filmItem__delete"><img src="resources/button-close.png" alt="X"></button>
     </li>`;
+
     filmListNode.insertAdjacentHTML('beforeend', filmHtml);
 };
 
@@ -78,8 +91,29 @@ const deleteFilm = (event) => {
     if (event.target.dataset.action !== 'delete') {
         return;
     };
-
+    // metod 'closest' ishet roditelya sobytiya po klassy css
     const currentParentNode = event.target.closest('.filmItem');
+
+    const idDeleteNode = Number(currentParentNode.id);
+
+    // nahodim index elementa v massive
+    const index = films.findIndex(function (film) {
+        return film.id === idDeleteNode;
+    });
+
+    console.log(index);
+
+    //virezaem element iz massiva
+    films.splice(index, 1);
+
+    //perepisivaem id v massive
+    for (let i = 0; i < films.length; i++) {
+        const film = films[i];
+        film.id = i;
+    };
+
+    console.log(films);
+
     currentParentNode.remove();
 
     if (filmListNode.children.length === 1) {
