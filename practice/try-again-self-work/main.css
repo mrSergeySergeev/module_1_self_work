@@ -203,10 +203,6 @@ input::placeholder {
     transition: opacity .3s ease;
 }
 
-.none {
-    display: none;
-}
-
 @media (max-width: 1000px) {
     .filmItem {
         padding: 2vw;
@@ -214,7 +210,8 @@ input::placeholder {
 }
 
 .filmItem-disabled {
-    opacity: 0.5;
+    text-decoration: line-through;
+    opacity: .5;
 }
 
 .filmItem__leftWrapper {
@@ -240,11 +237,6 @@ input::placeholder {
     width: 1em;
     height: 1em;       
     }
-}
-
-.filmItem__name-disabled {
-    text-decoration: line-through;
-    opacity: .5;
 }
 
 .filmItem__check {

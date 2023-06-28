@@ -11,6 +11,39 @@ const validationMessageNode = document.querySelector('#validationMessage');
 const filmListNode = document.querySelector('#filmList')
 const filmEmptyItemNode = document.querySelector('#filmEmptyItem');
 
+// zapushim massiv v LocalStorage
+const pushFilmsToLS = () => {
+    localStorage.setItem('films', JSON.stringify(films));
+};
+
+// 4ekaem localStorage
+const checkLocalStorage = () => {
+    if (localStorage.getItem('films')) {
+        films = JSON.parse(localStorage.getItem('films'));
+    };
+    return films;
+};
+
+// funkciya rendera massiva from LS
+const renderArrayFromLS = () => {
+    films.forEach(film => {
+        const cssClassItem = film.done ? 'filmItem filmItem-disabled' : 'filmItem';
+
+        const filmHtml = `
+        <li id="${film.id}" class="${cssClassItem}">
+            <div class="filmItem__leftWrapper">
+                <input id="checkFilm${film.id}" data-action="done" class="filmItem__check" type="checkbox">
+                <label for="checkFilm${film.id}"></label>
+                <p id="filmName" class="filmItem__name">${film.text}</p>
+            </div>
+            <button id="filmDelete" data-action="delete" class="filmItem__delete"><img src="resources/button-close.png" alt="X"></button>
+        </li>`;
+    
+        filmListNode.insertAdjacentHTML('beforeend', filmHtml);    
+    });   
+};
+
+
 // функция валидации заголовка
 const checkInput = () => {
     const lengthString = filmInputNode.value.length;
@@ -35,16 +68,25 @@ const checkButton = () => {
 
 // скрываем строку "список фильмов пуст"
 const checkEmptyFilmList = () => {
-    if (filmListNode.children.length > 1) {
-        filmEmptyItemNode.classList.add('none');
+    if (films.length === 0) {
+        const emptyListHTML = `<li id="filmEmptyItem" class="filmItem">
+                                    <div class="filmItem__leftWrapper">
+                                        <p id="filmName" class="filmItem__name">Список фильмов пуст</p>
+                                    </div>
+                                </li>`;
+        filmListNode.insertAdjacentHTML('afterbegin', emptyListHTML);
+    };
+
+    if (films.length > 0) {
+        const emptyListItem = document.querySelector('#filmEmptyItem');
+        emptyListItem ? emptyListItem.remove() : null;
     };
 };
 
 // check dliny spiska films
 const makeIdForItem = () => {
-    const lengthList = filmListNode.children.length;
-    const idItem = parseInt(lengthList) - 1;
-    return idItem;
+    const lengthList = parseInt(films.length);
+    return lengthList;
 }
 
 // возвращаем начальные значения для ввода и кнопки
@@ -86,6 +128,30 @@ const addFilm = () => {
     filmListNode.insertAdjacentHTML('beforeend', filmHtml);
 };
 
+//renderIdAfterDelete
+const genereteAndRenderIdAfterDeleteFilm = () => {
+    filmListNode.innerHTML = '';
+    for (let i = 0; i < films.length; i++) {
+        const film = films[i];
+        film.id = i;
+        
+        const cssClassItem = film.done ? 'filmItem filmItem-disabled' : 'filmItem';
+        // const checkboxCheck = film.done ? setAttribute('checked') : removeAttribute('checked');
+
+        const filmHtml = `
+        <li id="${film.id}" class="${cssClassItem}">
+            <div class="filmItem__leftWrapper">
+                <input id="checkFilm${film.id}" data-action="done" class="filmItem__check" type="checkbox">
+                <label for="checkFilm${film.id}"></label>
+                <p id="filmName" class="filmItem__name">${film.text}</p>
+            </div>
+            <button id="filmDelete" data-action="delete" class="filmItem__delete"><img src="resources/button-close.png" alt="X"></button>
+        </li>`;
+    
+        filmListNode.insertAdjacentHTML('beforeend', filmHtml);
+    };
+};
+
 // удалить фильм
 const deleteFilm = (event) => {
     if (event.target.dataset.action !== 'delete') {
@@ -94,31 +160,32 @@ const deleteFilm = (event) => {
     // metod 'closest' ishet roditelya sobytiya po klassy css
     const currentParentNode = event.target.closest('.filmItem');
 
-    const idDeleteNode = Number(currentParentNode.id);
+    const idItem = Number(currentParentNode.id);
 
     // nahodim index elementa v massive
-    const index = films.findIndex(function (film) {
-        return film.id === idDeleteNode;
-    });
+    const index = films.findIndex((film) => film.id === idItem);
 
     console.log(index);
 
     //virezaem element iz massiva
     films.splice(index, 1);
 
-    //perepisivaem id v massive
-    for (let i = 0; i < films.length; i++) {
-        const film = films[i];
-        film.id = i;
-    };
+    // или через метод массива filter, который возвращает нам новый массив
+    // films = films.filter(function (film) {
+    //     if (film.id !== id) {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     };
+    // });
 
-    console.log(films);
-
+    //perepisivaem id v massive i renderim html
+    genereteAndRenderIdAfterDeleteFilm()
+    
     currentParentNode.remove();
 
-    if (filmListNode.children.length === 1) {
-        filmEmptyItemNode.classList.remove('none')
-    };
+    pushFilmsToLS()
+    checkEmptyFilmList();
 };
 
 // otmetit' prosmotrennim
@@ -129,12 +196,24 @@ const doneFilm = (event) => {
 
     const currentParentNode = event.target.closest('.filmItem');
 
+    const idItem = Number(currentParentNode.id);
+
+    const film = films.find(function (film) {
+        if (film.id === idItem) {
+            return true;
+        };
+    });
+
     if (event.target.checked) {
-        currentParentNode.classList.add('filmItem__name-disabled');
+        currentParentNode.classList.add('filmItem-disabled');
+        film.done = true;
     } else {
-        currentParentNode.classList.remove('filmItem__name-disabled');
+        currentParentNode.classList.remove('filmItem-disabled');
+        film.done = false;
     };
-}
+
+    pushFilmsToLS();
+};
 
 // обработчик поля ввода фильма
 const initInputHandler = () => {
@@ -148,9 +227,20 @@ const addFilmHandler = (event) => {
     // при отправке формы, здесь перезагрузку браузера
     event.preventDefault();
     addFilm();
+    pushFilmsToLS();
     resetInputAndButton();
     checkEmptyFilmList();
+    console.log(films);
 };
+
+// zapuskaem proverky LocalStorage
+checkLocalStorage()
+
+// zapuskaem proverky nali4iya filmov v !massive! films 
+checkEmptyFilmList();
+
+// renderim soderzhimoe LS
+renderArrayFromLS();
 
 // слушатель поля ввода
 filmInputNode.addEventListener('input', initInputHandler);
