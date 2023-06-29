@@ -24,6 +24,16 @@ const checkLocalStorage = () => {
     return films;
 };
 
+// ренденрим статус ЧЕК
+const renderCheckedItems = () => {
+    for (let i = 0; i < films.length; i++) {
+        const label = filmListNode.querySelector(`#checkFilm${i}`)
+        if (films[i].done === true) {
+            label.checked = true;
+        };
+    };
+};
+
 // funkciya rendera massiva from LS
 const renderArrayFromLS = () => {
     films.forEach(film => {
@@ -38,11 +48,11 @@ const renderArrayFromLS = () => {
             </div>
             <button id="filmDelete" data-action="delete" class="filmItem__delete"><img src="resources/button-close.png" alt="X"></button>
         </li>`;
-    
-        filmListNode.insertAdjacentHTML('beforeend', filmHtml);    
-    });   
-};
 
+        filmListNode.insertAdjacentHTML('beforeend', filmHtml);
+    });
+    renderCheckedItems();
+};
 
 // функция валидации заголовка
 const checkInput = () => {
@@ -101,7 +111,11 @@ const resetInputAndButton = () => {
 // добавить фильм
 const addFilm = () => {
     const idItem = makeIdForItem();
-    const film = filmInputNode.value;
+    const film = filmInputNode.value.trim();
+
+    if (!film) {
+        return;
+    };
 
     const newFilm = {
         id: idItem,
@@ -134,7 +148,7 @@ const genereteAndRenderIdAfterDeleteFilm = () => {
     for (let i = 0; i < films.length; i++) {
         const film = films[i];
         film.id = i;
-        
+
         const cssClassItem = film.done ? 'filmItem filmItem-disabled' : 'filmItem';
         // const checkboxCheck = film.done ? setAttribute('checked') : removeAttribute('checked');
 
@@ -147,7 +161,7 @@ const genereteAndRenderIdAfterDeleteFilm = () => {
             </div>
             <button id="filmDelete" data-action="delete" class="filmItem__delete"><img src="resources/button-close.png" alt="X"></button>
         </li>`;
-    
+
         filmListNode.insertAdjacentHTML('beforeend', filmHtml);
     };
 };
@@ -181,11 +195,12 @@ const deleteFilm = (event) => {
 
     //perepisivaem id v massive i renderim html
     genereteAndRenderIdAfterDeleteFilm()
-    
+
     currentParentNode.remove();
 
     pushFilmsToLS()
     checkEmptyFilmList();
+    renderCheckedItems()
 };
 
 // otmetit' prosmotrennim
