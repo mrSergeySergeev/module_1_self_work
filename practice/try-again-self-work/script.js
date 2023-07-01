@@ -120,6 +120,7 @@ const addFilm = () => {
     const film = filmInputNode.value.trim();
 
     if (!film) {
+        alert('Empty input');
         return;
     };
 
