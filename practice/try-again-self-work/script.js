@@ -37,19 +37,7 @@ const renderCheckedItems = () => {
 // funkciya rendera massiva from LS
 const renderArrayFromLS = () => {
     films.forEach(film => {
-        const cssClassItem = film.done ? 'filmItem filmItem-disabled' : 'filmItem';
-
-        const filmHtml = `
-        <li id="${film.id}" class="${cssClassItem}">
-            <div class="filmItem__leftWrapper">
-                <input id="checkFilm${film.id}" data-action="done" class="filmItem__check" type="checkbox">
-                <label for="checkFilm${film.id}"></label>
-                <p id="filmName" class="filmItem__name">${film.text}</p>
-            </div>
-            <button id="filmDelete" data-action="delete" class="filmItem__delete"><img src="resources/button-close.png" alt="X"></button>
-        </li>`;
-
-        filmListNode.insertAdjacentHTML('beforeend', filmHtml);
+        renderFilm(film);
     });
     renderCheckedItems();
 };
@@ -108,6 +96,24 @@ const resetInputAndButton = () => {
     filmInputNode.focus();
 };
 
+// рендерим HTML-раметку для фильма
+const renderFilm = (film) => {
+    // тернарный оператор = вопрос ? true : false
+    const cssClassItem = film.done ? 'filmItem filmItem-disabled' : 'filmItem';
+
+    const filmHtml = `
+    <li id="${film.id}" class="${cssClassItem}">
+        <div class="filmItem__leftWrapper">
+            <input id="checkFilm${film.id}" data-action="done" class="filmItem__check" type="checkbox">
+            <label for="checkFilm${film.id}"></label>
+            <p id="filmName" class="filmItem__name">${film.text}</p>
+        </div>
+        <button id="filmDelete" data-action="delete" class="filmItem__delete"><img src="resources/button-close.png" alt="X"></button>
+    </li>`;
+
+    filmListNode.insertAdjacentHTML('beforeend', filmHtml);
+}
+
 // добавить фильм
 const addFilm = () => {
     const idItem = makeIdForItem();
@@ -124,45 +130,19 @@ const addFilm = () => {
     };
 
     films.push(newFilm);
+    
+    renderFilm(newFilm);
 
-    // тернарный оператор = вопрос ? true : false
-    const cssClassItem = newFilm.done ? 'filmItem filmItem-disabled' : 'filmItem';
-    const cssClassName = newFilm.done ? 'filmItem__name filmItem__name-disabled' : 'filmItem__name';
-
-    const filmHtml = `
-    <li id="${newFilm.id}" class="${cssClassItem}">
-        <div class="filmItem__leftWrapper">
-            <input id="checkFilm${newFilm.id}" data-action="done" class="filmItem__check" type="checkbox">
-            <label for="checkFilm${newFilm.id}"></label>
-            <p id="filmName" class="${cssClassName}">${newFilm.text}</p>
-        </div>
-        <button id="filmDelete" data-action="delete" class="filmItem__delete"><img src="resources/button-close.png" alt="X"></button>
-    </li>`;
-
-    filmListNode.insertAdjacentHTML('beforeend', filmHtml);
+    console.log(films)
 };
 
 //renderIdAfterDelete
-const genereteAndRenderIdAfterDeleteFilm = () => {
+const renderAfterDelete = () => {
     filmListNode.innerHTML = '';
     for (let i = 0; i < films.length; i++) {
         const film = films[i];
         film.id = i;
-
-        const cssClassItem = film.done ? 'filmItem filmItem-disabled' : 'filmItem';
-        // const checkboxCheck = film.done ? setAttribute('checked') : removeAttribute('checked');
-
-        const filmHtml = `
-        <li id="${film.id}" class="${cssClassItem}">
-            <div class="filmItem__leftWrapper">
-                <input id="checkFilm${film.id}" data-action="done" class="filmItem__check" type="checkbox">
-                <label for="checkFilm${film.id}"></label>
-                <p id="filmName" class="filmItem__name">${film.text}</p>
-            </div>
-            <button id="filmDelete" data-action="delete" class="filmItem__delete"><img src="resources/button-close.png" alt="X"></button>
-        </li>`;
-
-        filmListNode.insertAdjacentHTML('beforeend', filmHtml);
+       renderFilm(film);
     };
 };
 
@@ -194,7 +174,7 @@ const deleteFilm = (event) => {
     // });
 
     //perepisivaem id v massive i renderim html
-    genereteAndRenderIdAfterDeleteFilm()
+    renderAfterDelete()
 
     currentParentNode.remove();
 
@@ -254,7 +234,7 @@ checkLocalStorage()
 // zapuskaem proverky nali4iya filmov v !massive! films 
 checkEmptyFilmList();
 
-// renderim soderzhimoe LS
+// zapuskaem render soderzhimogo LS
 renderArrayFromLS();
 
 // слушатель поля ввода
