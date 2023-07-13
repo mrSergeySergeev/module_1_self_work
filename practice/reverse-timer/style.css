@@ -1,0 +1,27 @@
+body {
+    margin: 0 auto;
+    padding-top: 2vw;
+    width: 90vw;
+    display: flex;
+    font-size: 3vw;
+}
+
+.timer {
+    display: flex;
+    justify-content: space-between;
+    gap: 4vw;
+}
+
+button,
+input {
+    font-size: inherit;
+    cursor: pointer;
+}
+
+.timer__controls,
+.timer__display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1vw;
+}

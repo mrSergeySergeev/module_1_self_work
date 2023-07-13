@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Reverse timer</title>
+</head>
+<body>
+    <div class="timer">
+        <div class="timer__controls">
+            <form name="timerForm">
+                <input type="text" name="minutes" placeholder="Кол-во минут...">
+            </form>
+            <button data-time="30" class="timer__button">30 секунд</button>
+            <button data-time="300" class="timer__button">5 минут</button>
+            <button data-time="900" class="timer__button">15 минут</button>
+            <button data-time="3600" class="timer__button">Обэд</button>
+        </div>
+        <div class="timer__display">
+            <div class="timer__displayLeft"></div>
+            <p class="timer__displayEnd"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

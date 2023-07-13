@@ -63,7 +63,18 @@ const colorsArray = [
 ];
 const circlesArray = [];
 
-for (let i = 0; i < 100; i++) {
+let a = null;
+function getNumberFromUser() {
+  messageForUserNumber = "Vvedite koli4estvo shrikov(ot 50 do 500";
+  while (a < 50 || a > 500 || a == null || !Number.isInteger(a)) {
+    a = parseInt(prompt(messageForUserNumber));
+  }
+  return a;
+}
+
+getNumberFromUser();
+
+for (let i = 0; i < a; i++) {
   // metod Math.random - poly4aem sly4ainoe 4islo ot 0 do 1
   // and ymnozhaem na widht or height of display
   // or otnimaen 0.5 dlya izmeneniya yskoreniya and napravleniya
