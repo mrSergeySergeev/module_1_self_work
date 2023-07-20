@@ -1,0 +1,44 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Inter', sans-serif;
+    font-size: 5vw;
+    
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    padding: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5vw;
+    background-image: linear-gradient(#fff, #00000080);
+    background-repeat: no-repeat;
+    background-position: 100%;
+    background-size: contain;
+}
+
+.containerActive {
+    background-image: linear-gradient(#00B01C80, #fff);
+}
+
+.boredStatus {
+    font-weight: 700;
+}
+
+button {
+    padding: 1vw 15vw 1vw 15vw;
+    background-color: #0094FF;
+    color: #fff;
+    font-family: inherit;
+    font-size: inherit;
+    transition: opacity .3s ease;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.6;
+}
