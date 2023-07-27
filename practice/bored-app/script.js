@@ -7,7 +7,7 @@ const INIT_NOT_BORED_STATUS = 'Ура, теперь не скучно 🔥';
 
 const boredGoOff = () => {
     console.log('function')
-    fetch('http://www.boredapi.com/api/activity')
+    fetch('https://www.boredapi.com/api/activity')
         .then(data => data.json())
         .then((res) => {
             boredStatusNode.innerHTML = INIT_NOT_BORED_STATUS
