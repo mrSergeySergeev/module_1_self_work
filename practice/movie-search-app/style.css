@@ -7,14 +7,17 @@ body {
     max-width: 1400px;
     width: 100%;
     padding: 50px 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .findFilmForm {
     display: flex;
+    justify-content: space-between;
     gap: 24px;
     font-size: 32px;
     line-height: 38px;
-    /* color: #fff; */
 }
 
 input,
@@ -22,4 +25,46 @@ button {
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+.inputWrapper { 
+border: 1px solid #111111;
+}
+
+.filmInput {
+    padding: 5px 5px;
+    resize: none;
+    overflow: hidden;
+    outline: none;
+}
+
+.findButton {
+    padding: 5px 70px;
+    color: #fff;
+    background-color: #0094FF;
+    transition: opacity 0.3s ease;
+}
+
+.findButton:disabled {
+    opacity: 0.3;
+}
+
+.findButton:hover {
+    opacity: 0.7;
+}
+
+.pagesInfoWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+}
+
+.pagesNavigationWrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
 }
