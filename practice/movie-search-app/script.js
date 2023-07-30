@@ -13,6 +13,7 @@ const findFilmButtonNode = document.querySelector('#findButton');
 const filmListNode = document.querySelector('#filmList');
 const pagesInfoNode = document.querySelector('#pagesInfoWrapper');
 
+
 const getFilmFromUser = () => {
     const inputValue = filmInputNode.value.trim();
     return inputValue;
@@ -30,7 +31,6 @@ const clearNumsOfPages = () => pagesInfoNode.innerHTML = '';
 // pos4itaem pages
 const countPages = (pages) => {
     pages = Math.ceil(pages / 10);
-    console.log(pages);
     return pages;
 };
 
@@ -39,10 +39,10 @@ const renderNumsOfPages = (pages) => {
     pagesInfoNode.innerHTML = ` <span>Страниц найдено: ${pages}</span>
                                 <div class="pagesNavigationWrapper">
                                     <div class="inputWrapper">
-                                        <input id="pageInput" min="1" max="${pages}" class="filmInput" type="number"
+                                        <input id="pageInput" data-action="changePageInput" min="1" max="${pages}" class="filmInput" type="number"
                                             placeholder="1-${pages}">
                                     </div>
-                                    <button data-action="changePage" class="appButton">Перейти</button>
+                                    <button disabled id="pageButton" data-action="changePage" class="appButton">Перейти</button>
                                     <button data-action="newSearch" class="appButton">Новый поиск</button>
                                 </div>`
 };
@@ -75,17 +75,29 @@ const FirstRequestMovieToServer = () => {
         });
 };
 
+// zapros number of page on server
 const requestPageToServer = (page) => {
     const inputValue = getFilmFromUser()
     fetch(`https://www.omdbapi.com/?apikey=cfa8e559&s=${inputValue}&page=${page}`)
         .then(response => response.json())
         .then((response) => {
             renderFilmList(response.Search)
-            console.log(response)
-            console.log(response.Search)
-            console.log(response.Search[0])
         });
 };
+
+// zapros about film on server
+const requestInfoMovieToServer = (event) => {
+    if (event.target.dataset.action !== "filmItem") {
+        return;
+    };
+    console.log(event.target.id)
+    fetch(`https://www.omdbapi.com/?apikey=cfa8e559&i=${event.target.id}`)
+        .then(response => response.json())
+        .then((response) => {
+            console.log(response)
+        });
+}
+
 
 const renderFilmList = (array) => {
     filmListNode.innerHTML = '';
@@ -115,18 +127,6 @@ const filmInputHandler = () => {
     };
 };
 
-// 4ekaem knopky change page po inputy
-const pageInputHandler = (button, input) => {
-    const lengthString = input.value.trim();
-    if (!lengthString) {
-        button.disabled = true;
-    } else {
-        button.disabled = false;
-    };
-};
-
-
-
 const findFilmHandler = (event) => {
     // otmenyaet standartnoe povedenie browser
     event.preventDefault();
@@ -150,21 +150,33 @@ const changePageButtonHandler = (event) => {
     };
     const currentParentNode = event.target.closest('.pagesNavigationWrapper');
     const pageInputNode = currentParentNode.querySelector('#pageInput');
+    pageInputNode.addEventListener('input', pageInputHandler);
     const page = parseInt(pageInputNode.value);
     requestPageToServer(page);
 };
 
-const infoFilmHandler = (event) => {
-    if (event.target.dataset.action !== "filmItem") {
+// 4ekaem knopky change page po inputy
+const pageInputHandler = (event) => {
+    if (event.target.dataset.action !== "changePageInput") {
         return;
     };
-    console.log(event.target.id)
+    const currentParentNode = event.target.closest('.pagesNavigationWrapper');
+    const pageInputNode = currentParentNode.querySelector('#pageInput');
+    const pageButtonNode = currentParentNode.querySelector('#pageButton')
+    const lengthString = pageInputNode.value;
+    if (!lengthString) {
+        pageButtonNode.disabled = true;
+    } else {
+        pageButtonNode.disabled = false;
+    };
+};
 
-}
+//
 
 
 filmInputNode.addEventListener('input', filmInputHandler);
 filmFormNode.addEventListener('submit', findFilmHandler);
 pagesInfoNode.addEventListener('click', changePageButtonHandler);
 pagesInfoNode.addEventListener('click', newSearchButtonHandler);
-filmListNode.addEventListener('click', infoFilmHandler);
+pagesInfoNode.addEventListener('input', pageInputHandler)
+filmListNode.addEventListener('click', requestInfoMovieToServer);

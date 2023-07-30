@@ -13,6 +13,11 @@
 </head>
 
 <body>
+    <div class="popup" id="popup">
+        <div class="popup__content" id="popupContent">
+            <button class="appButton">Back</button>
+        </div>
+    </div>
     <div class="container">
         <form id="filmForm" class="findFilmForm">
             <div class="inputWrapper">
@@ -21,20 +26,12 @@
             <button disabled id="findButton" class="appButton">Найти</button>
         </form>
         <div id="pagesInfoWrapper" class="pagesInfoWrapper">
-            <!-- <span>Страниц найдено: ${pages}</span>
-            <div class="pagesNavigationWrapper">
-                <div class="inputWrapper">
-                    <input id="pageInput" min="1" max="${pages}" class="filmInput" type="number"
-                           placeholder="1-${pages}">
-                </div>
-                <button id="changePageButton" data-action="changePage" class="appButton">Перейти</button>
-                <button id="newSearchButton" data-action="newSearch" class="appButton">Новый поиск</button>
-            </div> -->
         </div>
         <ul id="filmList" class="filmList">           
         </ul>
     </div>
     <script src="script.js"></script>
+    <!-- <script src="popup.js"></script> -->
 </body>
 
 </html>
