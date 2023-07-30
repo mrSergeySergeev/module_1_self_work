@@ -70,7 +70,7 @@ const FirstRequestMovieToServer = () => {
             renderNumsOfPages(pages);
             renderFilmList(response.Search)
             // console.log(response)
-            // console.log(response.Search)
+            console.log(response.Search)
             // console.log(response.Search[0])
         });
 };
@@ -89,23 +89,23 @@ const requestPageToServer = (page) => {
 
 const renderFilmList = (array) => {
     filmListNode.innerHTML = '';
-    console.log(array)
     for (let i = 0; i < array.length; i++) {
-        console.log(array[i].Title)
         const listItem = document.createElement("li");
         listItem.className = "filmItem";
-        listItem.innerHTML = `  <img class="filmItem__image" src="${array[i].Poster}" alt="">
+        listItem.dataset.action = "filmItem"
+        listItem.id = array[i].imdbID
+        listItem.innerHTML = `  <img class="filmItem__image" src="${array[i].Poster}" alt="Film's poster">
                                 <div class="filmItem__wrapper">
                                     <p class="filmItem__title">${array[i].Title}</p>
                                     <p class="filmItem__year">${array[i].Year}</p>
                                     <p class="filmItem__type">${array[i].Type}</p>                    
                                 </div>`;
 
-        filmListNode.appendChild(listItem);        
-    };    
+        filmListNode.appendChild(listItem);
+    };
 };
 
-// 4ekaem knopky po inputy
+// 4ekaem knopky find po inputy
 const filmInputHandler = () => {
     const lengthString = filmInputNode.value.trim();
     if (!lengthString) {
@@ -114,6 +114,18 @@ const filmInputHandler = () => {
         findFilmButtonNode.disabled = false;
     };
 };
+
+// 4ekaem knopky change page po inputy
+const pageInputHandler = (button, input) => {
+    const lengthString = input.value.trim();
+    if (!lengthString) {
+        button.disabled = true;
+    } else {
+        button.disabled = false;
+    };
+};
+
+
 
 const findFilmHandler = (event) => {
     // otmenyaet standartnoe povedenie browser
@@ -138,14 +150,21 @@ const changePageButtonHandler = (event) => {
     };
     const currentParentNode = event.target.closest('.pagesNavigationWrapper');
     const pageInputNode = currentParentNode.querySelector('#pageInput');
-    console.log(pageInputNode);
     const page = parseInt(pageInputNode.value);
-    console.log(page);
     requestPageToServer(page);
 };
+
+const infoFilmHandler = (event) => {
+    if (event.target.dataset.action !== "filmItem") {
+        return;
+    };
+    console.log(event.target.id)
+
+}
 
 
 filmInputNode.addEventListener('input', filmInputHandler);
 filmFormNode.addEventListener('submit', findFilmHandler);
 pagesInfoNode.addEventListener('click', changePageButtonHandler);
 pagesInfoNode.addEventListener('click', newSearchButtonHandler);
+filmListNode.addEventListener('click', infoFilmHandler);
