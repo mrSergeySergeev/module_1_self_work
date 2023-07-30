@@ -18,7 +18,7 @@
             <div class="inputWrapper">
                 <input id="filmInput" class="filmInput" type="text" placeholder="Название фильма">
             </div>
-            <button disabled id="findButton" class="findButton">Найти</button>
+            <button disabled id="findButton" class="appButton">Найти</button>
         </form>
         <div id="pagesInfoWrapper" class="pagesInfoWrapper">
             <!-- <span>Страниц найдено: ${pages}</span>
@@ -27,11 +27,19 @@
                     <input id="pageInput" min="1" max="${pages}" class="filmInput" type="number"
                            placeholder="1-${pages}">
                 </div>
-                <button id="changePageButton" data-action="changePage" class="findButton">Перейти</button>
+                <button id="changePageButton" data-action="changePage" class="appButton">Перейти</button>
+                <button id="newSearchButton" data-action="newSearch" class="appButton">Новый поиск</button>
             </div> -->
         </div>
         <ul id="filmList" class="filmList">
-
+            <!-- <li class="filmItem">
+                <img class="filmItem__image" src="${this.Poster}" alt="">
+                <div class="filmItem__wrapper">
+                    <p class="filmItem__title">${this.Title}</p>
+                    <p class="filmItem__year">${this.Year}</p>
+                    <p class="filmItem__type">${this.Type}</p>                    
+                </div>
+            </li> -->
         </ul>
     </div>
     <script src="script.js"></script>

@@ -20,6 +20,10 @@ body {
     line-height: 38px;
 }
 
+.disabled {
+    display: none;
+}
+
 input,
 button {
     font-family: inherit;
@@ -40,19 +44,19 @@ border: 1px solid #111111;
     outline: none;
 }
 
-.findButton {
+.appButton {
     padding: 5px 70px;
     color: #fff;
     background-color: #0094FF;
     transition: opacity 0.3s ease;
 }
 
-.findButton:disabled {
-    opacity: 0.3;
+.appButton:hover {
+    opacity: 0.7;
 }
 
-.findButton:hover {
-    opacity: 0.7;
+.appButton:disabled {
+    opacity: 0.3;
 }
 
 .pagesInfoWrapper {

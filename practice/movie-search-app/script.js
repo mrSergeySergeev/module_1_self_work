@@ -12,16 +12,15 @@ const filmInputNode = document.querySelector('#filmInput');
 const findFilmButtonNode = document.querySelector('#findButton');
 const filmListNode = document.querySelector('#filmList');
 const pagesInfoNode = document.querySelector('#pagesInfoWrapper');
-// const pageInputNode = document.querySelector('#pageInput')
-// const changePageButtonNode = document.querySelector('#changePageButton')
-
-let response = {};
 
 const getFilmFromUser = () => {
     const inputValue = filmInputNode.value.trim();
     return inputValue;
 };
 
+const clearFilmInput = () => filmInputNode.value = '';
+const removeFilmForm = () => filmFormNode.classList.add('disabled');
+const returnFilmForm = () => filmFormNode.classList.remove('disabled');
 const clearFilmList = () => filmListNode.innerHTML = '';
 const focusOnInput = () => filmInputNode.focus();
 const findToManyResults = () => filmListNode.innerHTML = ERROR_NUMBERS;
@@ -37,17 +36,19 @@ const countPages = (pages) => {
 
 // otrenderim nums of pages
 const renderNumsOfPages = (pages) => {
-    pagesInfoNode.innerHTML =  `<span>Страниц найдено: ${pages}</span>
+    pagesInfoNode.innerHTML = ` <span>Страниц найдено: ${pages}</span>
                                 <div class="pagesNavigationWrapper">
                                     <div class="inputWrapper">
-                                        <input id="pageInput" min="1" max="${pages}" class="filmInput" type="number" placeholder="1-${pages}">
+                                        <input id="pageInput" min="1" max="${pages}" class="filmInput" type="number"
+                                            placeholder="1-${pages}">
                                     </div>
-                                    <button id="changePageButton" data-action="changePage" class="findButton">Перейти</button>
+                                    <button data-action="changePage" class="appButton">Перейти</button>
+                                    <button data-action="newSearch" class="appButton">Новый поиск</button>
                                 </div>`
-}
+};
 
-// zapros na server
-const requestMovieToServer = () => {
+// first zapros na server
+const FirstRequestMovieToServer = () => {
     let pages = null;
     const inputValue = getFilmFromUser()
     fetch(`https://www.omdbapi.com/?apikey=cfa8e559&s=${inputValue}`)
@@ -64,11 +65,13 @@ const requestMovieToServer = () => {
                 return;
             };
             clearFilmList();
+            removeFilmForm();
             pages = countPages(response.totalResults)
             renderNumsOfPages(pages);
-            console.log(response)
-            console.log(response.Search)
-            console.log(response.Search[0])
+            renderFilmList(response.Search)
+            // console.log(response)
+            // console.log(response.Search)
+            // console.log(response.Search[0])
         });
 };
 
@@ -77,10 +80,29 @@ const requestPageToServer = (page) => {
     fetch(`https://www.omdbapi.com/?apikey=cfa8e559&s=${inputValue}&page=${page}`)
         .then(response => response.json())
         .then((response) => {
+            renderFilmList(response.Search)
             console.log(response)
             console.log(response.Search)
             console.log(response.Search[0])
         });
+};
+
+const renderFilmList = (array) => {
+    filmListNode.innerHTML = '';
+    console.log(array)
+    for (let i = 0; i < array.length; i++) {
+        console.log(array[i].Title)
+        const listItem = document.createElement("li");
+        listItem.className = "filmItem";
+        listItem.innerHTML = `  <img class="filmItem__image" src="${array[i].Poster}" alt="">
+                                <div class="filmItem__wrapper">
+                                    <p class="filmItem__title">${array[i].Title}</p>
+                                    <p class="filmItem__year">${array[i].Year}</p>
+                                    <p class="filmItem__type">${array[i].Type}</p>                    
+                                </div>`;
+
+        filmListNode.appendChild(listItem);        
+    };    
 };
 
 // 4ekaem knopky po inputy
@@ -96,23 +118,34 @@ const filmInputHandler = () => {
 const findFilmHandler = (event) => {
     // otmenyaet standartnoe povedenie browser
     event.preventDefault();
-    requestMovieToServer()
+    FirstRequestMovieToServer()
+};
+
+const newSearchButtonHandler = (event) => {
+    if (event.target.dataset.action !== "newSearch") {
+        return;
+    };
+    returnFilmForm();
+    clearFilmList();
+    clearNumsOfPages();
+    clearFilmInput();
     focusOnInput();
 };
 
 const changePageButtonHandler = (event) => {
     if (event.target.dataset.action !== "changePage") {
         return;
-    }
-    const currentParentNode = event.target.closest('.pagesNavigationWrapper')
-    const pageInputNode = currentParentNode.querySelector('#pageInput')
-    console.log(pageInputNode)
+    };
+    const currentParentNode = event.target.closest('.pagesNavigationWrapper');
+    const pageInputNode = currentParentNode.querySelector('#pageInput');
+    console.log(pageInputNode);
     const page = parseInt(pageInputNode.value);
-    console.log(page)
+    console.log(page);
     requestPageToServer(page);
-}
+};
 
 
 filmInputNode.addEventListener('input', filmInputHandler);
 filmFormNode.addEventListener('submit', findFilmHandler);
-pagesInfoNode.addEventListener('click',changePageButtonHandler)
+pagesInfoNode.addEventListener('click', changePageButtonHandler);
+pagesInfoNode.addEventListener('click', newSearchButtonHandler);
