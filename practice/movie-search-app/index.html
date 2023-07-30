@@ -21,12 +21,13 @@
             <button disabled id="findButton" class="findButton">Найти</button>
         </form>
         <div id="pagesInfoWrapper" class="pagesInfoWrapper">
-            <!-- <span>Страниц найдено: 45</span>
+            <!-- <span>Страниц найдено: ${pages}</span>
             <div class="pagesNavigationWrapper">
                 <div class="inputWrapper">
-                    <input id="pageInput" min="1" max="45" class="filmInput" type="number" placeholder="Страница">
+                    <input id="pageInput" min="1" max="${pages}" class="filmInput" type="number"
+                           placeholder="1-${pages}">
                 </div>
-                <button id="changePageButton" class="findButton">→</button>
+                <button id="changePageButton" data-action="changePage" class="findButton">Перейти</button>
             </div> -->
         </div>
         <ul id="filmList" class="filmList">
