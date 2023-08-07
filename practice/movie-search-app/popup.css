@@ -34,28 +34,40 @@
     color: #000;
     background-color: #fff;
     position: relative;
-    max-width: 90vw;
+    max-width: 80vw;
     height: 90vw;
     max-height: 100%;
     padding: 2vw;
     overflow: scroll;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1vw;
 }
 
-.closePopupButton {
-    position: absolute;
-    top: 3vw;
-    left: 3vw;
-    font-size: 3vw;
+.popup__btn {
+    width: 80%;
+    font-size: 1.5vw;
     line-height: 3vw;
 }
 
 .popup__aboutFilmWrapper {
-    display: flex;  
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
     gap: 1vw;
     font-size: 1.5vw; 
+}
+
+.popup__descriptionWrapper {
+    display: flex;
+    gap: 1vw;
+}
+
+.popup__infoWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
 }
 
 .popup__image {
@@ -68,9 +80,17 @@
     font-size: 2vw;
 } 
 
-.popup__descriptionWrapper p {
+.popup__text {
+    display: flex;
+}
+
+.popup__textInner{
     color: #0094FF;
-    ;
+}
+
+.popup__filmDescription {
+    width: 60%;  
+    display: flex;
 }
 
  

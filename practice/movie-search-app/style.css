@@ -4,6 +4,12 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
+@media (max-width: 1199px) {
+    body {
+        font-size: 1.5vw;
+    }
+}
+
 .container {
     margin: 0 auto;
     max-width: 1400px;
@@ -15,11 +21,27 @@ body {
     gap: 20px;
 }
 
+@media (max-width: 1199px) {
+    .container {
+        max-width: auto;
+        min-width: auto;
+        padding: auto;
+    }
+}
+
 .findFilmForm {
     display: flex;
     gap: 24px;
     font-size: 32px;
     line-height: 38px;
+}
+
+@media (max-width: 1199px) {
+    .findFilmForm {
+        flex-direction: column;
+        font-size: 3vw;
+        line-height: 4vw;
+    }
 }
 
 .disabled {
@@ -35,8 +57,8 @@ button {
     cursor: pointer;
 }
 
-.inputWrapper { 
-border: 1px solid #111111;
+.inputWrapper {
+    border: 1px solid #111111;
 }
 
 .filmInput {
@@ -93,6 +115,12 @@ border: 1px solid #111111;
     transition: background-color .4s ease;
 }
 
+@media (max-width: 1199px) {
+    .filmItem {
+        width: 100%;
+    }
+}
+
 .filmItem:hover {
     background-color: #D9D9D9;
 }
@@ -101,8 +129,16 @@ border: 1px solid #111111;
     position: absolute;
     top: 35px;
     left: 30px;
-    width: 100px; 
-    pointer-events: none;  
+    width: 100px;
+    pointer-events: none;
+}
+
+@media (max-width: 1199px) {
+    .filmItem__image {
+        top: 15px;
+        left: 10px;
+        width: 12vw;
+    }
 }
 
 .filmItem__title {
@@ -114,6 +150,14 @@ border: 1px solid #111111;
     pointer-events: none;
 }
 
+@media (max-width: 1199px) {
+    .filmItem__title {
+        top: 15px;
+        left: 15vw;
+        font-size: 2vw;
+    }
+}
+
 .filmItem__year {
     position: absolute;
     top: 105px;
@@ -123,10 +167,26 @@ border: 1px solid #111111;
     pointer-events: none;
 }
 
+@media (max-width: 1199px) {
+    .filmItem__year {
+        top: 55px;
+        left: 15vw;
+        font-size: 1.5vw;
+    }
+}
+
 .filmItem__type {
     position: absolute;
     top: 145px;
     left: 200px;
     font-size: 30px;
     pointer-events: none;
+}
+
+@media (max-width: 1199px) {
+    .filmItem__type {
+        top: 85px;
+        left: 15vw;
+        font-size: 1.5vw;
+    }
 }

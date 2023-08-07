@@ -124,18 +124,22 @@ const requestInfoMovieToServer = (event) => {
 
 const renderFilmInfo = (film) => {
     aboutFilmNode.innerHTML = '';
-    aboutFilmNode.innerHTML = ` <img src="${film.Poster}" alt="Film's poster" class="popup__image">
+    aboutFilmNode.innerHTML = ` 
                                 <div class="popup__descriptionWrapper">
-                                    <h1 class="popup__title">${film.Title}</h1>
-                                    <span class="popup__text">Год:<p class="popup__textInner">${film.Year}</p></span>
-                                    <span class="popup__text">Рейтинг:<p class="popup__textInner">${film.Rated}</p></span>
-                                    <span class="popup__text">Дата выхода:<p class="popup__textInner">${film.Released}</p></span>
-                                    <span class="popup__text">Продолжительность:<p class="popup__textInner">${film.Runtime}</p></span>
-                                    <span class="popup__text">Жанр:<p class="popup__textInner">${film.Genre}</p></span>
-                                    <span class="popup__text">Режиссер:<p class="popup__textInner">${film.Director}</p></span>
-                                    <span class="popup__text">Сценарий:<p class="popup__textInner">${film.Writer}</p></span>
-                                    <span class="popup__text">Актеры:<p class="popup__textInner">${film.Actors}</p></span>
-                                </div>`;
+                                    <img src="${film.Poster}" alt="Film's poster" class="popup__image">
+                                    <div class="popup__infoWrapper">
+                                        <h1 class="popup__title">${film.Title}</h1>
+                                        <span class="popup__text">Год:<p class="popup__textInner">${film.Year}</p></span>
+                                        <span class="popup__text">Рейтинг:<p class="popup__textInner">${film.Rated}</p></span>
+                                        <span class="popup__text">Дата выхода:<p class="popup__textInner">${film.Released}</p></span>
+                                        <span class="popup__text">Продолжительность:<p class="popup__textInner">${film.Runtime}</p></span>
+                                        <span class="popup__text">Жанр:<p class="popup__textInner">${film.Genre}</p></span>
+                                        <span class="popup__text">Режиссер:<p class="popup__textInner">${film.Director}</p></span>
+                                        <span class="popup__text">Сценарий:<p class="popup__textInner">${film.Writer}</p></span>
+                                        <span class="popup__text">Актеры:<p class="popup__textInner">${film.Actors}</p></span>
+                                    </div>
+                                </div>
+                                <span class="popup__text popup__filmDescription">${film.Plot}</span>`;                                
 };
 
 const renderFilmList = (array) => {
