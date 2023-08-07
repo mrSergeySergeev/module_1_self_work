@@ -6,13 +6,33 @@ const ERROR_NUMBERS = ` <li>
 const ERROR_NOT_FOUND = `<li>
                             <p>Movie not found!</p>
                         </li>`
+const POPUP_OPENED_CLASSNAME = 'popup-open';
+const BODY_FIXED_CLASSNAME = 'body-fixed';
 
+const bodyNode = document.querySelector('body');
+const popupNode = document.querySelector('#popup');
+const popupContentNode = document.querySelector('#popupContent');
+const aboutFilmNode = document.querySelector('#aboutFilmWrapper')
+const btnCloseNode = document.querySelector('#popupButtonClose');
 const filmFormNode = document.querySelector('#filmForm');
 const filmInputNode = document.querySelector('#filmInput');
 const findFilmButtonNode = document.querySelector('#findButton');
 const filmListNode = document.querySelector('#filmList');
 const pagesInfoNode = document.querySelector('#pagesInfoWrapper');
 
+
+const togglePopup = () => {
+    popupNode.classList.toggle(POPUP_OPENED_CLASSNAME);
+    bodyNode.classList.toggle(BODY_FIXED_CLASSNAME);
+};
+
+const clickedOutsidePopupContent = (event) => {
+    const isClickOutsideContent = !event.composedPath().includes(popupContentNode)
+
+    if (isClickOutsideContent) {
+        togglePopup()
+    }
+};
 
 const getFilmFromUser = () => {
     const inputValue = filmInputNode.value.trim();
@@ -36,7 +56,9 @@ const countPages = (pages) => {
 
 // otrenderim nums of pages
 const renderNumsOfPages = (pages) => {
-    pagesInfoNode.innerHTML = ` <span>Страниц найдено: ${pages}</span>
+    const inputValue = getFilmFromUser()
+    pagesInfoNode.innerHTML = ` <span>Вы искали: ${inputValue}</span>
+                                <span>Страниц найдено: ${pages}</span>
                                 <div class="pagesNavigationWrapper">
                                     <div class="inputWrapper">
                                         <input id="pageInput" data-action="changePageInput" min="1" max="${pages}" class="filmInput" type="number"
@@ -95,9 +117,26 @@ const requestInfoMovieToServer = (event) => {
         .then(response => response.json())
         .then((response) => {
             console.log(response)
+            togglePopup();
+            renderFilmInfo(response);
         });
 }
 
+const renderFilmInfo = (film) => {
+    aboutFilmNode.innerHTML = '';
+    aboutFilmNode.innerHTML = ` <img src="${film.Poster}" alt="Film's poster" class="popup__image">
+                                <div class="popup__descriptionWrapper">
+                                    <h1 class="popup__title">${film.Title}</h1>
+                                    <span class="popup__text">Год:<p class="popup__textInner">${film.Year}</p></span>
+                                    <span class="popup__text">Рейтинг:<p class="popup__textInner">${film.Rated}</p></span>
+                                    <span class="popup__text">Дата выхода:<p class="popup__textInner">${film.Released}</p></span>
+                                    <span class="popup__text">Продолжительность:<p class="popup__textInner">${film.Runtime}</p></span>
+                                    <span class="popup__text">Жанр:<p class="popup__textInner">${film.Genre}</p></span>
+                                    <span class="popup__text">Режиссер:<p class="popup__textInner">${film.Director}</p></span>
+                                    <span class="popup__text">Сценарий:<p class="popup__textInner">${film.Writer}</p></span>
+                                    <span class="popup__text">Актеры:<p class="popup__textInner">${film.Actors}</p></span>
+                                </div>`;
+};
 
 const renderFilmList = (array) => {
     filmListNode.innerHTML = '';
@@ -180,3 +219,5 @@ pagesInfoNode.addEventListener('click', changePageButtonHandler);
 pagesInfoNode.addEventListener('click', newSearchButtonHandler);
 pagesInfoNode.addEventListener('input', pageInputHandler)
 filmListNode.addEventListener('click', requestInfoMovieToServer);
+popupNode.addEventListener('click', clickedOutsidePopupContent);
+btnCloseNode.addEventListener('click', togglePopup);

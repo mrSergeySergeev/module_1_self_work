@@ -1,10 +1,15 @@
+::-webkit-scrollbar {
+    width: 0;
+}
+
 .body-fixed {
     overflow: hidden;
 }
 
 .popup {
     margin: 0 auto;
-    padding-top: 5vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
     position: fixed;
     top: 0;
     left: 0;
@@ -26,11 +31,17 @@
 }
 
 .popup__content {
+    color: #000;
+    background-color: #fff;
     position: relative;
     max-width: 90vw;
     height: 90vw;
     max-height: 100%;
     padding: 2vw;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
 }
 
 .closePopupButton {
@@ -39,6 +50,27 @@
     left: 3vw;
     font-size: 3vw;
     line-height: 3vw;
+}
+
+.popup__aboutFilmWrapper {
+    display: flex;  
+    gap: 1vw;
+    font-size: 1.5vw; 
+}
+
+.popup__image {
+    width: 20vw;
+    object-fit: contain;
+}
+
+.popup__title {
+    font-weight: 700;
+    font-size: 2vw;
+} 
+
+.popup__descriptionWrapper p {
+    color: #0094FF;
+    ;
 }
 
  
