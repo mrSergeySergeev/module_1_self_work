@@ -1,7 +1,9 @@
 class Model {
-    constructor() {
-        this.memes = [];        
-        this.isError = false
+    constructor({ renderMemInput }) {
+        this.memes = [];
+        this.isError = false;
+
+        this.renderMemInput = renderMemInput;
     }
 
     _checkError = (check) => {
@@ -15,16 +17,24 @@ class Model {
         }
     }
 
-    setMemes = (memes) => {
+    initMemes = (memes) => {
         this.memes = memes
         const boolean = memes.success
         this._checkError(boolean)
-        memes = memes.data.memes
-        console.log(memes);
-        return this.memes;
-    }  
-
-    getMemes() {
-        return this.memes;
+        this.renderMemInput(this.memes);
     }
+
+    _getMemes = () => {
+        return this.memes
+    }
+
+    getMemOnId = (id) => {
+        const memesArray = this.memes.data.memes
+        for (let i = 0; i < memesArray.length; i++) {
+            if (memesArray[i].id === id) {             
+                return memesArray[i];
+            };
+        };   
+    };
+    
 }
