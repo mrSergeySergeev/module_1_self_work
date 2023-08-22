@@ -1,0 +1,63 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    margin: 0 auto;
+    width: 1400px;
+    padding: 50px 150px 90px 150px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left_column,
+.right_column {
+    width: calc(50% - 10px);
+}
+
+.left_column {
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 60px;
+}
+
+.subtitle {
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 42px;
+}
+
+.inputWrapper {
+    border: 1px solid #111111;
+    border-radius: 15px;
+    padding: 12px 20px 12px 20px;
+}
+
+.memInput {
+    width: 100%;
+    font-family: inherit;
+    font-size: 25px;
+    line-height: 30px;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    appearance: none;
+}
+
+.forArrowWrapper {
+    position: relative;
+}
+
+.forArrowWrapper::after {
+    content: url(resources/arrow.svg);
+    pointer-events: none;
+    position: absolute;
+    top: 25%;
+    left: 90%;
+}

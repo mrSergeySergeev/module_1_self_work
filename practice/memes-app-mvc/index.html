@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="resources/fav-icon.png" type="image/png">
+    <link rel="stylesheet" href="../../styles/reset.css">
+    <link rel="stylesheet" href="style.css">
+    <title>memes-app</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left_column">
+            <h1 class="title">Настройки:</h1>
+            <form>
+                <label for="memImageInput" class="subtitle">Мем</label>
+                <div class="inputWrapper forArrowWrapper">
+                    <select id="memImageInput" class="memInput">
+                    </select>
+                </div>
+            </form>
+            <div>
+                <h2 class="subtitle">Текст сверху</h2>
+                <div class="inputWrapper">
+                    <input id="memUpperTextInput" class="memInput" type="text" placeholder="Текст сверху">
+                </div>
+            </div>
+            <div>
+                <h2 class="subtitle">Текст снизу</h2>
+                <div class="inputWrapper">
+                    <input id="memBottomTextInput" class="memInput" type="text" placeholder="Текст снизу">
+                </div>
+            </div>
+        </div>
+        <div class="right_column">
+            <h1 class="title">Превью:</h1>
+            <div id="memResult" class="memImageWrapper"></div>
+        </div>
+    </div>
+    
+    <script src="model.js"></script>
+    <script src="view.js"></script>
+    <script src="api.js"></script>
+    <script src="controller.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
