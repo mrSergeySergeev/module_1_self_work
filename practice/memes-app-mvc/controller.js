@@ -1,18 +1,15 @@
 class Controller {
-    constructor() {
-        this.model = new Model();
+  constructor() {
+    this.model = new Model();
 
-        this.view = new View({
-            getMemesFromApi: this.getMemesFromApi
-        })
+    this.view = new View();
 
-        this.api = new API();
-    }
+    this.api = new API();
+  }
 
-    init() {
-        this.api.fetchPosts()
-            .then((memes) => {
-                this.model.setMemes(memes);
-            })
-    }   
+  init() {
+    this.api.fetchPosts().then((memes) => {
+      this.model.setMemes(memes);
+    });
+  }
 }
