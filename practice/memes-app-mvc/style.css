@@ -13,9 +13,6 @@ body {
 .left_column,
 .right_column {
     width: calc(50% - 10px);
-}
-
-.left_column {
     display: flex;
     flex-direction: column;
     gap: 42px;
@@ -61,3 +58,70 @@ body {
     top: 25%;
     left: 90%;
 }
+
+.memPreviewWrapper {
+    position: relative;
+}
+
+.memImageWrapper {
+    width: 100%;
+}
+
+.memUpperText {
+    position: absolute;
+    top: 8%;
+    width: 100%;
+    display: flex;
+    padding: 0 20px;
+    font-weight: 700;
+    font-size: 25px;
+    white-space: normal;
+}
+
+.memBottomText {
+    position: absolute;
+    bottom: 8%;
+    width: 100%;
+    display: flex;
+    padding: 0 20px;
+    font-weight: 700;
+    font-size: 25px;
+    white-space: normal;
+}
+
+.memImg {
+    width: 100%;    
+}
+
+.position_left {
+    justify-content: start;
+}
+
+.position_center {
+    justify-content: center;
+}
+
+.position_right {
+    justify-content: end;
+}
+
+.text_color_black {
+    color: #111111;
+}
+
+.text_color_white {
+    color: #fff;
+}
+
+.text_color_green {
+    color: green;
+}
+
+.text_color_red {
+    color: red;
+}
+
+.text_color_blue {
+    color: blue;
+}
+

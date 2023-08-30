@@ -1,9 +1,12 @@
 class Model {
-  constructor({ render }) {
-    this.memes = [];
-    this.isError = false;
-    this.render = render;
-  }
+
+    constructor({ renderMemInput }) {
+        this.memes = [];
+        this.isError = false;
+
+        this.renderMemInput = renderMemInput;
+    }
+
 
   _checkError = (check) => {
     if (check != true) {
@@ -16,17 +19,24 @@ class Model {
     }
   };
 
-  setMemes = (memes) => {
-    this.memes = memes;
-    const boolean = memes.success;
-    this._checkError(boolean);
-    memes = memes.data.memes;
-    console.log(memes);
+    initMemes = (memes) => {
+        this.memes = memes
+        const boolean = memes.success
+        this._checkError(boolean)
+        this.renderMemInput(this.memes);
+    }
 
-    this.render(this.memes)
-  };
+    _getMemes = () => {
+        return this.memes
+    }
 
-  getMemes = () => {
-    return this.memes;
-  };
+    getMemOnId = (id) => {
+        const memesArray = this.memes.data.memes
+        for (let i = 0; i < memesArray.length; i++) {
+            if (memesArray[i].id === id) {             
+                return memesArray[i];
+            };
+        };   
+    };
+    
 }

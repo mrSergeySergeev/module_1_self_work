@@ -36,13 +36,41 @@
                     <input id="memBottomTextInput" class="memInput" type="text" placeholder="Текст снизу">
                 </div>
             </div>
+            <form>
+                <label for="memTextPosition" class="subtitle">Выравнивание текста</label>
+                <div class="inputWrapper forArrowWrapper">
+                    <select id="memTextPosition" class="memInput">
+                        <option value="center">По центру</option>
+                        <option value="start">Слева</option>
+                        <option value="end">Справа</option>
+                    </select>
+                </div>
+            </form>
+            <form>
+                <label for="memTextColor" class="subtitle">Цвет текста</label>
+                <div class="inputWrapper forArrowWrapper">
+                    <select id="memTextColor" class="memInput">
+                        <option value="black">Черный</option>
+                        <option value="white">Белый</option>
+                        <option value="green">Зелёный</option>
+                        <option value="red">Красный</option>
+                        <option value="blue">Синий</option>
+                    </select>
+                </div>
+            </form>
+
         </div>
         <div class="right_column">
             <h1 class="title">Превью:</h1>
-            <div id="memResult" class="memImageWrapper"></div>
+            <div class="memPreviewWrapper">
+                <p id="upperText" class="memUpperText"></p>
+                <p id="bottomText" class="memBottomText"></p>
+                <div id="memResult" class="memImageWrapper">
+                </div>
+            </div>
         </div>
     </div>
-    
+
     <script src="model.js"></script>
     <script src="view.js"></script>
     <script src="api.js"></script>
