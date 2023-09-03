@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="resources/fav-icon.png" type="image/png">
+    <link rel="stylesheet" href="../../styles/reset.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Movie-App-firebase</title>
+</head>
+
+<body>
+    <div class="container">
+        <span class="headerSubtitle">
+            <p>список фильмов</p>
+            <p>2023</p>
+        </span>
+        <h1 class="headerTitle">Посмотреть</h1>
+        <div class="backgroundWrapper">
+            <form id="filmForm" class="addFilmForm">
+                <div class="inputWrapper">
+                    <input id="filmInput" type="text"
+                           placeholder="Добавить фильм">
+                    <p id="validationMessage" class="validationMessage">0/50</p>
+                </div>
+                <button disabled id="addButton" class="addButton">
+                    <img src="resources/button-add.png" alt="кнопка">
+                </button>
+            </form>
+            <ul id="filmList" class="filmList">
+                <li id="0" class="filmItem">
+                    <div class="filmItem__checkWrapper">
+                        <input id="checkFilm0" data-action="done" class="filmItem__check" type="checkbox">
+                        <label for="checkFilm0">23</label>
+                    </div>
+                    <button id="filmDelete" data-action="delete" class="filmItem__delete"><img src="resources/button-close.png" alt="X"></button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="model.js"></script>
+    <script src="view.js"></script>
+    <script src="controller.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
