@@ -34,6 +34,8 @@ class View {
     //отменяет стандартное поведение браузера
     //при отправке формы не обновляет страницу
     event.preventDefault();
-    console.log(123);
+    const film = this.filmInputNode.value;
+    console.log(film);
+    return film;
   };
 }
