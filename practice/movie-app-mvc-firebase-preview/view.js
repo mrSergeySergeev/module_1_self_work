@@ -13,6 +13,7 @@ class View {
         this.filmInputNode.addEventListener("input", this._checkButton);
         this.filmFormNode.addEventListener("submit", this._submitForm);
         this.filmListNode.addEventListener('click', this.deleteFilm);
+        this.filmListNode.addEventListener('click', this.doneFilm);
     }
 
     _validateInput = (lengthString) => {
@@ -60,17 +61,39 @@ class View {
         console.log(films)
         this.filmListNode.innerHTML = ""
         films.forEach(elem => {
-            const filmHtml = `            
-                <li id="${elem.id}" class="filmItem">
-                    <div class="filmItem__checkWrapper">
-                        <input id="checkFilm${elem.id}" data-action="done" class="filmItem__check" type="checkbox">
-                        <label for="checkFilm${elem.id}">${elem.film}</label>
-                        
-                    </div>
-                     <button id="filmDelete" data-action="delete" class="filmItem__delete"><img src="resources/button-close.png" alt="X"></button>
-                </li>`;
-            this.filmListNode.insertAdjacentHTML("beforeend", filmHtml);
+            this._renderFilm(elem);            
         });
+    };
+
+    _renderFilm = (elem) => {
+        const li = document.createElement('li');
+        li.id = elem.id;
+        li.classList.add("filmItem");
+
+        const div = document.createElement('div');
+        div.class = "filmItem__checkWrapper";
+
+        const input = document.createElement('input');
+        input.type = "checkbox";
+        input.dataset.action = "done";
+        input.id = `checkFilm${elem.id}`;
+        input.classList.add("filmItem__check");            
+        if (elem.done) {
+            input.checked = true;
+        };
+
+        const label = document.createElement('label');
+        label.setAttribute('for', `checkFilm${elem.id}`);
+        label.innerText = elem.film;
+
+        const button = document.createElement('button');
+        button.classList.add("filmItem__delete");
+        button.dataset.action = "delete";
+        button.innerHTML = `<img src="resources/button-close.png" alt="X">`
+
+        div.append(input, label);
+        li.append(div, button);
+        this.filmListNode.append(li);
     }
 
     deleteFilm = (event) => {
@@ -79,7 +102,16 @@ class View {
         }
         const currentParentNode = event.target.closest('.filmItem')
         const idItem = Number(currentParentNode.id);
-        console.log(idItem)
+        console.log(idItem);
+    };
+
+    doneFilm = (event) => {
+        if (event.target.dataset.action !== "done") {
+            return;
+        }
+        const currentParentNode = event.target.closest('.filmItem')
+        const idItem = Number(currentParentNode.id);
+        console.log(idItem);
     }
 
 }

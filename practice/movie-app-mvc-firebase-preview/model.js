@@ -12,6 +12,8 @@ class Model {
             done: false,
             film
         })
+
+        // передаёт массив фильмов в view и render его
         this.takeFilms(this.films)
     }
 }

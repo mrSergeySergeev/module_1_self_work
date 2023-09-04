@@ -9,13 +9,16 @@ class Controller {
         });
     }
 
+    // берём значение инпута в View
+    // передаём в Model и пушим в массив
     handleGetFilm = (film) => {
         this.model.addFilm(film);
     }
 
+    // берём массив из Model
+    // передаём в View и render его
     handleArrayToView = (films) =>
         this.view.render(films)
-
 }
 
 
