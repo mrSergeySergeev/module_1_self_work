@@ -47,7 +47,7 @@ body {
 }
 
 @media (max-width: 1000px) {
-        .backgroundWrapper {
+    .backgroundWrapper {
         min-width: 100%;
         padding: 1vw;
         gap: 4vw;
@@ -81,7 +81,7 @@ input {
 }
 
 @media (max-width: 1000px) {
-    input{
+    input {
         font-size: 3vw;
         line-height: 4vw;
     }
@@ -106,7 +106,7 @@ input::placeholder {
     }
 }
 
-.headerSubtitle p{
+.headerSubtitle p {
     padding: 10px 21px;
     background-color: #6532F8;
     border-radius: 200px;
@@ -192,7 +192,7 @@ input::placeholder {
 
 ::-webkit-scrollbar {
     width: 0;
-  }
+}
 
 @media (max-width: 1000px) {
     .filmList {
@@ -217,8 +217,11 @@ input::placeholder {
 }
 
 .filmItem-disabled {
-    text-decoration: line-through;
     opacity: .5;
+}
+
+.filmItem-disabled label{
+    text-decoration: line-through;
 }
 
 .filmItem__checkWrapper {
@@ -238,9 +241,9 @@ input::placeholder {
 }
 
 @media (max-width: 1000px) {
-    .filmItem__delete img{
-    width: 1em;
-    height: 1em;       
+    .filmItem__delete img {
+        width: 1em;
+        height: 1em;
     }
 }
 

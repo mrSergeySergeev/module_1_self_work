@@ -1,9 +1,8 @@
 class Model {
-    constructor ({ takeFilms }) {
+    constructor({ renderFilms }) {
         this.films = [];
 
-        this.takeFilms = takeFilms;
-
+        this.renderFilms = renderFilms;
     }
 
     addFilm = (film) => {
@@ -14,6 +13,34 @@ class Model {
         })
 
         // передаёт массив фильмов в view и render его
-        this.takeFilms(this.films)
+        this.renderFilms(this.films)
+    }
+
+    deleteFilmFromArray = (id) => {
+        // ищем индекс элемента в массиве и вырезаем его
+        const index = this.films.findIndex((elem) => elem.id === id);
+        this.films.splice(index, 1);
+
+        // передаёт массив фильмов в view и render его
+        this.renderFilms(this.films);
+    }
+
+    doneFilmInArray = (id) => {
+        // ищем индекс элемента в массиве
+        const index = this.films.findIndex((elem) => elem.id === id);
+        this._toggleStatusDone(this.films, index)
+        this.renderFilms(this.films);
+    }
+
+    // функция смены статуса фильма
+    _toggleStatusDone = (films, index) => {
+        switch (films[index].done) {
+            case true:
+                this.films[index].done = false;
+                break;
+            case false:
+                this.films[index].done = true;
+                break;
+        }
     }
 }

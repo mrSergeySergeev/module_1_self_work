@@ -1,6 +1,8 @@
 class View {
     constructor({
-        addFilm
+        addFilm,
+        deleteFilmFromArray,
+        doneFilmInArray
     }) {
         this.filmInputNode = document.querySelector("#filmInput");
         this.validationMessageNode = document.querySelector("#validationMessage");
@@ -9,11 +11,13 @@ class View {
         this.filmListNode = document.querySelector("#filmList");
 
         this.addFilm = addFilm;
+        this.deleteFilmFromArray = deleteFilmFromArray;
+        this.doneFilmInArray = doneFilmInArray;
 
         this.filmInputNode.addEventListener("input", this._checkButton);
         this.filmFormNode.addEventListener("submit", this._submitForm);
-        this.filmListNode.addEventListener('click', this.deleteFilm);
-        this.filmListNode.addEventListener('click', this.doneFilm);
+        this.filmListNode.addEventListener('click', this._deleteFilm);
+        this.filmListNode.addEventListener('click', this._doneFilm);
     }
 
     _validateInput = (lengthString) => {
@@ -61,7 +65,7 @@ class View {
         console.log(films)
         this.filmListNode.innerHTML = ""
         films.forEach(elem => {
-            this._renderFilm(elem);            
+            this._renderFilm(elem);
         });
     };
 
@@ -77,9 +81,10 @@ class View {
         input.type = "checkbox";
         input.dataset.action = "done";
         input.id = `checkFilm${elem.id}`;
-        input.classList.add("filmItem__check");            
+        input.classList.add("filmItem__check");
         if (elem.done) {
             input.checked = true;
+            li.classList.add('filmItem-disabled')
         };
 
         const label = document.createElement('label');
@@ -96,22 +101,22 @@ class View {
         this.filmListNode.append(li);
     }
 
-    deleteFilm = (event) => {
+    _deleteFilm = (event) => {
         if (event.target.dataset.action !== "delete") {
             return;
         }
         const currentParentNode = event.target.closest('.filmItem')
         const idItem = Number(currentParentNode.id);
-        console.log(idItem);
+        this.deleteFilmFromArray(idItem);
     };
 
-    doneFilm = (event) => {
+    _doneFilm = (event) => {
         if (event.target.dataset.action !== "done") {
             return;
         }
         const currentParentNode = event.target.closest('.filmItem')
         const idItem = Number(currentParentNode.id);
-        console.log(idItem);
+        this.doneFilmInArray(idItem);
     }
 
 }

@@ -1,24 +1,36 @@
 class Controller {
     constructor() {
         this.view = new View({
-            addFilm: this.handleGetFilm
+            addFilm: this.handleGetFilm,
+            deleteFilmFromArray: this.handleDeleteFilm,
+            doneFilmInArray: this.handleDoneFilm
         });
 
         this.model = new Model({
-            takeFilms: this.handleArrayToView
+            renderFilms: this.handleArrayToView
         });
     }
 
     // берём значение инпута в View
     // передаём в Model и пушим в массив
-    handleGetFilm = (film) => {
+    handleGetFilm = (film) =>
         this.model.addFilm(film);
-    }
+
 
     // берём массив из Model
     // передаём в View и render его
     handleArrayToView = (films) =>
         this.view.render(films)
+
+    // Ловим id нажатой кнопки "удалить", 
+    // передаём в Model, вырезаем, делаем render
+    handleDeleteFilm = (id) =>
+        this.model.deleteFilmFromArray(id);
+
+    // Ловим id нажатого инпута, 
+    // передаём в Model, меняем статус, делаем render
+    handleDoneFilm = (id) =>
+        this.model.doneFilmInArray(id);
 }
 
 
