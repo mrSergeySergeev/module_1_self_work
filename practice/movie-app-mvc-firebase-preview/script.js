@@ -1,2 +1,7 @@
-const app = new Controller()
+import { add } from "./firebase.js";
+
+const app = new Controller({
+    add: add
+})
+
 

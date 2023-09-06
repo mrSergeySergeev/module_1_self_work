@@ -8,6 +8,7 @@ class Model {
     addFilm = (film) => {
         this.films.push({
             id: Date.now(),
+            order: Date.now(),
             done: false,
             film
         })

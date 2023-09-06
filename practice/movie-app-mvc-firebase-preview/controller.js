@@ -1,5 +1,7 @@
 class Controller {
-    constructor() {
+    constructor({
+        add,
+    }) {
         this.view = new View({
             addFilm: this.handleGetFilm,
             deleteFilmFromArray: this.handleDeleteFilm,
@@ -9,12 +11,16 @@ class Controller {
         this.model = new Model({
             renderFilms: this.handleArrayToView
         });
+
+        this.add = add;
     }
 
     // берём значение инпута в View
     // передаём в Model и пушим в массив
-    handleGetFilm = (film) =>
+    handleGetFilm = (film) =>{
         this.model.addFilm(film);
+        this.add(film)
+    }
 
 
     // берём массив из Model
