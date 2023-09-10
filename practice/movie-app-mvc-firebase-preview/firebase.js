@@ -7,7 +7,9 @@ import {
   deleteDoc,
   updateDoc,
   setDoc,
-  // serverTimestamp
+  serverTimestamp,
+  query,
+  orderBy
 } from 'https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js'
 
 
@@ -29,7 +31,7 @@ export async function add(film) {
   try {
     await setDoc(doc(db, keyDb, film.id), {
       id: film.id,
-      order: film.order,
+      order: serverTimestamp(),
       done: false,
       film: film.film
     });
@@ -39,7 +41,9 @@ export async function add(film) {
 }
 
 export async function get() {
-  const querySnapshot = await getDocs(collection(db, keyDb));
+  const ref = collection(db, keyDb)
+  const q = query(ref, orderBy("order"));
+  const querySnapshot = await getDocs(q);
   const films = []
   films.length = 0
   querySnapshot.forEach((doc) => {

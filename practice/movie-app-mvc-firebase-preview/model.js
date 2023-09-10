@@ -30,7 +30,7 @@ class Model {
         }
         this.films.push({
             id: film.id,
-            order: film.order,
+            order: null,
             done: film.done,
             film: film.film
         })
