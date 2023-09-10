@@ -3,7 +3,6 @@ import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.3.1/firebase
 import {
   collection,
   doc,
-  addDoc,
   getDocs,
   deleteDoc,
   updateDoc,
@@ -29,7 +28,7 @@ const keyDb = "films"
 export async function add(film) {
   try {
     console.log(film);
-    const docRef = await addDoc(collection(db, keyDb), {
+    const docRef = await setDoc(doc(db, keyDb, film.id), {
       id: film.id,
       order: film.order,
       done: false,
@@ -54,7 +53,6 @@ export async function get() {
       film: result.film
     });
   });
-  console.log(films);
   return films;
 }
 

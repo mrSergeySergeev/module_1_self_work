@@ -15,13 +15,16 @@ class Model {
                 film: elem.film
             });
         };
+        console.log(array)
         // передаёт массив фильмов в view и render его
         this.renderFilms(this.films)
     }
 
     addFilm = (film) => {
         film = {
-            id: Date.now(),
+            // window.crypto.randomUUID() это относительно новый и надежный способ создания UUID с помощью собственного Javascript. 
+            // Он поддерживается во всех современных, вечнозеленых браузерах и может генерировать UUID с помощью одной строки кода
+            id: window.crypto.randomUUID(),
             order: Date.now(),
             done: false,
             film: film
@@ -41,7 +44,7 @@ class Model {
 
     deleteFilmFromArray = (id) => {
         // ищем индекс элемента в массиве и вырезаем его
-        const index = this.films.findIndex((elem) => elem.id === id);
+        const index = this.films.findIndex((elem) => elem.id == id);
         this.films.splice(index, 1);
 
         // передаёт массив фильмов в view и render его
@@ -50,7 +53,7 @@ class Model {
 
     doneFilmInArray = (id) => {
         // ищем индекс элемента в массиве
-        const index = this.films.findIndex((elem) => elem.id === id);
+        const index = this.films.findIndex((elem) => elem.id == id);
         console.log(this.films[index])
         const boolean = this._toggleStatusDone(this.films, index)
         this.renderFilms(this.films);
