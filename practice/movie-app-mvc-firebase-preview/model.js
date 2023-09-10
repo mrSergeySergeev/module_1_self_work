@@ -15,7 +15,6 @@ class Model {
                 film: elem.film
             });
         };
-        console.log(array)
         // передаёт массив фильмов в view и render его
         this.renderFilms(this.films)
     }

@@ -27,14 +27,12 @@ const keyDb = "films"
 
 export async function add(film) {
   try {
-    console.log(film);
-    const docRef = await setDoc(doc(db, keyDb, film.id), {
+    await setDoc(doc(db, keyDb, film.id), {
       id: film.id,
       order: film.order,
       done: false,
       film: film.film
     });
-    console.log("Document written with ID: ", docRef.id);
   } catch (e) {
     console.error("Error adding document: ", e);
   }
