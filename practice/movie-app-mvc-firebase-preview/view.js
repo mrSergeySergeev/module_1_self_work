@@ -75,7 +75,7 @@ class View {
         li.classList.add("filmItem");
 
         const div = document.createElement('div');
-        div.class = "filmItem__checkWrapper";
+        div.classList.add("filmItem__checkWrapper");
 
         const input = document.createElement('input');
         input.type = "checkbox";
