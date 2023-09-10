@@ -106,7 +106,7 @@ class View {
             return;
         }
         const currentParentNode = event.target.closest('.filmItem')
-        const idItem = Number(currentParentNode.id);
+        const idItem = currentParentNode.id;
         this.deleteFilmFromArray(idItem);
     };
 
@@ -115,7 +115,7 @@ class View {
             return;
         }
         const currentParentNode = event.target.closest('.filmItem')
-        const idItem = Number(currentParentNode.id);
+        const idItem = currentParentNode.id;
         this.doneFilmInArray(idItem);
     }
 

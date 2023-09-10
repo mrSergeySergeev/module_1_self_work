@@ -1,6 +1,16 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js'
 import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js'
-import { collection, addDoc } from 'https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js'
+import {
+  collection,
+  doc,
+  addDoc,
+  getDocs,
+  deleteDoc,
+  updateDoc,
+  setDoc,
+  // serverTimestamp
+} from 'https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js'
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyCJhR833KKLI7kbEYyUPP1SLCTEPadVrPE",
@@ -14,14 +24,16 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app)
+const keyDb = "films"
 
 export async function add(film) {
   try {
-    const docRef = await addDoc(collection(db, "films"), {
-      id: Date.now(),
-      order: Date.now(),
+    console.log(film);
+    const docRef = await addDoc(collection(db, keyDb), {
+      id: film.id,
+      order: film.order,
       done: false,
-      film
+      film: film.film
     });
     console.log("Document written with ID: ", docRef.id);
   } catch (e) {
@@ -29,4 +41,37 @@ export async function add(film) {
   }
 }
 
-console.log(db)
+export async function get() {
+  const querySnapshot = await getDocs(collection(db, keyDb));
+  const films = []
+  films.length = 0
+  querySnapshot.forEach((doc) => {
+    const result = doc.data();
+    films.push({
+      id: result.id,
+      order: result.order,
+      done: result.done,
+      film: result.film
+    });
+  });
+  console.log(films);
+  return films;
+}
+
+export async function deleteItem(id) {
+  await deleteDoc(doc(db, keyDb, id));
+}
+
+export async function doneItemTrue(id) {
+  const ref = doc(db, keyDb, id);
+  await updateDoc(ref, {
+    done: true
+  });
+}
+
+export async function doneItemFalse(id) {
+  const ref = doc(db, keyDb, id);
+  await updateDoc(ref, {
+    done: false
+  });
+}

@@ -5,17 +5,39 @@ class Model {
         this.renderFilms = renderFilms;
     }
 
+    initFilms = (array) => {
+        for (let i = 0; i < array.length; i++) {
+            const elem = array[i];
+            this.films.push({
+                id: elem.id,
+                order: elem.order,
+                done: elem.done,
+                film: elem.film
+            });
+        };
+        // передаёт массив фильмов в view и render его
+        this.renderFilms(this.films)
+    }
+
     addFilm = (film) => {
-        this.films.push({
+        film = {
             id: Date.now(),
             order: Date.now(),
             done: false,
-            film
+            film: film
+        }
+        this.films.push({
+            id: film.id,
+            order: film.order,
+            done: film.done,
+            film: film.film
         })
 
         // передаёт массив фильмов в view и render его
         this.renderFilms(this.films)
+        return film;
     }
+
 
     deleteFilmFromArray = (id) => {
         // ищем индекс элемента в массиве и вырезаем его
@@ -29,8 +51,10 @@ class Model {
     doneFilmInArray = (id) => {
         // ищем индекс элемента в массиве
         const index = this.films.findIndex((elem) => elem.id === id);
-        this._toggleStatusDone(this.films, index)
+        console.log(this.films[index])
+        const boolean = this._toggleStatusDone(this.films, index)
         this.renderFilms(this.films);
+        return boolean
     }
 
     // функция смены статуса фильма
@@ -38,10 +62,10 @@ class Model {
         switch (films[index].done) {
             case true:
                 this.films[index].done = false;
-                break;
+                return false
             case false:
                 this.films[index].done = true;
-                break;
+                return true
         }
     }
 }

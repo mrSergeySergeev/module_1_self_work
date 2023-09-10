@@ -1,7 +1,19 @@
-import { add } from "./firebase.js";
+import { 
+    add,
+    get,
+    doneItemTrue,
+    doneItemFalse,
+    deleteItem,
+ } from "./firebase.js";
 
 const app = new Controller({
-    add: add
-})
+    add: add,
+    get: get,
+    doneItemTrue: doneItemTrue,
+    doneItemFalse: doneItemFalse,
+    deleteItem: deleteItem,
+});
+
+app.initApp();
 
 
